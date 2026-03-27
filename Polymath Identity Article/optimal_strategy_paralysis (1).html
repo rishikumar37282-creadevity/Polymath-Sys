@@ -1,0 +1,265 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.wrap{padding:1rem 0}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1.5rem}
+.tab{padding:7px 16px;border:0.5px solid var(--color-border-secondary);border-radius:20px;font-size:12px;cursor:pointer;background:var(--color-background-primary);color:var(--color-text-secondary);transition:all .15s}
+.tab.on{background:var(--color-background-tertiary);color:var(--color-text-primary);border-color:var(--color-border-primary);font-weight:500}
+.pane{display:none}.pane.on{display:block}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 18px;margin-bottom:10px}
+.card-title{font-size:14px;font-weight:500;color:var(--color-text-primary);margin-bottom:5px}
+.card-body{font-size:13px;color:var(--color-text-secondary);line-height:1.7}
+.sl{font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--color-text-tertiary);margin:1rem 0 8px}
+.warn{background:var(--color-background-warning);border-radius:var(--border-radius-md);padding:11px 15px;font-size:13px;color:var(--color-text-warning);line-height:1.7;margin-bottom:1rem}
+.warn strong{color:var(--color-text-warning);font-weight:500}
+.info{background:var(--color-background-info);border-radius:var(--border-radius-md);padding:11px 15px;font-size:13px;color:var(--color-text-info);line-height:1.7;margin-bottom:1rem}
+.success{background:var(--color-background-success);border-radius:var(--border-radius-md);padding:11px 15px;font-size:13px;color:var(--color-text-success);line-height:1.7;margin-bottom:.75rem}
+.success strong{font-weight:500}
+.rule{display:flex;gap:14px;padding:12px 0;border-bottom:0.5px solid var(--color-border-tertiary);align-items:flex-start}
+.rule:last-child{border-bottom:none}
+.rule-num{font-size:18px;font-weight:500;color:var(--color-border-secondary);min-width:28px;line-height:1.2}
+.rule-body{flex:1}
+.rule-title{font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:4px}
+.rule-desc{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+.rule-example{font-size:12px;color:var(--color-text-tertiary);margin-top:6px;font-style:italic;line-height:1.5;padding:6px 10px;background:var(--color-background-secondary);border-radius:var(--border-radius-md);border-left:2px solid var(--color-border-secondary);border-radius:0 var(--border-radius-md) var(--border-radius-md) 0}
+.ask-btn{display:inline-block;padding:7px 13px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);font-size:12px;cursor:pointer;background:var(--color-background-primary);color:var(--color-text-primary);margin:6px 5px 0 0;transition:background .15s}
+.ask-btn:hover{background:var(--color-background-secondary)}
+.check-item{display:flex;gap:10px;padding:8px 0;border-bottom:0.5px solid var(--color-border-tertiary);font-size:13px;color:var(--color-text-secondary);align-items:flex-start;cursor:pointer}
+.check-item:last-child{border-bottom:none}
+.check-item.checked{color:var(--color-text-tertiary);text-decoration:line-through}
+.check-box{width:16px;height:16px;border:0.5px solid var(--color-border-secondary);border-radius:3px;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;font-size:10px;transition:all .15s}
+.check-item.checked .check-box{background:var(--color-background-success);border-color:var(--color-border-success);color:var(--color-text-success)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:1rem}
+.mini-card{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:12px}
+.mini-title{font-size:12px;font-weight:500;color:var(--color-text-primary);margin-bottom:4px}
+.mini-body{font-size:12px;color:var(--color-text-secondary);line-height:1.5}
+.vs-divider{display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--color-text-tertiary);font-weight:500;padding:4px 0}
+</style>
+
+<div class="wrap">
+<div class="tabs">
+  <button class="tab on" onclick="show('mechanism')">The mechanism</button>
+  <button class="tab" onclick="show('signs')">Signs you have it</button>
+  <button class="tab" onclick="show('antidotes')">6 antidotes</button>
+  <button class="tab" onclick="show('checklist')">Weekly reset</button>
+</div>
+
+<!-- MECHANISM -->
+<div id="mechanism" class="pane on">
+  <div class="warn"><strong>The core loop:</strong> Big ambition → many possible paths → fear of choosing wrong → gather more information → feel productive → still no certainty → gather more → loop never exits.</div>
+
+  <div class="sl">Why it hits intelligent people hardest</div>
+  <div class="card">
+    <div class="card-title">More intelligence = more paths seen = more paralysis potential</div>
+    <div class="card-body">A person who can only see 2 options chooses quickly. A person who can see 20 options — each with genuine merit, each with real failure modes they can vividly imagine — delays. Your breadth of thinking, which is a real strength, becomes the engine of the loop. You are not broken. You are over-indexing a feature.</div>
+  </div>
+
+  <div class="sl">The disguises it wears</div>
+  <div class="grid2">
+    <div class="mini-card">
+      <div class="mini-title">Looks like research</div>
+      <div class="mini-body">Watching courses, reading articles, making notes. Feels productive. Produces nothing external.</div>
+    </div>
+    <div class="mini-card">
+      <div class="mini-title">Looks like planning</div>
+      <div class="mini-body">Building roadmaps, comparing frameworks, designing systems. Feels like progress. No output exists yet.</div>
+    </div>
+    <div class="mini-card">
+      <div class="mini-title">Looks like standards</div>
+      <div class="mini-body">"I want to do this properly." High standards are real — but they can also be a reason not to start.</div>
+    </div>
+    <div class="mini-card">
+      <div class="mini-title">Looks like flexibility</div>
+      <div class="mini-body">"I'm keeping my options open." Optionality feels rational. Permanent optionality is just another name for inaction.</div>
+    </div>
+  </div>
+
+  <div class="sl">The core error in reasoning</div>
+  <div class="card">
+    <div class="card-title">You are treating a learning problem as a strategy problem</div>
+    <div class="card-body" style="margin-bottom:10px">OSP assumes that the right path exists and can be identified through analysis. But for ambitious, multi-domain people, the right path cannot be known in advance — it can only be discovered through action. You will learn more about which direction fits you in the first 30 days of building than in 6 months of planning. The information you need to make the "optimal" decision does not exist until you start moving.</div>
+    <div class="vs-divider">what you think vs what's actually true</div>
+    <div class="grid2" style="margin-top:8px">
+      <div class="mini-card">
+        <div class="mini-title">What OSP tells you</div>
+        <div class="mini-body">"Plan more → find optimal path → execute with confidence → succeed."</div>
+      </div>
+      <div class="mini-card">
+        <div class="mini-title">How it actually works</div>
+        <div class="mini-body">"Start somewhere → discover what matters → adjust → build momentum → succeed."</div>
+      </div>
+    </div>
+  </div>
+
+  <button class="ask-btn" onclick="sendPrompt('What does neuroscience say about decision-making paralysis and why the brain avoids committing to choices?')">The neuroscience of paralysis ↗</button>
+</div>
+
+<!-- SIGNS -->
+<div id="signs" class="pane">
+  <div class="sl">Diagnostic — how many of these apply to you right now?</div>
+  <div class="info">These are the specific behavioural signatures. The more that apply, the deeper the loop.</div>
+
+  <div class="card">
+    <div class="rule" style="padding-top:0">
+      <div class="rule-body">
+        <div class="rule-title">You have multiple "roadmaps" you've made but haven't started</div>
+        <div class="rule-desc">Each roadmap felt like the right plan at the time. None produced a shipped project. This is the clearest sign — planning output without building output.</div>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="rule-body">
+        <div class="rule-title">You keep discovering "better" resources and switching to them</div>
+        <div class="rule-desc">You start a Python course, find a "better" one, restart. Find a better ML roadmap, switch. Each switch feels rational (this resource IS better). But the switching is the problem, not the resource.</div>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="rule-body">
+        <div class="rule-title">You can describe what you want to build but have no GitHub repos</div>
+        <div class="rule-desc">You can articulate the vision with clarity. The vision is detailed and compelling. But there is no code, no deployed project, no shipped thing that corresponds to it.</div>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="rule-body">
+        <div class="rule-title">You add new topics to learn faster than you complete existing ones</div>
+        <div class="rule-desc">ML, then quantum computing, then neuroscience, then system design, then video editing — each new interest feels urgent. The list grows. The completions don't.</div>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="rule-body">
+        <div class="rule-title">You feel most motivated right at the start of a new plan</div>
+        <div class="rule-desc">The dopamine of a new system, a fresh start, a clean slate. The energy fades when the messy middle of actually executing begins. So you create a new plan — and the dopamine returns temporarily.</div>
+      </div>
+    </div>
+    <div class="rule" style="padding-bottom:0">
+      <div class="rule-body">
+        <div class="rule-title">You ask "what should I do?" more than you ask "how do I finish this?"</div>
+        <div class="rule-desc">OSP keeps redirecting attention back to strategy questions ("what's the best approach?") instead of execution questions ("how do I solve this specific problem I hit today?").</div>
+      </div>
+    </div>
+  </div>
+
+  <button class="ask-btn" onclick="sendPrompt('I recognize several of these signs in myself. What is the first concrete thing I should do today to break the loop?')">What to do today ↗</button>
+</div>
+
+<!-- ANTIDOTES -->
+<div id="antidotes" class="pane">
+  <div class="sl">The 6 antidotes — applied to your specific situation</div>
+  <div class="info">These are not generic productivity tips. Each one directly counters a specific mechanism of OSP.</div>
+
+  <div class="card">
+    <div class="rule" style="padding-top:0">
+      <div class="rule-num">1</div>
+      <div class="rule-body">
+        <div class="rule-title">Replace "best path" with "good enough path, started now"</div>
+        <div class="rule-desc">The optimal path does not exist before you start. It emerges through doing. Your Python → ML roadmap is good enough. Starting it today produces more information about the right direction than another month of planning.</div>
+        <div class="rule-example">Practical form: Write "good enough" at the top of your current plan. Commit to it for 6 weeks without revising it. You are not allowed to switch plans mid-phase.</div>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="rule-num">2</div>
+      <div class="rule-body">
+        <div class="rule-title">Make the shipping constraint non-negotiable, not the learning constraint</div>
+        <div class="rule-desc">OSP is sustained by making learning the output. Flip it: make shipping the output. Learning is the input. You cannot declare a week complete unless something was shipped — a GitHub commit, a video uploaded, a project deployed. Even a tiny thing.</div>
+        <div class="rule-example">Practical form: Every Friday, ask one question: "What did I ship this week?" If the answer is nothing, that week failed — regardless of how much you learned or how many hours you studied.</div>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="rule-num">3</div>
+      <div class="rule-body">
+        <div class="rule-title">Timebox decisions ruthlessly</div>
+        <div class="rule-desc">Any decision that takes more than 20 minutes of deliberation is probably not going to get meaningfully better with more deliberation. The difference between Python course A and Python course B matters far less than starting either one today. Set a 10-minute timer for "which resource" decisions and commit when it rings.</div>
+        <div class="rule-example">Practical form: "I will decide which project to build next in 10 minutes. I will not revisit this decision for 4 weeks."</div>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="rule-num">4</div>
+      <div class="rule-body">
+        <div class="rule-title">Use "single-threaded weeks"</div>
+        <div class="rule-desc">Your ambition wants to run 10 threads simultaneously. OSP feeds on that — each thread feels important, switching between them feels productive. A single-threaded week has one focus area. Monday to Sunday, you work on one thing. Python. Or the news digest project. Or the YouTube video. One. Not three.</div>
+        <div class="rule-example">Practical form: Sunday evening, write one sentence: "This week I am building ___." Put it on your phone lockscreen. When you feel pulled toward something else, look at it.</div>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="rule-num">5</div>
+      <div class="rule-body">
+        <div class="rule-title">Create a "not now" list instead of a "to learn" list</div>
+        <div class="rule-desc">Every time a new interest appears — quantum computing, a new framework, a new content format — write it on the "not now" list instead of adding it to your active plan. This honours the interest without letting it derail the current thread. The list is real. You will get to it. Just not this week.</div>
+        <div class="rule-example">Practical form: A physical notebook page titled "Not now — Phase 2+." Every new idea goes here. Closing the loop in your brain without opening a new action thread.</div>
+      </div>
+    </div>
+    <div class="rule" style="padding-bottom:0">
+      <div class="rule-num">6</div>
+      <div class="rule-body">
+        <div class="rule-title">Make your output visible to at least one other person</div>
+        <div class="rule-desc">OSP thrives in private. When only you know what you planned and what you shipped, there is no external pressure to close the gap. Public accountability — even to one person — creates a cost to not shipping. Post on Twitter/X. Tell a friend. Put your GitHub activity graph where you can see it. The audience doesn't have to be large. It has to exist.</div>
+        <div class="rule-example">Practical form: Post one tweet per week showing what you built or learned. No followers needed. The act of making it public is the mechanism, not the response to it.</div>
+      </div>
+    </div>
+  </div>
+  <button class="ask-btn" onclick="sendPrompt('Help me design a simple weekly accountability system that works specifically for someone who tends to plan instead of execute')">Design my accountability system ↗</button>
+</div>
+
+<!-- WEEKLY RESET -->
+<div id="checklist" class="pane">
+  <div class="sl">The sunday reset — 15 minutes, every week</div>
+  <div class="info">This is the system that keeps OSP from returning. Do it every Sunday. Takes 15 minutes. Replaces all other planning rituals.</div>
+
+  <div class="card" style="margin-bottom:1rem">
+    <div class="card-title" style="margin-bottom:12px">Three questions only — answer them, close the notebook</div>
+    <div id="checks">
+      <div class="check-item" onclick="toggle(this)">
+        <div class="check-box">✓</div>
+        <div><strong style="font-size:13px;color:var(--color-text-primary)">Question 1:</strong> What did I <em>ship</em> this week? (A commit, a video, a deployed feature, a published post — something that exists outside my head.)</div>
+      </div>
+      <div class="check-item" onclick="toggle(this)">
+        <div class="check-box">✓</div>
+        <div><strong style="font-size:13px;color:var(--color-text-primary)">Question 2:</strong> What is the <em>one thing</em> I am building next week? Not learning. Not planning. Building.</div>
+      </div>
+      <div class="check-item" onclick="toggle(this)">
+        <div class="check-box">✓</div>
+        <div><strong style="font-size:13px;color:var(--color-text-primary)">Question 3:</strong> What new idea or topic am I moving to the "not now" list this week, so it stops taking up space in my head?</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sl">What you are not allowed to do in this session</div>
+  <div class="card">
+    <div class="rule" style="padding-top:0">
+      <div class="rule-body">
+        <div class="rule-title">Revise your overall roadmap</div>
+        <div class="rule-desc">The roadmap is locked for the current phase. Sunday is not roadmap revision time. If you feel the urge to revise it, write the revision on the "not now" list and close it.</div>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="rule-body">
+        <div class="rule-title">Add new learning topics to the active list</div>
+        <div class="rule-desc">New topics go on the "not now" list. No exceptions. One new topic per month maximum, and only when the previous month's project is shipped.</div>
+      </div>
+    </div>
+    <div class="rule" style="padding-bottom:0">
+      <div class="rule-body">
+        <div class="rule-title">Spend more than 15 minutes on this session</div>
+        <div class="rule-desc">If your Sunday review takes 45 minutes, it has become planning. Set a timer. Three questions, 15 minutes, done. The brevity is the point — it forces prioritisation.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sl">The identity reframe that makes all of this easier</div>
+  <div class="success"><strong>Old identity:</strong> "I am someone who is learning everything and building towards a big goal." This identity is compatible with never shipping anything — learning IS the activity.<br><br><strong>New identity:</strong> "I am someone who ships AI projects and explains them." This identity has a built-in incompatibility with not shipping. Every week without a shipped output is a week where you didn't live up to who you are.</div>
+
+  <button class="ask-btn" onclick="sendPrompt('How do I build a new identity around shipping and building rather than learning and planning? What does the psychology say?')">The psychology of identity change ↗</button>
+  <button class="ask-btn" onclick="sendPrompt('What should I actually build and ship this week to break out of my planning loop? Give me one very specific, completable project.')">What to ship this week ↗</button>
+</div>
+
+</div>
+<script>
+function show(id){
+  document.querySelectorAll('.pane').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
+  document.getElementById(id).classList.add('on');
+  event.target.classList.add('on');
+}
+function toggle(el){
+  el.classList.toggle('checked');
+}
+</script>

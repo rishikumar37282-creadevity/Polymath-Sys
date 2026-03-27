@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phase 3: The Frontier</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="layout">
+<a href="index.html" class="back-link">&larr; Back to Portal</a>
+<div class="root">
+<div class="tbar">
+  <div class="tc"><div class="tc-val">M1–6</div><div class="tc-lbl">Quantum Foundations</div></div>
+  <div class="tc"><div class="tc-val">M4–12</div><div class="tc-lbl">QML + Research</div></div>
+  <div class="tc"><div class="tc-val">M6–18</div><div class="tc-lbl">Brand + Consulting</div></div>
+  <div class="tc"><div class="tc-val">M12–24</div><div class="tc-lbl">Convergence Projects</div></div>
+  <div class="tc"><div class="tc-val">All 24m</div><div class="tc-lbl">Math + Writing + Output</div></div>
+</div>
+
+<div class="top-nav">
+  <button class="tn active" onclick="show(0)">🗺 Strategy + Sequence</button>
+  <button class="tn" onclick="show(1)">⚛ Quantum Computing</button>
+  <button class="tn" onclick="show(2)">🔬 Quantum ML</button>
+  <button class="tn" onclick="show(3)">📄 AI Research Track</button>
+  <button class="tn" onclick="show(4)">🏛 Brand + Consulting</button>
+  <button class="tn" onclick="show(5)">🧮 Math — Phase 3</button>
+  <button class="tn" onclick="show(6)">📚 Books Master List</button>
+  <button class="tn" onclick="show(7)">🏗 Projects</button>
+  <button class="tn" onclick="show(8)">🔗 Convergence Layer</button>
+</div>
+
+<!-- ══ STRATEGY ══ -->
+<div class="panel active" id="p0">
+  <div class="sec-label">Phase 3 · Months 25–48 · The frontier</div>
+  <div class="sec-title">Operating at the edge — where polymaths are made</div>
+  <div class="sec-sub">Phase 3 is not a curriculum. It is a posture. You stop following courses and start following problems. The three tracks below converge into one identity by month 36: a person who understands quantum systems, publishes AI research, and is paid at the highest tier to apply both. That convergence is the brand.</div>
+
+  <div class="milestone-gate">
+    <div class="mg-title">Phase 2 exit gates — all three must be true before Phase 3 begins</div>
+    <div class="mg-text">
+      ✦ At least 4 of your 6 Phase 2 projects are deployed with public URLs and documented READMEs<br>
+      ✦ You have read at least 15 of the 20 papers in the Phase 2 research sequence<br>
+      ✦ You have Axler's linear algebra complete — complex vector spaces feel natural<br>
+      ✦ You have at least one paying consulting client or a freelance AI project delivered<br><br>
+      If any of these are missing, Phase 3 starts the moment they are satisfied — not on a calendar date.
+    </div>
+  </div>
+
+  <div class="seq-flow">
+    <div class="sf on">① Quantum foundations</div><div class="sf-arr">→</div>
+    <div class="sf on">② QML bridge</div><div class="sf-arr">→</div>
+    <div class="sf">③ Research output</div><div class="sf-arr">→</div>
+    <div class="sf">④ Brand + consulting</div><div class="sf-arr">→</div>
+    <div class="sf">⑤ Convergence projects</div>
+  </div>
+
+  <div class="step" id="sg0">
+    <div class="sh" onclick="tog('sg0')">
+      <div class="snum n-q">①</div>
+      <div class="sinfo"><div class="stitle">Quantum foundations milestone</div><div class="smeta">Unlocks QML track</div></div>
+      <div class="sarr" id="a-sg0">▼</div>
+    </div>
+    <div class="sbody" id="b-sg0">
+      <div style="font-size:13px;color:var(--color-text-secondary);line-height:1.8">
+        You have unlocked the QML track when:<br><br>
+        ✦ You can write a quantum circuit from scratch in Qiskit for Bell state preparation, Grover's algorithm, and QAOA<br>
+        ✦ You understand bra-ket notation, superposition, entanglement, and measurement without needing to look them up<br>
+        ✦ You can explain the difference between gate-based and annealing quantum computers and which problems suit each<br>
+        ✦ You have run at least one algorithm on IBM's real quantum hardware (free via IBM Quantum)<br>
+      </div>
+    </div>
+  </div>
+
+  <div class="step" id="sg1">
+    <div class="sh" onclick="tog('sg1')">
+      <div class="snum n-r">②</div>
+      <div class="sinfo"><div class="stitle">Research output milestone</div><div class="smeta">Unlocks brand + consulting at premium tier</div></div>
+      <div class="sarr" id="a-sg1">▼</div>
+    </div>
+    <div class="sbody" id="b-sg1">
+      <div style="font-size:13px;color:var(--color-text-secondary);line-height:1.8">
+        You have unlocked premium brand positioning when:<br><br>
+        ✦ At least one technical paper or preprint is on arXiv under your name (co-authored counts)<br>
+        ✦ You have given at least one technical talk — conference, meetup, or university guest lecture<br>
+        ✦ You have a public writing record: 20+ technical articles, posts, or Substack essays<br>
+        ✦ Your name appears in at least one context a stranger could find when searching your domain
+      </div>
+    </div>
+  </div>
+
+  <div class="insight"><b>The Von Neumann principle for Phase 3:</b> Von Neumann's extraordinary power came not from knowing more subjects than others, but from being able to translate the deepest results of one field into the language of another — instantly and precisely. Your Phase 3 goal is identical. When you can explain a quantum variational algorithm to an ML engineer using gradient descent language, and explain attention mechanisms to a physicist using Hilbert space language, you have become irreplaceable. That translation ability is the brand.</div>
+</div>
+
+<!-- ══ QUANTUM COMPUTING ══ -->
+<div class="panel" id="p1">
+  <div class="sec-label">Track ① · Months 25–30 · Primary spine entry</div>
+  <div class="sec-title">Quantum Computing — from zero to real hardware</div>
+  <div class="sec-sub">You are better prepared for quantum computing than most people who start it — your linear algebra is solid, your Python is strong, and you understand optimization. The learning curve that stops most people is the math. You have already climbed it.</div>
+
+  <div class="cbox cbox-blue" style="margin-bottom:12px">
+    <b>Sequence for this track:</b> Qiskit textbook (Ch1–4) → Nielsen & Chuang selected chapters → IBM Quantum real hardware → Quantum algorithms (Grover, Shor, QAOA) → Variational circuits (VQE) → QML bridge.
+  </div>
+
+  <div class="step" id="s0">
+    <div class="sh" onclick="tog('s0')">
+      <div class="snum n-q">1</div>
+      <div class="sinfo"><div class="stitle">Qiskit textbook — the entry point</div><div class="smeta">🔴 PRIMARY · Months 25–27 · Free</div></div>
+      <div class="sarr" id="a-s0">▼</div>
+    </div>
+    <div class="sbody" id="b-s0">
+      <div class="ri">
+        <div class="rico">📖</div>
+        <div class="rinfo">
+          <div class="rname">Learn Quantum Computation using Qiskit — IBM <span class="tag primary">Primary #1</span><span class="tag free">Free at learn.qiskit.org</span></div>
+          <div class="rdesc">The single best free quantum computing resource. Written by IBM's quantum team. Completely free at learn.qiskit.org. Covers: qubit mathematics, quantum gates, circuits, algorithms (Grover, Shor, Bernstein-Vazirani), quantum error correction, and quantum hardware. Every concept has runnable Qiskit code. Read and code every chapter — do not just read. The interactive exercises on each chapter are mandatory.</div>
+          <div class="rtags"><span class="tag seq">Start Ch1: Linear algebra review</span></div>
+        </div>
+      </div>
+      <div class="ri">
+        <div class="rico">▶</div>
+        <div class="rinfo">
+          <div class="rname">IBM Quantum Learning — learning.quantum.ibm.com <span class="tag primary">Primary</span><span class="tag free">Free</span></div>
+          <div class="rdesc">IBM's updated learning platform with structured courses: Basics of Quantum Information, Fundamentals of Quantum Algorithms, Quantum Machine Learning. Free accounts get access to real quantum hardware (127-qubit Eagle processors). Running your code on real hardware — not just simulators — is a psychological milestone that changes how seriously you take the field.</div>
+        </div>
+      </div>
+      <div class="ri">
+        <div class="rico">▶</div>
+        <div class="rinfo">
+          <div class="rname">Quantum Country — quantum.country <span class="tag free">Free</span></div>
+          <div class="rdesc">Andy Matuschak and Michael Nielsen's quantum computing essay with embedded spaced repetition. The best conceptual introduction to quantum mechanics for computer scientists — no physics background required. Read before starting the Qiskit textbook to build the right mental model. The mnemonic medium (spaced repetition built into the essay) is genuinely effective — don't skip the review prompts.</div>
+        </div>
+      </div>
+      <div class="cbox cbox-neutral"><b>Your linear algebra advantage:</b> Most people hit week 3 of quantum computing and panic because "the math is too hard." For you it will not be — you already know eigenvectors, tensor products, and unitary transformations. A qubit is just a unit vector in ℂ². A quantum gate is just a unitary matrix. Entanglement is just a vector in a tensor product space that cannot be factored. The physics vocabulary is new. The mathematics is not.</div>
+    </div>
+  </div>
+
+  <div class="step" id="s1">
+    <div class="sh" onclick="tog('s1')">
+      <div class="snum n-q">2</div>
+      <div class="sinfo"><div class="stitle">Nielsen & Chuang — the quantum bible</div><div class="smeta">🔴 PRIMARY Book · Selected chapters · Free PDF</div></div>
+      <div class="sarr" id="a-s1">▼</div>
+    </div>
+    <div class="sbody" id="b-s1">
+      <div class="ri">
+        <div class="rico">📖</div>
+        <div class="rinfo">
+          <div class="rname">Quantum Computation and Quantum Information — Nielsen & Chuang <span class="tag primary">Primary Book #1</span><span class="tag book">Book · "Mike and Ike"</span></div>
+          <div class="rdesc">The definitive textbook on quantum computing. Every researcher in the field has read it. Don't read it linearly — it is 700 pages. Read in this sequence: Ch1 (introduction — read fully), Ch2 (linear algebra review — skim if Axler is done), Ch4 (quantum circuits — read fully), Ch5 (quantum Fourier transform + Shor's algorithm — read fully), Ch6 (quantum search — Grover, read fully), Ch10 (quantum error correction — read selectively). Free PDF circulates widely — also available at many university library portals.</div>
+          <div class="rtags"><span class="tag seq">Ch1 → Ch4 → Ch5 → Ch6 → Ch10</span></div>
+        </div>
+      </div>
+      <div class="cbox cbox-success"><b>How to read Nielsen & Chuang:</b> Read a section, close the book, open a blank Qiskit notebook, and implement what you just read. Shor's algorithm on paper is abstract. Shor's algorithm running on a quantum simulator — even incorrectly at first — is concrete. The book + Qiskit loop is the most effective way to process this material.</div>
+    </div>
+  </div>
+
+  <div class="step" id="s2">
+    <div class="sh" onclick="tog('s2')">
+      <div class="snum n-q">3</div>
+      <div class="sinfo"><div class="stitle">Quantum algorithms — the core repertoire</div><div class="smeta">Months 27–29</div></div>
+      <div class="sarr" id="a-s2">▼</div>
+    </div>
+    <div class="sbody" id="b-s2">
+      <div class="ri">
+        <div class="rico">▶</div>
+        <div class="rinfo">
+          <div class="rname">Quantum Algorithm Zoo — quantumalgorithmzoo.org <span class="tag free">Free · Reference</span></div>
+          <div class="rdesc">Stephen Jordan's comprehensive catalogue of every known quantum algorithm with speedup proofs and paper references. Use as your map of the field — identify which algorithms are relevant to ML and finance problems. The algorithms with exponential speedups over classical methods (Shor, HHL, Grover) are your priority.</div>
+        </div>
+      </div>
+      <div class="ri">
+        <div class="rico">📄</div>
+        <div class="rinfo">
+          <div class="rname">Core quantum algorithm papers — read in sequence <span class="tag free">Free on arXiv</span></div>
+          <div class="rdesc">Read in order: (1) Grover 1996 — quantum search. (2) Shor 1994 — integer factorization. (3) HHL 2009 — quantum linear systems (directly relevant to ML). (4) Farhi et al. 2014 — QAOA (quantum approximate optimization). (5) Preskill 2018 — "Quantum Computing in the NISQ Era" — essential reality check on where hardware actually is. These 5 papers give you the full landscape of what quantum computing can and cannot currently do.</div>
+          <div class="rtags"><span class="tag seq">HHL is the ML bridge paper</span></div>
+        </div>
+      </div>
+      <div class="ri">
+        <div class="rico">▶</div>
+        <div class="rinfo">
+          <div class="rname">Qiskit Algorithms module + tutorials <span class="tag free">Free</span><span class="tag tool">Library</span></div>
+          <div class="rdesc">Qiskit's built-in algorithms library implements VQE, QAOA, Grover, Shor, and QML primitives. The tutorials at qiskit.org/ecosystem/algorithms are the fastest path to implementing real algorithms. For each algorithm: read the paper, implement from scratch first, then compare to the Qiskit reference implementation.</div>
+        </div>
+      </div>
+      <button class="btn-ask" onclick="sendPrompt('Walk me through implementing Grover search algorithm from scratch in Qiskit with full explanation')">Implement Grover search in Qiskit ↗</button>
+    </div>
+  </div>
+
+  <div class="step" id="s3">
+    <div class="sh" onclick="tog('s3')">
+      <div class="snum n-q">4</div>
+      <div class="sinfo"><div class="stitle">Variational Quantum Circuits — the NISQ-era workhorse</div><div class="smeta">Months 29–30 · Bridge to QML</div></div>
+      <div class="sarr" id="a-s3">▼</div>
+    </div>
+    <div class="sbody" id="b-s3">
+      <div class="ri">
+        <div class="rico">▶</div>
+        <div class="rinfo">
+          <div class="rname">PennyLane documentation + demos — pennylane.ai <span class="tag primary">Primary</span><span class="tag free">Free</span></div>
+          <div class="rdesc">PennyLane by Xanadu is the PyTorch of quantum ML — automatic differentiation through quantum circuits. Their demo gallery (pennylane.ai/qml/demonstrations) has 100+ free tutorials covering VQE, QAOA, quantum neural networks, quantum kernels, barren plateaus, and quantum chemistry. This is your primary QML framework — it integrates directly with PyTorch and TensorFlow, letting you build hybrid classical-quantum models in familiar syntax.</div>
+        </div>
+      </div>
+      <div class="ri">
+        <div class="rico">📄</div>
+        <div class="rinfo">
+          <div class="rname">Variational Quantum Algorithms — Cerezo et al. 2021 (Nature Reviews Physics) <span class="tag free">Free arXiv:2012.09265</span></div>
+          <div class="rdesc">The definitive review paper on variational quantum algorithms. 50 pages covering VQE, QAOA, quantum neural networks, barren plateaus (the vanishing gradient problem of QML), and hardware noise. Read after completing the Qiskit textbook. This paper will become your most-cited reference when talking to quantum researchers and clients.</div>
+        </div>
+      </div>
+      <div class="insight"><b>The barren plateau problem is quantum's vanishing gradient:</b> Just as deep neural networks suffered from vanishing gradients before batch norm and residual connections, variational quantum circuits suffer from barren plateaus — gradients exponentially vanishing with circuit depth. Understanding this problem, its causes, and current mitigations (local cost functions, layerwise training, quantum natural gradient) is what separates a serious QML researcher from someone who just runs tutorials.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ QML ══ -->
+<div class="panel" id="p2">
+  <div class="sec-label">Track ② · Months 28–36 · The rarest skillset on earth</div>
+  <div class="sec-title">Quantum Machine Learning — where your two deepest skills converge</div>
+  <div class="sec-sub">QML is the field that sits at the intersection of quantum computing and machine learning. As of 2025 it is still a research frontier — there are very few people in the world who have deep expertise in both classical ML and quantum computing simultaneously. That is precisely why it is your differentiator.</div>
+
+  <div class="cbox cbox-warn" style="margin-bottom:12px">
+    <b>Realistic framing:</b> QML does not yet have proven quantum advantage over classical ML for most practical tasks. The value of studying it now is not that you will deploy quantum ML systems tomorrow — it is that you will be positioned to do so when hardware matures (estimated 2027–2032 for fault-tolerant qubits). The people who will build those systems are being trained right now, mostly in PhD programs. You are building that knowledge outside one.
+  </div>
+
+  <div class="step" id="s4">
+    <div class="sh" onclick="tog('s4')">
+      <div class="snum n-p">1</div>
+      <div class="sinfo"><div class="stitle">QML foundations — the theoretical framework</div><div class="smeta">🔴 PRIMARY resources · Months 28–31</div></div>
+      <div class="sarr" id="a-s4">▼</div>
+    </div>
+    <div class="sbody" id="b-s4">
+      <div class="ri">
+        <div class="rico">📖</div>
+        <div class="rinfo">
+          <div class="rname">Quantum Machine Learning — Maria Schuld & Francesco Petruccione <span class="tag primary">Primary Book #1</span><span class="tag book">Book</span></div>
+          <div class="rdesc">The first serious textbook on QML. Schuld (Xanadu researcher, one of the field's founders) covers: quantum versions of linear algebra algorithms, quantum neural networks, quantum kernel methods, quantum generative models, and the theoretical limits of quantum advantage in ML. Dense but rewarding. Read alongside the PennyLane tutorials for the implementation counterpart to every theory chapter.</div>
+        </div>
+      </div>
+      <div class="ri">
+        <div class="rico">▶</div>
+        <div class="rinfo">
+          <div class="rname">PennyLane QML demos — pennylane.ai/qml <span class="tag primary">Primary</span><span class="tag free">Free · 100+ demos</span></div>
+          <div class="rdesc">The most comprehensive free QML implementation library. Essential demos to complete in sequence: (1) Variational classifier. (2) Quantum transfer learning. (3) Quantum kernel methods. (4) Quantum natural gradient. (5) Barren plateaus. (6) Quantum GANs. (7) QCNN (quantum convolutional neural network). Each demo is a paper-to-code translation — exactly the research skill you are building.</div>
+          <div class="rtags"><span class="tag seq">Complete in listed order</span></div>
+        </div>
+      </div>
+      <div class="ri">
+        <div class="rico">📄</div>
+        <div class="rinfo">
+          <div class="rname">Quantum embeddings for machine learning — Schuld & Killoran 2019 <span class="tag free">Free arXiv:2001.03622</span></div>
+          <div class="rdesc">The paper that formalized quantum feature maps and kernel methods — the bridge between quantum circuits and classical kernel ML (SVMs, Gaussian processes). If you understand classical kernel methods from your Phase 2 ML work, this paper will click immediately. It is also the paper most cited in QML job descriptions and research proposals.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="step" id="s5">
+    <div class="sh" onclick="tog('s5')">
+      <div class="snum n-p">2</div>
+      <div class="sinfo"><div class="stitle">Quantum finance — QML applied to your finance track</div><div class="smeta">Months 32–36 · Highest commercial value QML application</div></div>
+      <div class="sarr" id="a-s5">▼</div>
+    </div>
+    <div class="sbody" id="b-s5">
+      <div class="ri">
+        <div class="rico">▶</div>
+        <div class="rinfo">
+          <div class="rname">Qiskit Finance module — qiskit.org/ecosystem/finance <span class="tag free">Free</span></div>
+          <div class="rdesc">IBM's quantum finance library implements: portfolio optimization (QAOA on Markowitz), option pricing (quantum amplitude estimation), credit risk analysis, and time series quantum encoding. Every tutorial has a classical baseline — letting you directly compare quantum vs classical performance. This is where your Phase 2 quant finance knowledge becomes a research advantage.</div>
+        </div>
+      </div>
+      <div class="ri">
+        <div class="rico">📄</div>
+        <div class="rinfo">
+          <div class="rname">Quantum computing for finance — Orus, Mugel, Lizaso 2019 <span class="tag free">Free arXiv:1811.03975</span></div>
+          <div class="rdesc">The most cited survey paper on quantum computing applied to finance. Covers: portfolio optimization, derivative pricing, risk analysis, Monte Carlo speedup. Read this paper before talking to any financial institution about quantum — it defines the vocabulary and benchmarks every serious conversation in this space uses.</div>
+        </div>
+      </div>
+      <div class="insight"><b>The commercial opportunity:</b> Indian banks (SBI, HDFC, ICICI), insurance companies, and exchanges are actively exploring quantum finance. As of 2025 there are fewer than 50 people in India with serious depth in both quantum computing and quantitative finance. You would be one of them by month 36. That scarcity is your pricing power.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ RESEARCH ══ -->
+<div class="panel" id="p3">
+  <div class="sec-label">Track ③ · Months 30–42 · Publishing + contributing</div>
+  <div class="sec-title">AI Research Track — moving from consumer to producer of knowledge</div>
+  <div class="sec-sub">Phase 2 taught you to read papers and reproduce results. Phase 3 teaches you to extend them. The gap between reproducing a result and extending it is smaller than most people think — it is mostly about asking the right question after reproduction is complete.</div>
+
+  <div class="step" id="s6">
+    <div class="sh" onclick="tog('s6')">
+      <div class="snum n-r">1</div>
+      <div class="sinfo"><div class="stitle">Research methodology — how frontier research actually works</div><div class="smeta">🔴 PRIMARY · Read before month 30</div></div>
+      <div class="sarr" id="a-s6">▼</div>
+    </div>
+    <div class="sbody" id="b-s6">
+      <div class="ri">
+        <div class="rico">📖</div>
+        <div class="rinfo">
+          <div class="rname">The Craft of Research — Booth, Colomb, Williams <span class="tag primary">Primary Book</span><span class="tag book">Book</span></div>
+          <div class="rdesc">The best book on how to conduct, structure, and communicate research — not specific to ML or quantum. Covers: formulating research questions, building arguments, managing evidence, writing for clarity. Read Ch1–10. Every technical researcher who struggles to write papers is missing the skills this book teaches. It is the invisible prerequisite every PhD student wishes they had read first.</div>
+        </div>
+      </div>
+      <div class="ri">
+        <div class="rico">▶</div>
+        <div class="rinfo">
+          <div class="rname">How to write a great research paper — Simon Peyton Jones (YouTube) <span class="tag free">Free · 1 hr</span><span class="tag vid">YouTube</span></div>
+          <div class="rdesc">Microsoft Research talk by the creator of Haskell. The most practical 1-hour guide to writing ML and CS papers. His core insight — "don't wait until the research is done to write; writing IS the research" — will change how you approach every project. Watch before writing your first paper.</div>
+        </div>
+      </div>
+      <div class="ri">
+        <div class="rico">▶</div>
+        <div class="rinfo">
+          <div class="rname">Connected Papers + Semantic Scholar + arXiv Sanity <span class="tag free">Free · Research tools</span></div>
+          <div class="rdesc">Connected Papers (connectedpapers.com) visualizes the citation graph around any paper — essential for finding related work and identifying research gaps. Semantic Scholar for citation tracking and author following. arXiv Sanity Preserver (arxiv-sanity-lite.com) by Karpathy for filtering the daily arXiv flood by relevance to your interests.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="step" id="s7">
+    <div class="sh" onclick="tog('s7')">
+      <div class="snum n-r">2</div>
+      <div class="sinfo"><div class="stitle">Your first paper — the research question framework</div><div class="smeta">Months 30–36 · Target: arXiv preprint</div></div>
+      <div class="sarr" id="a-s7">▼</div>
+    </div>
+    <div class="sbody" id="b-s7">
+      <div class="ri">
+        <div class="rico">📖</div>
+        <div class="rinfo">
+          <div class="rname">The three paths to a first paper <span class="tag primary">Framework</span></div>
+          <div class="rdesc"><b style="color:var(--color-text-primary)">Path A — Reproduction + extension:</b> Reproduce a paper's results exactly, then change one variable (dataset, architecture, training regime) and measure the effect. This is the easiest first paper and is publishable as a reproducibility study or ablation analysis.<br><br><b style="color:var(--color-text-primary)">Path B — Application to new domain:</b> Take a technique from one domain (e.g. QML kernel methods) and apply it to a new problem (e.g. Indian financial time series). Novel application = novel contribution.<br><br><b style="color:var(--color-text-primary)">Path C — Negative result:</b> Rigorously show that a hyped technique does not work under specific conditions. Negative results are undervalued and undersubmitted — they are publishable and important.</div>
+        </div>
+      </div>
+      <div class="ri">
+        <div class="rico">▶</div>
+        <div class="rinfo">
+          <div class="rname">Workshop papers — NeurIPS, ICML, ICLR workshops <span class="tag free">Free to submit</span></div>
+          <div class="rdesc">Full conference papers (NeurIPS, ICML, ICLR main track) have ~20% acceptance rates and require years of iteration. Workshop papers at the same conferences have 40–60% acceptance rates and are reviewed in 4–6 weeks. Your first submission should target a workshop — specifically: QuantumTech workshop at NeurIPS, QTML conference (Quantum Techniques in Machine Learning), or the Finance + ML workshop tracks. One workshop paper changes your professional positioning permanently.</div>
+          <div class="rtags"><span class="tag seq">Target: workshop first → main track later</span></div>
+        </div>
+      </div>
+      <div class="cbox cbox-neutral"><b>The co-authorship path:</b> Find 1–2 researchers whose work you've been following and reproducing. Email them with a specific, detailed observation about their paper — not "I loved your work" but "I reproduced your experiment and noticed X discrepancy, which I traced to Y, and I think it implies Z." That email, if thoughtful, has a 30–40% response rate. A conversation that starts there can become a co-authorship. This is how most non-PhD researchers enter the research community.</div>
+      <button class="btn-ask" onclick="sendPrompt('Help me identify a specific research gap in QML or AI finance that I could write my first paper about')">Help me find my first paper research gap ↗</button>
+    </div>
+  </div>
+
+  <div class="step" id="s8">
+    <div class="sh" onclick="tog('s8')">
+      <div class="snum n-r">3</div>
+      <div class="sinfo"><div class="stitle">Open source contributions — research without publishing</div><div class="smeta">Months 28 onward · Continuous</div></div>
+      <div class="sarr" id="a-s8">▼</div>
+    </div>
+    <div class="sbody" id="b-s8">
+      <div class="ri">
+        <div class="rico">▶</div>
+        <div class="rinfo">
+          <div class="rname">PennyLane, Qiskit, HuggingFace Transformers — contribute <span class="tag free">Free · GitHub</span></div>
+          <div class="rdesc">Open source contribution to a major ML or quantum library is publishable-quality work without the publishing overhead. Start with: fixing a documentation bug → adding a test → implementing a small feature → proposing and implementing a new algorithm. A merged PR to PennyLane or Qiskit puts your name in a codebase used by thousands of researchers. It is cited in CVs, conference talks, and funding applications.</div>
+        </div>
+      </div>
+      <div class="ri">
+        <div class="rico">▶</div>
+        <div class="rinfo">
+          <div class="rname">Kaggle competitions with research writeups <span class="tag free">Free</span></div>
+          <div class="rdesc">Top Kaggle competition solutions published as notebooks are read by thousands of practitioners and often cited in papers. A gold medal solution writeup can substitute for a workshop paper in terms of professional impact. Target competitions at the intersection of your spikes: time series finance, NLP, or scientific ML challenges.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ BRAND ══ -->
+<div class="panel" id="p4">
+  <div class="sec-label">Track ④ · Months 30–48 · The external face of your knowledge</div>
+  <div class="sec-title">Brand + Consulting — converting knowledge into leverage</div>
+  <div class="sec-sub">Brand at this level is not LinkedIn follower counts. It is the answer to: "When someone in India needs a quantum ML consultant, or a deep tech AI advisor, whose name comes up?" Building that answer takes 18–24 months of consistent, public, high-quality output. You start now.</div>
+
+  <div class="step" id="s9">
+    <div class="sh" onclick="tog('s9')">
+      <div class="snum n-b">1</div>
+      <div class="sinfo"><div class="stitle">Writing — the compounding asset that never depreciates</div><div class="smeta">🔴 PRIMARY habit · 1 post/week from month 30</div></div>
+      <div class="sarr" id="a-s9">▼</div>
+    </div>
+    <div class="sbody" id="b-s9">
+      <div class="ri">
+        <div class="rico">▶</div>
+        <div class="rinfo">
+          <div class="rname">Substack — free technical newsletter <span class="tag free">Free to publish</span><span class="tag tool">Platform</span></div>
+          <div class="rdesc">Start a Substack on your specific intersection: "Quantum ML + AI Systems" or "Deep Tech for Finance" — something nobody else is writing about from India with your combination of depth. Publish one essay per week. The essays do not need to be long — 600–800 words with one clear insight is better than 3000 words of summary. Your first 50 posts will be mediocre. Publish them anyway. Posts 51–100 will be exceptional.</div>
+        </div>
+      </div>
+      <div class="ri">
+        <div class="rico">▶</div>
+        <div class="rinfo">
+          <div class="rname">Show Your Work — Austin Kleon <span class="tag book">Book · Short read</span></div>
+          <div class="rdesc">100 pages. The philosophy behind building a public body of work without feeling like self-promotion. Kleon's core idea — "share the process, not just the product" — is exactly the right posture for a technical builder. Document your experiments as they happen, including failures. Failures with good documentation are more valuable content than polished successes.</div>
+        </div>
+      </div>
+      <div class="cbox cbox-neutral"><b>The content hierarchy that builds credibility:</b> Tweet/LinkedIn post (daily, low effort) → Technical blog post (weekly, medium effort) → Conference talk (quarterly, high effort) → Workshop paper (twice yearly, maximum effort). Each tier feeds the one above it — your daily posts become your blog posts become your talk abstracts become your paper introductions. One writing system, four outputs.</div>
+    </div>
+  </div>
+
+  <div class="step" id="s10">
+    <div class="sh" onclick="tog('s10')">
+      <div class="snum n-b">2</div>
+      <div class="sinfo"><div class="stitle">Speaking — the multiplier that turns writing into relationships</div><div class="smeta">Months 32 onward · Target 4 talks/year</div></div>
+      <div class="sarr" id="a-s10">▼</div>
+    </div>
+    <div class="sbody" id="b-s10">
+      <div class="ri">
+        <div class="rico">▶</div>
+        <div class="rinfo">
+          <div class="rname">Venue sequence — from local to international <span class="tag seq">Follow this order</span></div>
+          <div class="rdesc"><b style="color:var(--color-text-primary)">Month 30–33:</b> Local meetups — Bhubaneswar/Odisha tech communities, online ML India groups, college guest lectures. Zero rejection rate. Use these to develop your talk delivery.<br><br><b style="color:var(--color-text-primary)">Month 33–36:</b> Regional conferences — PyData India, NASSCOM AI events, IIT/IIM tech fests. Submit a proposal 6 weeks in advance with a clear abstract.<br><br><b style="color:var(--color-text-primary)">Month 36–42:</b> National conferences — COMAD, IndiaCom, QTML India chapter. A talk here means 500+ relevant people hear your name.<br><br><b style="color:var(--color-text-primary)">Month 42+:</b> International — NeurIPS workshops, ICML, IEEE Quantum Week. Your arXiv paper is the submission credential.</div>
+        </div>
+      </div>
+      <div class="ri">
+        <div class="rico">📖</div>
+        <div class="rinfo">
+          <div class="rname">TED Masterclass (free) + Lenny Rachitsky on storytelling <span class="tag free">Free online</span></div>
+          <div class="rdesc">TED's free masterclass at masterclass.ted.com covers: structuring a talk, managing nerves, using visuals, and the single idea principle. The single idea principle — every talk must be expressible in one sentence — is the most important structural rule for technical presentations. Apply it to every talk you give.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="step" id="s11">
+    <div class="sh" onclick="tog('s11')">
+      <div class="snum n-b">3</div>
+      <div class="sinfo"><div class="stitle">High-value consulting — structure and pricing</div><div class="smeta">Months 36+ · When research output milestone is hit</div></div>
+      <div class="sarr" id="a-s11">▼</div>
+    </div>
+    <div class="sbody" id="b-s11">
+      <div class="ri">
+        <div class="rico">▶</div>
+        <div class="rinfo">
+          <div class="rname">The consulting offer stack — three tiers <span class="tag primary">Framework</span></div>
+          <div class="rdesc"><b style="color:var(--color-text-primary)">Tier 1 — Quantum readiness assessment (₹3–8L/engagement, 2–4 weeks):</b> Audit a company's current AI/ML stack and produce a roadmap for quantum advantage integration. Deliverable: a 30-page technical report. Target: banks, insurance, logistics, pharma.<br><br><b style="color:var(--color-text-primary)">Tier 2 — AI + MLOps architecture (₹8–25L/engagement, 4–12 weeks):</b> Design and build a production ML platform. Deliverable: deployed system + documentation + team training. Target: mid-size enterprises with ML teams that cannot deploy.<br><br><b style="color:var(--color-text-primary)">Tier 3 — Deep tech advisory retainer (₹5–15L/month):</b> Ongoing strategic advisor role. 10 hours/month. Deliverable: monthly briefing on AI/quantum developments relevant to their industry + architecture reviews. Target: CTO/CDO level at large enterprises and VC-backed startups.</div>
+        </div>
+      </div>
+      <div class="cbox cbox-success"><b>How to get your first Tier 1 client:</b> Write a 2,000-word public essay on "How Indian banks should think about quantum computing in 2026–2030." Publish on Substack and LinkedIn. Email it directly to CDOs at 10 banks with a note: "I wrote this based on my research — happy to walk your team through it." Two out of ten will respond. One will engage. That engagement, handled well, becomes a paid assessment. This is the exact path every technical consultant has taken.</div>
+      <button class="btn-ask" onclick="sendPrompt('Help me write a 2000-word essay on quantum computing opportunities for Indian banks in 2026-2030')">Write my quantum + Indian banking essay ↗</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ MATH ══ -->
+<div class="panel" id="p5">
+  <div class="sec-label">Continues daily · 45–60 min/morning · Phase 3 specific</div>
+  <div class="sec-title">Math in Phase 3 — the language of the frontier</div>
+  <div class="sec-sub">Phase 3 math moves into territory that most engineers never reach. These are not courses to complete — they are landscapes to inhabit slowly, over months, with deep attention. 45 minutes every morning. The math you learn here is the math that appears in the papers you will write.</div>
+
+  <div class="step" id="s12">
+    <div class="sh" onclick="tog('s12')">
+      <div class="snum n-m">1</div>
+      <div class="sinfo"><div class="stitle">Complex analysis + Hilbert spaces — quantum math</div><div class="smeta">🔴 PRIMARY · Months 25–30</div></div>
+      <div class="sarr" id="a-s12">▼</div>
+    </div>
+    <div class="sbody" id="b-s12">
+      <div class="ri">
+        <div class="rico">📖</div>
+        <div class="rinfo">
+          <div class="rname">Visual Complex Analysis — Tristan Needham <span class="tag primary">Primary Book #1</span><span class="tag book">Book</span></div>
+          <div class="rdesc">The most beautiful mathematics book of the last 30 years. Needham rebuilds complex analysis using geometric intuition rather than algebraic manipulation. Every theorem has a picture. After reading this, complex numbers feel as natural as real numbers — which matters because quantum amplitudes are complex, quantum gates are unitary complex matrices, and the Fourier transform (central to quantum algorithms) is complex analysis in disguise. Do not skip this book.</div>
+        </div>
+      </div>
+      <div class="ri">
+        <div class="rico">📖</div>
+        <div class="rinfo">
+          <div class="rname">Introduction to Hilbert Space — Young <span class="tag book">Book · Supplementary</span></div>
+          <div class="rdesc">Quantum states live in Hilbert spaces. After Axler's finite-dimensional linear algebra, Young extends the same ideas to infinite-dimensional spaces — which is the mathematical setting of quantum mechanics and functional analysis. Read Ch1–5. The inner product, completeness, and orthonormal basis chapters directly support your quantum computing work.</div>
+        </div>
+      </div>
+      <div class="insight"><b>The connection you will feel:</b> When you study Hilbert spaces, you will notice that the mathematics is identical to the mathematics of kernel methods in ML (Reproducing Kernel Hilbert Spaces — RKHS). This is not a coincidence. It is the same underlying structure. This is a Von Neumann moment — two fields sharing one mathematical skeleton. Write it down in Obsidian when you feel it. It will become the opening paragraph of a paper.</div>
+    </div>
+  </div>
+
+  <div class="step" id="s13">
+    <div class="sh" onclick="tog('s13')">
+      <div class="snum n-m">2</div>
+      <div class="sinfo"><div class="stitle">Group theory + representation theory — the deep structure</div><div class="smeta">Months 30–36 · Connects quantum to physics to ML</div></div>
+      <div class="sarr" id="a-s13">▼</div>
+    </div>
+    <div class="sbody" id="b-s13">
+      <div class="ri">
+        <div class="rico">📖</div>
+        <div class="rinfo">
+          <div class="rname">Visual Group Theory — Nathan Carter <span class="tag primary">Primary</span><span class="tag book">Book + free online supplements</span></div>
+          <div class="rdesc">Group theory is the mathematics of symmetry. It underlies quantum mechanics (symmetry groups of physical systems), chemistry (molecular symmetry), and increasingly ML (equivariant neural networks, geometric deep learning). Carter's visual approach makes groups intuitive before making them rigorous. After this book: symmetry in quantum circuits, equivariant architectures in ML, and Lie groups in physics all become connected.</div>
+        </div>
+      </div>
+      <div class="ri">
+        <div class="rico">📄</div>
+        <div class="rinfo">
+          <div class="rname">Geometric Deep Learning — Bronstein et al. 2021 <span class="tag free">Free arXiv:2104.13478</span></div>
+          <div class="rdesc">The "proto-book" of geometric deep learning — unifying CNNs, GNNs, Transformers, and LSTMs under one group-theoretic framework. 150 pages free on arXiv. This is a frontier area connecting your ML depth to the group theory you're studying. Understanding this paper positions you for research at the intersection of differential geometry, group theory, and deep learning — exactly where the next wave of theoretical ML advances will come from.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="step" id="s14">
+    <div class="sh" onclick="tog('s14')">
+      <div class="snum n-m">3</div>
+      <div class="sinfo"><div class="stitle">Quantum information theory — the mathematical core of QML</div><div class="smeta">Months 33–40</div></div>
+      <div class="sarr" id="a-s14">▼</div>
+    </div>
+    <div class="sbody" id="b-s14">
+      <div class="ri">
+        <div class="rico">📖</div>
+        <div class="rinfo">
+          <div class="rname">Quantum Information Theory — Mark Wilde <span class="tag primary">Primary Book #2</span><span class="tag free">Free 2nd ed. arXiv:1106.1445</span><span class="tag book">Book</span></div>
+          <div class="rdesc">Free on arXiv (second edition). Covers: quantum entropy, quantum channel capacity, entanglement theory, quantum error correction codes, and quantum Shannon theory. The bridge between Nielsen & Chuang's algorithmic view and the information-theoretic foundations of QML. Wilde was a student of classical information theory giants — the book inherits that clarity. Read Ch1–5 and Ch10–12 as priority chapters.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ BOOKS ══ -->
+<div class="panel" id="p6">
+  <div class="sec-label">Complete reading list · Phase 3 · Red border = primary</div>
+  <div class="sec-title">Books master list — the Phase 3 library</div>
+  <div class="sec-sub">These are the books that sit permanently on the desk of the person you are becoming. Primary books are read cover-to-cover (selected chapters noted). Reference books are consulted deeply when a specific problem demands it.</div>
+  <div class="bshelf">
+    <div class="bcard pb">
+      <div class="btitle">Quantum Computation and Quantum Information</div>
+      <div class="bauthor">Nielsen & Chuang · "Mike and Ike"</div>
+      <div class="bwhy">🔴 Primary #1. Ch1, 4, 5, 6, 10. The field's bible. Every quantum researcher has read it. So will you.</div>
+    </div>
+    <div class="bcard pb">
+      <div class="btitle">Quantum Machine Learning</div>
+      <div class="bauthor">Maria Schuld & Francesco Petruccione</div>
+      <div class="bwhy">🔴 Primary #2. Cover to cover. The only serious QML textbook. Schuld is one of the field's founders.</div>
+    </div>
+    <div class="bcard pb">
+      <div class="btitle">Visual Complex Analysis</div>
+      <div class="bauthor">Tristan Needham</div>
+      <div class="bwhy">🔴 Primary #3. Cover to cover. The most beautiful math book written in 30 years. Quantum math made visual.</div>
+    </div>
+    <div class="bcard pb">
+      <div class="btitle">Quantum Information Theory</div>
+      <div class="bauthor">Mark Wilde · Free on arXiv</div>
+      <div class="bwhy">🔴 Primary #4. Ch1–5, 10–12. The information-theoretic spine of QML. Free second edition on arXiv.</div>
+    </div>
+    <div class="bcard pb">
+      <div class="btitle">The Craft of Research</div>
+      <div class="bauthor">Booth, Colomb, Williams</div>
+      <div class="bwhy">🔴 Primary #5. Ch1–10. The invisible prerequisite for writing good papers. Read before month 30.</div>
+    </div>
+    <div class="bcard pb">
+      <div class="btitle">Visual Group Theory</div>
+      <div class="bauthor">Nathan Carter</div>
+      <div class="bwhy">🔴 Primary #6. Cover to cover. Group theory through pictures. Connects quantum symmetry to geometric ML.</div>
+    </div>
+    <div class="bcard">
+      <div class="btitle">Geometric Deep Learning (proto-book)</div>
+      <div class="bauthor">Bronstein et al. · Free arXiv</div>
+      <div class="bwhy">Reference + paper. Unifies all deep learning under group-theoretic symmetry. 150 pages, free on arXiv. Read when group theory is solid.</div>
+    </div>
+    <div class="bcard">
+      <div class="btitle">The Feynman Lectures on Physics Vol. 3</div>
+      <div class="bauthor">Feynman · Free online</div>
+      <div class="bwhy">Weekend reading. Vol. 3 covers quantum mechanics in Feynman's inimitable style. Free at feynmanlectures.caltech.edu. This is not study — it is inspiration.</div>
+    </div>
+    <div class="bcard">
+      <div class="btitle">Preskill's Quantum Computing Lecture Notes</div>
+      <div class="bauthor">John Preskill · Free online</div>
+      <div class="bwhy">Reference. Caltech's Ph219 course notes, free at theory.caltech.edu/~preskill/ph229. More advanced than Nielsen & Chuang on fault tolerance and error correction. Use when paper reading demands it.</div>
+    </div>
+    <div class="bcard">
+      <div class="btitle">An Introduction to Quantum Field Theory</div>
+      <div class="bauthor">Peskin & Schroeder</div>
+      <div class="bwhy">Stretch reference. Only if your interest extends to quantum physics beyond computing. Requires graduate-level quantum mechanics first. Plant this as a 5-year horizon book.</div>
+    </div>
+    <div class="bcard">
+      <div class="btitle">Show Your Work</div>
+      <div class="bauthor">Austin Kleon · Short</div>
+      <div class="bwhy">Brand track. 100 pages on building a public body of work authentically. Read in one sitting. Changes your relationship to sharing work-in-progress.</div>
+    </div>
+    <div class="bcard">
+      <div class="btitle">Zero to One</div>
+      <div class="bauthor">Peter Thiel</div>
+      <div class="bwhy">Brand + consulting track. The intellectual framework for building something genuinely new vs. incrementally better. Read in month 36 when the consulting track activates. Chapter on secrets is particularly relevant to deep tech positioning.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ PROJECTS ══ -->
+<div class="panel" id="p7">
+  <div class="sec-label">6 projects · Months 25–48 · Each a portfolio centrepiece</div>
+  <div class="sec-title">Projects — operating at the frontier, publicly</div>
+  <div class="sec-sub">Phase 3 projects are not exercises. They are contributions. Each one should be something that did not exist before you built it, or something that extends the state of the art in a measurable way. Every project ends with a public writeup — blog post, preprint, or open-source release.</div>
+  <div class="proj-grid">
+    <div class="proj">
+      <div class="proj-num">Project 1 · Month 27</div>
+      <div class="proj-title">Quantum circuit classifier on real IBM hardware</div>
+      <div class="proj-desc">Train a variational quantum classifier on a real classification dataset (e.g. Iris or a financial fraud dataset). Run on IBM's real 127-qubit hardware. Compare performance against a classical SVM with the same kernel. Document noise effects, mitigation strategies, and the performance gap. Publish the full comparison on arXiv as a short paper.</div>
+      <div class="proj-stack">Stack: Qiskit · PennyLane · IBM Quantum · scikit-learn · arXiv</div>
+    </div>
+    <div class="proj">
+      <div class="proj-num">Project 2 · Month 30</div>
+      <div class="proj-title">QML portfolio optimizer (quantum finance)</div>
+      <div class="proj-desc">Implement Markowitz portfolio optimization using QAOA on a real Indian stock market dataset (NSE data via yfinance). Compare quantum annealing vs classical optimization on portfolios of 5, 10, 20 stocks. Document where quantum begins to show computational advantage in scaling. This is your first genuine quantum finance research result.</div>
+      <div class="proj-stack">Stack: Qiskit Finance · D-Wave Leap (free tier) · PennyLane · yfinance · Python</div>
+    </div>
+    <div class="proj">
+      <div class="proj-num">Project 3 · Month 33</div>
+      <div class="proj-title">Hybrid quantum-classical LLM fine-tuning</div>
+      <div class="proj-desc">Implement a hybrid architecture: classical transformer with quantum attention layers (using PennyLane's quantum layer integration). Fine-tune on a domain-specific dataset. Measure: does the quantum layer change the representation quality? This is publishable as a negative or positive result — both outcomes are novel and valuable.</div>
+      <div class="proj-stack">Stack: PyTorch · PennyLane · HuggingFace · W&B · Google Colab A100</div>
+    </div>
+    <div class="proj">
+      <div class="proj-num">Project 4 · Month 36</div>
+      <div class="proj-title">First arXiv preprint</div>
+      <div class="proj-desc">Submit a paper based on Project 1, 2, or 3 findings. Follow the 3-path framework: reproduction + extension, novel application, or rigorous negative result. Target: QTML workshop or NeurIPS Quantum track. Even a workshop acceptance transforms your professional positioning. The paper IS the project deliverable.</div>
+      <div class="proj-stack">Stack: LaTeX · arXiv · Overleaf (free) · Semantic Scholar</div>
+    </div>
+    <div class="proj">
+      <div class="proj-num">Project 5 · Month 40</div>
+      <div class="proj-title">Open-source QML toolkit for Indian finance</div>
+      <div class="proj-desc">Build and release an open-source Python library that wraps Qiskit and PennyLane for Indian financial data sources (NSE, BSE, RBI). Include: quantum portfolio optimization, quantum Monte Carlo for options pricing, and quantum time series encoding. Release on GitHub with full documentation and tutorials. This project becomes your consulting calling card.</div>
+      <div class="proj-stack">Stack: Qiskit · PennyLane · QuantLib · NSE/BSE APIs · ReadTheDocs</div>
+    </div>
+    <div class="proj">
+      <div class="proj-num">Project 6 · Month 45</div>
+      <div class="proj-title">Deep tech advisory report + public release</div>
+      <div class="proj-desc">Produce a 40-page "State of Quantum AI in India 2027" report — covering hardware landscape, software ecosystem, talent gap, industry applications, and a 5-year roadmap for Indian enterprises. Release free publicly, distribute to CDOs at 50 major Indian companies. This report, if well-researched, will be cited in board presentations and government policy documents. It is the brand-building project that opens every door.</div>
+      <div class="proj-stack">Output: PDF report · Substack series · LinkedIn document · Press coverage target</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ CONVERGENCE ══ -->
+<div class="panel" id="p8">
+  <div class="sec-label">The meta-layer · Months 36–48</div>
+  <div class="sec-title">Convergence — where the polymath identity crystallizes</div>
+  <div class="sec-sub">By month 36, you have: quantum computing foundations, QML research output, AI engineering depth (Phase 2), quant finance knowledge, and a growing public brand. The convergence layer is about explicitly connecting these — finding the problems that only someone with your exact combination can solve.</div>
+
+  <div class="convergence-grid">
+    <div class="conv-card" style="background:var(--color-background-secondary)">
+      <div class="conv-title">Quantum × ML × Finance</div>
+      <div class="conv-desc">Quantum speedup for risk simulation. Monte Carlo on quantum hardware for derivatives pricing. Quantum portfolio optimization at scale. This triple intersection has fewer than 100 practitioners worldwide.</div>
+    </div>
+    <div class="conv-card" style="background:var(--color-background-secondary)">
+      <div class="conv-title">AI Systems × Research</div>
+      <div class="conv-desc">MLOps for quantum-classical hybrid systems. Infrastructure for QML experimentation at scale. The engineering problems of running VQE on real hardware in a production loop. Nobody has solved this cleanly yet.</div>
+    </div>
+    <div class="conv-card" style="background:var(--color-background-secondary)">
+      <div class="conv-title">India-specific deep tech</div>
+      <div class="conv-desc">India's NASSCOM, DST, and MEITY are funding quantum initiatives. The National Quantum Mission (₹6000 Cr budget) needs technical advisors who understand both hardware reality and application potential. Your profile is exactly what these programs need.</div>
+    </div>
+    <div class="conv-card" style="background:var(--color-background-secondary)">
+      <div class="conv-title">The lecture invitation path</div>
+      <div class="conv-desc">IITs invite guest lecturers who have: (1) published research, (2) industry depth, and (3) a public intellectual presence. By month 42 you will have all three. Email the HoD of CSE/Physics at IIT Bhubaneswar, IIT Kharagpur, and IIT Bombay with your paper + portfolio. One will say yes. That yes leads to three more.</div>
+    </div>
+  </div>
+
+  <div class="insight" style="margin-top:1rem"><b>The Feynman test for Phase 3:</b> You have arrived at the polymath convergence point when you can give a 45-minute lecture to a room of ML engineers that teaches them quantum computing using only gradient descent and linear algebra as prerequisites — and give a 45-minute lecture to quantum physicists that teaches them why transformers work using only Hilbert space language as a prerequisite. Both lectures should be the same lecture. That is the Von Neumann translation ability. That is the brand. That is why the top universities invite you.</div>
+  <button class="btn-ask" onclick="sendPrompt('Help me design a 45-minute lecture on quantum computing for ML engineers using only gradient descent and linear algebra as prerequisites')">Design my quantum-for-ML-engineers lecture ↗</button>
+  <button class="btn-ask" onclick="sendPrompt('What are the open research problems at the intersection of quantum ML and finance that I could work on in Phase 3?')">Open research problems: QML × Finance ↗</button>
+</div>
+
+</div>
+</div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

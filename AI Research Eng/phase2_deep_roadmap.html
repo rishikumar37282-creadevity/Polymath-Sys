@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phase 2: Deep AI Engineering</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="layout">
+<a href="index.html" class="back-link">&larr; Back to Portal</a>
+<div class="root">
+<div class="tbar">
+  <div class="tc"><div class="tc-val">M1–3</div><div class="tc-lbl">PyTorch + DL Deep</div></div>
+  <div class="tc"><div class="tc-val">M3–5</div><div class="tc-lbl">LLMs + RAG + Agents</div></div>
+  <div class="tc"><div class="tc-val">M5–7</div><div class="tc-lbl">MLOps + Systems</div></div>
+  <div class="tc"><div class="tc-val">M7–10</div><div class="tc-lbl">AI Finance + Quant</div></div>
+  <div class="tc"><div class="tc-val">M10–14</div><div class="tc-lbl">Research + Papers</div></div>
+  <div class="tc"><div class="tc-val">All 18m</div><div class="tc-lbl">Math + Build + Write</div></div>
+</div>
+
+<div class="top-nav">
+  <button class="tn active" onclick="show(0)">🗺 Spine + Strategy</button>
+  <button class="tn" onclick="show(1)">🔥 PyTorch + DL</button>
+  <button class="tn" onclick="show(2)">💬 LLMs + RAG + Agents</button>
+  <button class="tn" onclick="show(3)">⚙ MLOps + Systems</button>
+  <button class="tn" onclick="show(4)">📈 AI x Finance</button>
+  <button class="tn" onclick="show(5)">🔬 Research Track</button>
+  <button class="tn" onclick="show(6)">📚 Books Master List</button>
+  <button class="tn" onclick="show(7)">🏗 Projects</button>
+  <button class="tn" onclick="show(8)">🧮 Math Continues</button>
+</div>
+
+<!-- ══════════════ SPINE ══════════════ -->
+<div class="panel active" id="p0">
+  <div class="sec">
+    <div class="sec-label">Phase 2 · Months 7–24</div>
+    <div class="sec-title">The single spine, four branches</div>
+    <div class="sec-sub">All four spikes you chose are real and compatible — but only if they're sequenced, not run in parallel. The spine is AI Product Builder (fastest ROI, uses all other skills). Each branch activates in order after the spine milestone before it is hit.</div>
+  </div>
+
+  <div class="cbox cbox-warn" style="margin-bottom:12px">
+    <b>The paralysis prevention rule for Phase 2:</b> You follow the spine sequence below. You do not open a Finance track resource while still in the LLM track. You do not start a Research paper while your MLOps project is undeployed. One track at a time. Branches activate on milestone completion, not on calendar date.
+  </div>
+
+  <div class="seq-flow">
+    <div class="sf active-seq">① PyTorch + Deep DL</div><div class="sf-arr">→</div>
+    <div class="sf active-seq">② LLMs + RAG + Agents</div><div class="sf-arr">→</div>
+    <div class="sf">③ MLOps + Systems</div><div class="sf-arr">→</div>
+    <div class="sf">④ AI × Finance</div><div class="sf-arr">→</div>
+    <div class="sf">⑤ Research Track</div>
+  </div>
+
+  <div class="step" id="sp0">
+    <div class="sh" onclick="tog('sp0')">
+      <div class="snum n-pt">①</div>
+      <div class="sinfo"><div class="stitle">Milestone to unlock track ②</div><div class="smeta">PyTorch + Deep Learning</div></div>
+      <div class="sarr" id="a-sp0">▼</div>
+    </div>
+    <div class="sbody" id="b-sp0">
+      <div style="font-size:13px;color:var(--color-text-secondary);line-height:1.7">You have unlocked track ② (LLMs + Agents) when you can:<br><br>
+      ✦ Build and train a custom neural network in pure PyTorch from scratch (no tutorial open)<br>
+      ✦ Implement backpropagation manually and explain every gradient step<br>
+      ✦ Fine-tune a pretrained HuggingFace model on a custom dataset and deploy it<br>
+      ✦ Have at least one model live on Hugging Face Spaces with a public URL<br><br>
+      If you cannot do all four without Googling the structure, you are not ready for track ②. Go back and build.
+      </div>
+    </div>
+  </div>
+
+  <div class="step" id="sp1">
+    <div class="sh" onclick="tog('sp1')">
+      <div class="snum n-ml">②</div>
+      <div class="sinfo"><div class="stitle">Milestone to unlock track ③</div><div class="smeta">LLMs + RAG + Agents</div></div>
+      <div class="sarr" id="a-sp1">▼</div>
+    </div>
+    <div class="sbody" id="b-sp1">
+      <div style="font-size:13px;color:var(--color-text-secondary);line-height:1.7">You have unlocked track ③ (MLOps + Systems) when you can:<br><br>
+      ✦ Build a production-grade RAG system with evaluation metrics (not just "it works")<br>
+      ✦ Build and deploy a multi-tool LLM agent that handles at least 3 real tasks<br>
+      ✦ Explain the difference between RAG, fine-tuning, and in-context learning — and when to use each<br>
+      ✦ Have a deployed LLM-powered app with real users (even 10 users counts)
+      </div>
+    </div>
+  </div>
+
+  <div class="step" id="sp2">
+    <div class="sh" onclick="tog('sp2')">
+      <div class="snum n-sys">③</div>
+      <div class="sinfo"><div class="stitle">Milestone to unlock track ④</div><div class="smeta">MLOps + Systems</div></div>
+      <div class="sarr" id="a-sp2">▼</div>
+    </div>
+    <div class="sbody" id="b-sp2">
+      <div style="font-size:13px;color:var(--color-text-secondary);line-height:1.7">You have unlocked track ④ (AI × Finance) when you can:<br><br>
+      ✦ Deploy a model with a full CI/CD pipeline (GitHub Actions → Docker → cloud)<br>
+      ✦ Set up experiment tracking with MLflow or W&B and explain every metric<br>
+      ✦ Design a system architecture diagram for a scalable ML platform (HLD + LLD)<br>
+      ✦ Monitor a deployed model for drift and trigger retraining automatically
+      </div>
+    </div>
+  </div>
+
+  <div class="insight"><b>Why AI Product Builder is the primary spine:</b> It is the only spike that generates income before year 3. MLOps skills make your products more credible. Finance/Quant is a vertical where your AI skills command 5–10x normal rates. Research builds the long-term moat. All four are correct — in that order.</div>
+  <button class="btn-ask" onclick="sendPrompt('How do I find my first 10 users for an AI product I build during Phase 2?')">How to find first 10 users for an AI product ↗</button>
+</div>
+
+<!-- ══════════════ PYTORCH ══════════════ -->
+<div class="panel" id="p1">
+  <div class="sec">
+    <div class="sec-label">Track ① · Months 7–9 (primary) + ongoing</div>
+    <div class="sec-title">PyTorch + Deep Learning — build the engine, not just drive it</div>
+    <div class="sec-sub">PyTorch is the framework of choice for research and production in 2025. TensorFlow/Keras comes after PyTorch — the concepts transfer directly and TF will take 20% of the time once you know PT. Do not rush this track. It is the foundation every other track builds on.</div>
+  </div>
+
+  <div class="cbox cbox-blue" style="margin-bottom:12px"><b>Sequence for this track:</b> Karpathy Zero to Hero → fast.ai Part 2 → PyTorch official tutorials → Deep Learning with PyTorch book → then TensorFlow/Keras as a second pass.</div>
+
+  <div class="step" id="s0">
+    <div class="sh" onclick="tog('s0')">
+      <div class="snum n-pt">1</div>
+      <div class="sinfo"><div class="stitle">Karpathy — Neural Networks: Zero to Hero</div><div class="smeta">🔴 PRIMARY · Start here · 6 videos · ~15 hrs</div></div>
+      <div class="sarr" id="a-s0">▼</div>
+    </div>
+    <div class="sbody" id="b-s0">
+      <div class="ri">
+        <div class="rico">▶</div>
+        <div class="rinfo">
+          <div class="rname">Neural Networks: Zero to Hero — Andrej Karpathy <span class="tag primary">Primary #1</span><span class="tag free">Free</span><span class="tag vid">YouTube</span></div>
+          <div class="rdesc">6 videos building everything from scratch: micrograd (autograd engine), makemore (bigram → MLP → RNN → transformer), nanoGPT. This is not a tutorial — it is a masterclass in thinking from first principles. By video 6 you will have built GPT-2 from scratch in pure Python. No other resource gives you this depth of understanding. Do every video. Reproduce every notebook without looking.</div>
+          <div class="rtags"><span class="tag seq">Watch 1: micrograd first</span></div>
+        </div>
+      </div>
+      <div class="cbox cbox-neutral">After completing this series, you will understand backprop, gradient descent, attention, and transformer architecture at the implementation level — not the conceptual level. This is what separates you from 95% of "AI engineers" who only call APIs.</div>
+    </div>
+  </div>
+
+  <div class="step" id="s1">
+    <div class="sh" onclick="tog('s1')">
+      <div class="snum n-pt">2</div>
+      <div class="sinfo"><div class="stitle">fast.ai Part 2 — Deep Learning Foundations to Stable Diffusion</div><div class="smeta">🔴 PRIMARY · After Karpathy · course.fast.ai</div></div>
+      <div class="sarr" id="a-s1">▼</div>
+    </div>
+    <div class="sbody" id="b-s1">
+      <div class="ri">
+        <div class="rico">▶</div>
+        <div class="rinfo">
+          <div class="rname">fast.ai Part 2 — From Deep Learning Foundations to Stable Diffusion <span class="tag primary">Primary #2</span><span class="tag free">Free</span></div>
+          <div class="rdesc">The companion to Part 1. Jeremy Howard builds Stable Diffusion from scratch — teaching diffusion models, CLIP, UNet, and the mathematics of generative models. More important: the course teaches you how to read papers and implement them, which is the core Phase 2 skill. Every lesson builds something from a research paper. Free at course.fast.ai.</div>
+        </div>
+      </div>
+      <div class="ri">
+        <div class="rico">📖</div>
+        <div class="rinfo">
+          <div class="rname">Deep Learning with PyTorch — Eli Stevens et al. <span class="tag primary">Primary Book</span><span class="tag free">Free PDF via Manning</span><span class="tag book">Book</span></div>
+          <div class="rdesc">Free PDF available at pytorch.org/assets/deep-learning/Deep-Learning-with-PyTorch.pdf — officially released by Manning and PyTorch. The best practical PyTorch book. Read Ch1–8 alongside fast.ai Part 2. Ch9–15 (medical imaging, time series, deployment) are reference material for your projects.</div>
+        </div>
+      </div>
+      <div class="ri">
+        <div class="rico">▶</div>
+        <div class="rinfo">
+          <div class="rname">PyTorch official tutorials — pytorch.org/tutorials <span class="tag free">Free</span><span class="tag tool">Docs</span></div>
+          <div class="rdesc">Official tutorials organized by topic: tensors, autograd, building neural networks, saving/loading models, transfer learning, deploying with TorchServe. Use as reference alongside your project work — not as a course to complete linearly. The "60 Minute Blitz" is worth doing in week 1.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="step" id="s2">
+    <div class="sh" onclick="tog('s2')">
+      <div class="snum n-pt">3</div>
+      <div class="sinfo"><div class="stitle">TensorFlow + Keras — second pass (after PyTorch)</div><div class="smeta">Months 10–11 · 3–4 weeks only</div></div>
+      <div class="sarr" id="a-s2">▼</div>
+    </div>
+    <div class="sbody" id="b-s2">
+      <div class="ri">
+        <div class="rico">📖</div>
+        <div class="rinfo">
+          <div class="rname">Deep Learning with Python — François Chollet <span class="tag primary">Primary Book</span><span class="tag book">Book</span></div>
+          <div class="rdesc">Written by the creator of Keras. The conceptual depth in this book is unmatched — Chollet's explanations of why deep learning works (not just how) are the clearest in print. Read it as a book, not a tutorial. The first 5 chapters alone are worth the price. Second edition covers transformers and diffusion models. After PyTorch, Keras will feel trivially easy — the value here is Chollet's thinking, not the syntax.</div>
+        </div>
+      </div>
+      <div class="ri">
+        <div class="rico">▶</div>
+        <div class="rinfo">
+          <div class="rname">TensorFlow Developer Certificate prep — free resources <span class="tag free">Free</span></div>
+          <div class="rdesc">Google's free TF tutorials at tensorflow.org/tutorials plus the DeepLearning.ai TensorFlow Developer course (audit free on Coursera). The certificate costs $100 — optional, but it is a recognized credential for enterprise AI roles. Treat TF as a 4-week sprint after your PyTorch foundation is solid.</div>
+        </div>
+      </div>
+      <div class="cbox cbox-neutral"><b>The PyTorch → TensorFlow transfer:</b> Every concept (tensors, autograd, layers, optimizers, callbacks) has a 1:1 equivalent. After 3 months of PyTorch your TF learning will take 3 weeks, not 3 months. This is why sequence matters more than trying to learn both simultaneously.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ LLMs ══════════════ -->
+<div class="panel" id="p2">
+  <div class="sec">
+    <div class="sec-label">Track ② · Months 9–12 · Primary spine</div>
+    <div class="sec-title">LLMs + RAG + Agents — the highest-value engineering skill of 2025–27</div>
+    <div class="sec-sub">This is where your AI Product Builder spike monetizes. Every enterprise is trying to build this and failing. You will be one of very few engineers who understands the math underneath AND can build production-grade systems around it.</div>
+  </div>
+
+  <div class="cbox cbox-blue" style="margin-bottom:12px"><b>Sequence:</b> LLM theory (Karpathy GPT) → Prompt engineering → RAG fundamentals → Advanced RAG + evaluation → Agents + tool use → Fine-tuning → Production deployment.</div>
+
+  <div class="step" id="s3">
+    <div class="sh" onclick="tog('s3')">
+      <div class="snum n-ml">1</div>
+      <div class="sinfo"><div class="stitle">LLM theory + architecture — build it to understand it</div><div class="smeta">🔴 PRIMARY · Weeks 1–3 of this track</div></div>
+      <div class="sarr" id="a-s3">▼</div>
+    </div>
+    <div class="sbody" id="b-s3">
+      <div class="ri">
+        <div class="rico">▶</div>
+        <div class="rinfo">
+          <div class="rname">Karpathy — Let's build GPT (YouTube) <span class="tag primary">Primary</span><span class="tag free">Free</span><span class="tag vid">YouTube</span></div>
+          <div class="rdesc">2-hour video. If you completed Zero to Hero in track ①, this is a direct continuation. Build GPT-2 from scratch: tokenization, embeddings, multi-head attention, positional encoding, layer norm, the full training loop. Watch twice — once to follow, once to rebuild from memory.</div>
+        </div>
+      </div>
+      <div class="ri">
+        <div class="rico">📖</div>
+        <div class="rinfo">
+          <div class="rname">Build a Large Language Model from Scratch — Sebastian Raschka <span class="tag primary">Primary Book</span><span class="tag book">Book</span></div>
+          <div class="rdesc">2024 book — the most current and practical LLM book available. Raschka builds a GPT-like LLM from scratch in PyTorch, covering: tokenization, attention mechanisms, pretraining, fine-tuning with RLHF, and instruction tuning. All code is on GitHub (free). This book is the bridge between Karpathy's videos and production LLM engineering. Read alongside track ② — one chapter per week minimum.</div>
+        </div>
+      </div>
+      <div class="ri">
+        <div class="rico">📄</div>
+        <div class="rinfo">
+          <div class="rname">Core papers to read in sequence <span class="tag free">Free on arXiv</span></div>
+          <div class="rdesc">Read in this order: (1) Attention Is All You Need (2017) — the transformer. (2) BERT (2018) — bidirectional encoders. (3) GPT-2 (2019) — scaling language models. (4) InstructGPT (2022) — RLHF. (5) LLaMA 2 (2023) — open-source foundation models. One paper per week. Use the Annotated Transformer at nlp.seas.harvard.edu for paper 1.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="step" id="s4">
+    <div class="sh" onclick="tog('s4')">
+      <div class="snum n-ml">2</div>
+      <div class="sinfo"><div class="stitle">RAG — production-grade systems with evaluation</div><div class="smeta">🔴 PRIMARY · Weeks 3–7 of this track</div></div>
+      <div class="sarr" id="a-s4">▼</div>
+    </div>
+    <div class="sbody" id="b-s4">
+      <div class="ri">
+        <div class="rico">▶</div>
+        <div class="rinfo">
+          <div class="rname">DeepLearning.ai — Building and Evaluating Advanced RAG <span class="tag primary">Primary</span><span class="tag free">Free</span></div>
+          <div class="rdesc">Free 1-hour course at deeplearning.ai/short-courses. Covers: sentence-window retrieval, auto-merging retrieval, RAG evaluation with TruEra/RAGAs. The evaluation piece is what separates a toy RAG from a production one. Most engineers skip evaluation entirely — don't.</div>
+        </div>
+      </div>
+      <div class="ri">
+        <div class="rico">▶</div>
+        <div class="rinfo">
+          <div class="rname">LangChain + LlamaIndex official docs + cookbooks <span class="tag free">Free</span><span class="tag tool">Framework</span></div>
+          <div class="rdesc">LangChain cookbook (github.com/langchain-ai/langchain/tree/master/cookbook) has 50+ real-world RAG patterns. LlamaIndex has an excellent structured outputs + query pipeline guide. Study both — LangChain for chains + agents, LlamaIndex for complex retrieval architectures. Know when to use each.</div>
+        </div>
+      </div>
+      <div class="ri">
+        <div class="rico">📖</div>
+        <div class="rinfo">
+          <div class="rname">Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks — Lewis et al. <span class="tag free">Free arXiv</span><span class="tag book">Paper</span></div>
+          <div class="rdesc">The original RAG paper (2020). Read it. Understanding why RAG was invented (hallucination, stale knowledge, opacity) makes you a better RAG engineer than any tutorial. 20-minute read, permanent insight.</div>
+        </div>
+      </div>
+      <div class="cbox cbox-success"><b>RAG evaluation stack (free):</b> RAGAs (ragas.io) for automated RAG evaluation metrics — faithfulness, answer relevancy, context recall. MTEB leaderboard for embedding model selection. LangSmith free tier for tracing and debugging chains. Set these up from day 1 of any RAG project — not as an afterthought.</div>
+    </div>
+  </div>
+
+  <div class="step" id="s5">
+    <div class="sh" onclick="tog('s5')">
+      <div class="snum n-ml">3</div>
+      <div class="sinfo"><div class="stitle">LLM Agents — autonomous systems that use tools</div><div class="smeta">Weeks 7–10 of this track</div></div>
+      <div class="sarr" id="a-s5">▼</div>
+    </div>
+    <div class="sbody" id="b-s5">
+      <div class="ri">
+        <div class="rico">▶</div>
+        <div class="rinfo">
+          <div class="rname">DeepLearning.ai — Functions, Tools and Agents with LangChain <span class="tag free">Free</span></div>
+          <div class="rdesc">Free short course. Covers: function calling, tool use, ReAct agents, OpenAI functions API, building multi-step agents. This is the prerequisite before building anything production-grade with agents.</div>
+        </div>
+      </div>
+      <div class="ri">
+        <div class="rico">▶</div>
+        <div class="rinfo">
+          <div class="rname">LangGraph documentation + examples <span class="tag free">Free</span><span class="tag tool">Framework</span></div>
+          <div class="rdesc">LangGraph is the current standard for stateful, multi-agent systems. Free docs at langchain-ai.github.io/langgraph. Study: state machines, conditional edges, human-in-the-loop, multi-agent orchestration. This is what enterprise AI consulting clients want built.</div>
+        </div>
+      </div>
+      <div class="ri">
+        <div class="rico">📄</div>
+        <div class="rinfo">
+          <div class="rname">ReAct: Synergizing Reasoning and Acting in LLMs — Yao et al. (2022) <span class="tag free">Free arXiv</span></div>
+          <div class="rdesc">The paper behind every modern LLM agent. Reason-Act-Observe loop. 15-minute read. After reading this, every agent framework will make complete sense — they're all implementing ReAct with different scaffolding.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="step" id="s6">
+    <div class="sh" onclick="tog('s6')">
+      <div class="snum n-ml">4</div>
+      <div class="sinfo"><div class="stitle">Fine-tuning — when and how to adapt foundation models</div><div class="smeta">Weeks 10–12 of this track</div></div>
+      <div class="sarr" id="a-s6">▼</div>
+    </div>
+    <div class="sbody" id="b-s6">
+      <div class="ri">
+        <div class="rico">▶</div>
+        <div class="rinfo">
+          <div class="rname">HuggingFace NLP Course — huggingface.co/learn/nlp-course <span class="tag primary">Primary</span><span class="tag free">Free</span></div>
+          <div class="rdesc">Completely free. The definitive guide to the HuggingFace ecosystem: tokenizers, datasets, Trainer API, PEFT, LoRA fine-tuning. Chapters 1–4 are essential. Chapter 7 (question answering + summarization fine-tuning) is directly applicable to your RAG projects. Run every notebook in Colab.</div>
+        </div>
+      </div>
+      <div class="ri">
+        <div class="rico">▶</div>
+        <div class="rinfo">
+          <div class="rname">LoRA + QLoRA papers + Tim Dettmers blog <span class="tag free">Free</span></div>
+          <div class="rdesc">LoRA paper (arxiv.org/abs/2106.09685) + QLoRA paper (arxiv.org/abs/2305.14314). Tim Dettmers' blog (timdettmers.com) is the clearest explanation of quantization and efficient fine-tuning. Together these give you the theory to fine-tune a 7B model on a free Colab T4 GPU — which you will do as a project.</div>
+        </div>
+      </div>
+      <div class="insight"><b>Fine-tuning vs RAG decision framework:</b> Use RAG when the knowledge changes frequently or is too large to fit in context. Use fine-tuning when you need to change the model's behavior, style, or reasoning pattern — not just its knowledge. Most production systems use both: fine-tuning for behavior, RAG for knowledge. Being able to articulate this distinction is worth ₹10L in consulting value per conversation.</div>
+      <button class="btn-ask" onclick="sendPrompt('Walk me through fine-tuning Llama 2 with QLoRA on a custom dataset using free Colab GPU')">Fine-tune Llama 2 with QLoRA on Colab ↗</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ MLOPS ══════════════ -->
+<div class="panel" id="p3">
+  <div class="sec">
+    <div class="sec-label">Track ③ · Months 12–14 · ML Systems Architect spike</div>
+    <div class="sec-title">MLOps + Systems — make your models production-grade</div>
+    <div class="sec-sub">MLOps is what turns a model that works on your laptop into a system that serves millions of requests reliably. It is also the skill that commands the highest consulting rates — because most ML teams can train models but very few can deploy and maintain them at scale.</div>
+  </div>
+
+  <div class="cbox cbox-blue" style="margin-bottom:12px"><b>Sequence:</b> Docker + containerization → CI/CD for ML → Experiment tracking → Model serving → Monitoring + drift detection → System design for ML platforms.</div>
+
+  <div class="step" id="s7">
+    <div class="sh" onclick="tog('s7')">
+      <div class="snum n-sys">1</div>
+      <div class="sinfo"><div class="stitle">MLOps fundamentals — the full stack</div><div class="smeta">🔴 PRIMARY resources</div></div>
+      <div class="sarr" id="a-s7">▼</div>
+    </div>
+    <div class="sbody" id="b-s7">
+      <div class="ri">
+        <div class="rico">📖</div>
+        <div class="rinfo">
+          <div class="rname">Designing Machine Learning Systems — Chip Huyen <span class="tag primary">Primary Book</span><span class="tag book">Book</span></div>
+          <div class="rdesc">The definitive MLOps book. Covers: data engineering, feature engineering, model development, deployment, monitoring, infrastructure. Written by a Stanford lecturer and practitioner. Read cover to cover — every chapter will make you a better AI systems architect. Not free but worth every rupee. Notebooks and resources free on GitHub (github.com/chiphuyen/dmls-book).</div>
+        </div>
+      </div>
+      <div class="ri">
+        <div class="rico">▶</div>
+        <div class="rinfo">
+          <div class="rname">Made With ML — madewithml.com <span class="tag primary">Primary</span><span class="tag free">Free</span></div>
+          <div class="rdesc">Free end-to-end MLOps course by Goku Mohandas. Covers: project structure, data versioning (DVC), experiment tracking (MLflow), model serving (FastAPI), CI/CD (GitHub Actions), testing ML systems, monitoring. Every concept has working code. The most practical free MLOps resource available.</div>
+        </div>
+      </div>
+      <div class="ri">
+        <div class="rico">▶</div>
+        <div class="rinfo">
+          <div class="rname">Full Stack Deep Learning — fullstackdeeplearning.com <span class="tag free">Free</span><span class="tag vid">Course</span></div>
+          <div class="rdesc">Free course covering: infrastructure, deployment, testing, monitoring, and team practices for ML. The 2022 version is fully free with lecture videos and labs. Particularly strong on: experiment management, data flywheels, and the cost of ML mistakes in production.</div>
+        </div>
+      </div>
+      <div class="ri">
+        <div class="rico">▶</div>
+        <div class="rinfo">
+          <div class="rname">Weights & Biases free courses — wandb.ai/courses <span class="tag free">Free</span></div>
+          <div class="rdesc">W&B offers free courses on: experiment tracking, hyperparameter tuning with sweeps, model registry, LLM monitoring. The "MLOps" course takes 4 hours and teaches you their platform (industry standard). W&B free tier is sufficient for all Phase 2 projects.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="step" id="s8">
+    <div class="sh" onclick="tog('s8')">
+      <div class="snum n-sys">2</div>
+      <div class="sinfo"><div class="stitle">System Design for ML — HLD + LLD for AI platforms</div><div class="smeta">Months 13–14</div></div>
+      <div class="sarr" id="a-s8">▼</div>
+    </div>
+    <div class="sbody" id="b-s8">
+      <div class="ri">
+        <div class="rico">📖</div>
+        <div class="rinfo">
+          <div class="rname">ML System Design — 300 case studies (GitHub) <span class="tag free">Free</span></div>
+          <div class="rdesc">github.com/eugeneyan/applied-ml — Eugene Yan's curated collection of 300+ papers and blog posts from companies (Google, Meta, Airbnb, Uber) about real ML system deployments. Study 2–3 case studies per week. For each: draw the architecture diagram yourself, identify the bottlenecks they solved, and ask how you'd build it differently.</div>
+        </div>
+      </div>
+      <div class="ri">
+        <div class="rico">📖</div>
+        <div class="rinfo">
+          <div class="rname">System Design Interview Vol 2 — Alex Xu <span class="tag book">Book</span></div>
+          <div class="rdesc">The ML-relevant chapters are: ad click prediction, recommendation systems, search ranking, video recommendation. Study these alongside the Chip Huyen book. Together they cover 90% of ML system design interview and consulting scenarios.</div>
+        </div>
+      </div>
+      <div class="insight"><b>The consulting angle of MLOps:</b> Every Indian enterprise with a data team (banks, e-commerce, logistics, healthtech) is sitting on trained models that never made it to production, or made it to production and are now silently degrading. An engineer who can audit their ML stack, identify the gap, and build the MLOps bridge is worth ₹10–30L per engagement. This is your path to ₹1Cr/month by year 4.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ FINANCE ══════════════ -->
+<div class="panel" id="p4">
+  <div class="sec">
+    <div class="sec-label">Track ④ · Months 14–18 · AI × Finance spike</div>
+    <div class="sec-title">AI × Finance + Quant — the highest per-hour rate you will ever charge</div>
+    <div class="sec-sub">Quant finance is where ML meets the highest-stakes, highest-paying domain on earth. A mid-level quant at a hedge fund earns more than a senior engineer at Google. Your path here runs through: financial mathematics → ML for time series → algorithmic trading → risk modelling.</div>
+  </div>
+
+  <div class="cbox cbox-warn" style="margin-bottom:12px"><b>Prerequisite gate:</b> Do not start this track without solid probability + statistics (Stat110 done), and at least one deployed ML project. Quant finance is applied probability + linear algebra at high speed. The math is not optional here.</div>
+
+  <div class="step" id="s9">
+    <div class="sh" onclick="tog('s9')">
+      <div class="snum n-fin">1</div>
+      <div class="sinfo"><div class="stitle">Quantitative finance foundations</div><div class="smeta">🔴 PRIMARY resources</div></div>
+      <div class="sarr" id="a-s9">▼</div>
+    </div>
+    <div class="sbody" id="b-s9">
+      <div class="ri">
+        <div class="rico">📖</div>
+        <div class="rinfo">
+          <div class="rname">Quantitative Finance with Python — Chris Kelliher <span class="tag primary">Primary Book</span><span class="tag book">Book</span></div>
+          <div class="rdesc">Bridges Python + finance directly. Covers: options pricing, Monte Carlo simulation, portfolio optimization, risk metrics (VaR, CVaR), and time series models — all in Python. Perfect entry point because it assumes programming ability and builds finance intuition from first principles.</div>
+        </div>
+      </div>
+      <div class="ri">
+        <div class="rico">📖</div>
+        <div class="rinfo">
+          <div class="rname">Options, Futures and Other Derivatives — John Hull <span class="tag primary">Primary Book</span><span class="tag book">Book · "The Hull"</span></div>
+          <div class="rdesc">The definitive derivatives textbook used at every top finance program. Not light reading — but every quant is expected to have read it. Focus on: Part 1 (foundations), Ch12–15 (Black-Scholes, Greeks), Ch18–19 (volatility smiles). The Hull is your "Strang for linear algebra" equivalent for quant finance.</div>
+        </div>
+      </div>
+      <div class="ri">
+        <div class="rico">▶</div>
+        <div class="rinfo">
+          <div class="rname">Quantopian Lectures — free archive on GitHub <span class="tag free">Free</span></div>
+          <div class="rdesc">Quantopian's entire educational archive (50+ lectures) is free on GitHub at github.com/quantopian/research_public. Covers: means testing, linear regression, time series analysis, pairs trading, risk factor models, Kalman filters. Essential practical quant knowledge, all in Jupyter notebooks.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="step" id="s10">
+    <div class="sh" onclick="tog('s10')">
+      <div class="snum n-fin">2</div>
+      <div class="sinfo"><div class="stitle">ML for finance — time series, signals, deep learning</div><div class="smeta">Months 15–17</div></div>
+      <div class="sarr" id="a-s10">▼</div>
+    </div>
+    <div class="sbody" id="b-s10">
+      <div class="ri">
+        <div class="rico">📖</div>
+        <div class="rinfo">
+          <div class="rname">Advances in Financial Machine Learning — Marcos Lopez de Prado <span class="tag primary">Primary Book</span><span class="tag book">Book</span></div>
+          <div class="rdesc">The most important ML+Finance book of the last decade. Written by a managing director at AQR. Covers: labeling financial data correctly (the biggest ML-in-finance mistake), feature engineering for financial signals, cross-validation for time series, ensemble methods for alpha generation. Hard reading — but every chapter is a competitive advantage over the hundreds of quants who only know classical finance methods.</div>
+        </div>
+      </div>
+      <div class="ri">
+        <div class="rico">▶</div>
+        <div class="rinfo">
+          <div class="rname">QuantLib Python + zipline-reloaded — open source backtesting <span class="tag free">Free</span><span class="tag tool">Library</span></div>
+          <div class="rdesc">QuantLib is the industry-standard quantitative finance library. zipline-reloaded is the maintained fork of Quantopian's backtesting engine. Together they let you build and test real trading strategies. Project: implement a pairs trading strategy with proper walk-forward validation.</div>
+        </div>
+      </div>
+      <div class="ri">
+        <div class="rico">▶</div>
+        <div class="rinfo">
+          <div class="rname">Auquan + QuantConnect — free algorithmic trading platforms <span class="tag free">Free</span></div>
+          <div class="rdesc">QuantConnect (quantconnect.com) is free with cloud backtesting on 20+ years of data. Build and backtest your ML trading strategies here. The community forum is one of the best quant learning resources — real practitioners posting real strategies and problems.</div>
+        </div>
+      </div>
+      <div class="insight"><b>The Nash angle:</b> John Nash's game theory → equilibrium pricing → options theory → modern derivatives markets. The path from Nash's mathematics to quant finance is direct and beautiful. When you study options pricing (Black-Scholes), you are literally seeing Nash's mathematical thinking applied to financial markets. This is the cross-domain connection that makes you a genuine polymath — not just someone who studied both.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ RESEARCH ══════════════ -->
+<div class="panel" id="p5">
+  <div class="sec">
+    <div class="sec-label">Track ⑤ · Months 18–24 · Applied AI Researcher spike</div>
+    <div class="sec-title">Research Track — reading papers, reproducing results, contributing</div>
+    <div class="sec-sub">The research track is not about becoming an academic. It is about developing the ability to extract value from papers before they become products — a 12–18 month competitive window that most engineers never access.</div>
+  </div>
+
+  <div class="step" id="s11">
+    <div class="sh" onclick="tog('s11')">
+      <div class="snum n-res">1</div>
+      <div class="sinfo"><div class="stitle">How to read ML papers — the actual skill</div><div class="smeta">🔴 PRIMARY · Build this skill before month 18</div></div>
+      <div class="sarr" id="a-s11">▼</div>
+    </div>
+    <div class="sbody" id="b-s11">
+      <div class="ri">
+        <div class="rico">▶</div>
+        <div class="rinfo">
+          <div class="rname">Andrew Ng — How to read research papers (YouTube) <span class="tag primary">Primary</span><span class="tag free">Free</span></div>
+          <div class="rdesc">20-minute video. Ng's 3-pass method: (1) title + abstract + conclusion only, (2) read without equations, (3) full technical reading. This single video will 10x your paper reading speed. Watch before you attempt to read any paper seriously.</div>
+        </div>
+      </div>
+      <div class="ri">
+        <div class="rico">▶</div>
+        <div class="rinfo">
+          <div class="rname">Papers With Code — paperswithcode.com <span class="tag free">Free</span><span class="tag tool">Platform</span></div>
+          <div class="rdesc">Every major ML paper linked to its official code implementation. Use this for all paper reading — read the paper, then immediately open the code. The repository is indexed by task, dataset, and method. The "Methods" section is a structured encyclopedia of ML techniques — bookmark it.</div>
+        </div>
+      </div>
+      <div class="ri">
+        <div class="rico">▶</div>
+        <div class="rinfo">
+          <div class="rname">Yannic Kilcher — paper explanations (YouTube) <span class="tag free">Free</span><span class="tag vid">YouTube</span></div>
+          <div class="rdesc">Best YouTube channel for ML paper walkthroughs. Kilcher reads through papers live, explaining every equation and design decision. Use for any paper you find confusing after your own read. His GPT-4 technical report, AlphaFold, and diffusion model videos are essential.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="step" id="s12">
+    <div class="sh" onclick="tog('s12')">
+      <div class="snum n-res">2</div>
+      <div class="sinfo"><div class="stitle">The 20 papers that define modern AI — reading sequence</div><div class="smeta">2 papers/month from month 10 onward</div></div>
+      <div class="sarr" id="a-s12">▼</div>
+    </div>
+    <div class="sbody" id="b-s12">
+      <div style="font-size:13px;color:var(--color-text-secondary);line-height:1.9">
+        Read in this sequence — each paper builds on the last:<br><br>
+        <b style="color:var(--color-text-primary)">Foundation:</b> Attention Is All You Need · BERT · GPT-2 · GPT-3<br>
+        <b style="color:var(--color-text-primary)">Efficient models:</b> LoRA · QLoRA · Mistral 7B · LLaMA 2<br>
+        <b style="color:var(--color-text-primary)">Alignment:</b> InstructGPT · Constitutional AI (Anthropic) · RLHF survey<br>
+        <b style="color:var(--color-text-primary)">Agents:</b> ReAct · Toolformer · AutoGPT architecture<br>
+        <b style="color:var(--color-text-primary)">Multimodal:</b> CLIP · DALL-E · Flamingo<br>
+        <b style="color:var(--color-text-primary)">Quant+AI bridge:</b> Temporal Fusion Transformers · N-BEATS (time series DL)
+      </div>
+      <div class="cbox cbox-neutral" style="margin-top:10px"><b>For each paper:</b> Read → summarize in 5 sentences in Obsidian → find the code on Papers With Code → run it → modify one hyperparameter and observe the effect → write a LinkedIn post about what surprised you. This loop makes you a researcher, not just a reader.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ BOOKS ══════════════ -->
+<div class="panel" id="p6">
+  <div class="sec">
+    <div class="sec-label">Complete reading list · Phase 2</div>
+    <div class="sec-title">Books master list — primary vs reference</div>
+    <div class="sec-sub">Red border = primary (read cover to cover in sequence). No border = reference (use when you need it). Ordered by when to read them in Phase 2.</div>
+  </div>
+  <div class="bshelf">
+    <div class="bcard primary-book">
+      <div class="btitle">Deep Learning with PyTorch</div>
+      <div class="bauthor">Stevens, Antiga, Viehmann · Free PDF</div>
+      <div class="bwhy">🔴 Primary #1. Read Ch1–8 in months 7–9. The official PyTorch book. Every concept has working code.</div>
+    </div>
+    <div class="bcard primary-book">
+      <div class="btitle">Build a Large Language Model from Scratch</div>
+      <div class="bauthor">Sebastian Raschka · 2024</div>
+      <div class="bwhy">🔴 Primary #2. Read in months 9–11. Builds GPT from scratch in PyTorch. Most current LLM book available.</div>
+    </div>
+    <div class="bcard primary-book">
+      <div class="btitle">Designing Machine Learning Systems</div>
+      <div class="bauthor">Chip Huyen · O'Reilly</div>
+      <div class="bwhy">🔴 Primary #3. Read in months 12–14. The MLOps bible. Every page is directly applicable to your projects.</div>
+    </div>
+    <div class="bcard primary-book">
+      <div class="btitle">Deep Learning with Python (2nd ed.)</div>
+      <div class="bauthor">François Chollet · Manning</div>
+      <div class="bwhy">🔴 Primary #4. Read in months 10–11 (TF track). Chollet's conceptual depth is unmatched. The first 5 chapters alone are worth the price.</div>
+    </div>
+    <div class="bcard primary-book">
+      <div class="btitle">Advances in Financial Machine Learning</div>
+      <div class="bauthor">Marcos Lopez de Prado</div>
+      <div class="bwhy">🔴 Primary #5. Read in months 15–17. The most important ML+Finance book of the decade. Hard but essential.</div>
+    </div>
+    <div class="bcard primary-book">
+      <div class="btitle">Options, Futures and Other Derivatives</div>
+      <div class="bauthor">John Hull · "The Hull"</div>
+      <div class="bwhy">🔴 Primary #6 (Finance). Read Ch1–5, 12–15, 18–19. The quant finance bible. Every professional is expected to have read it.</div>
+    </div>
+    <div class="bcard">
+      <div class="btitle">The Deep Learning Book</div>
+      <div class="bauthor">Goodfellow, Bengio, Courville · Free online</div>
+      <div class="bwhy">Reference. Use Ch6–9 (deep feedforward, regularization, optimization) when you need theoretical depth. Free at deeplearningbook.org.</div>
+    </div>
+    <div class="bcard">
+      <div class="btitle">Mathematics for Machine Learning</div>
+      <div class="bauthor">Deisenroth et al. · Free PDF</div>
+      <div class="bwhy">Reference. Use when a math concept in any track needs deeper grounding. Free at mml-book.github.io.</div>
+    </div>
+    <div class="bcard">
+      <div class="btitle">Probabilistic Machine Learning: An Introduction</div>
+      <div class="bauthor">Kevin Murphy · Free PDF</div>
+      <div class="bwhy">Reference. The most comprehensive ML textbook available. Use Ch1–5 for Bayesian foundations, Ch17–18 for deep generative models. Free at probml.ai.</div>
+    </div>
+    <div class="bcard">
+      <div class="btitle">Quantitative Finance with Python</div>
+      <div class="bauthor">Chris Kelliher</div>
+      <div class="bwhy">Reference (Finance track). Python-first entry into quant finance. Read before The Hull to build intuition.</div>
+    </div>
+    <div class="bcard">
+      <div class="btitle">The Feynman Lectures on Physics Vol. 1</div>
+      <div class="bauthor">Feynman · Free online</div>
+      <div class="bwhy">Weekend reading throughout Phase 2. Not a textbook — a model of how a genius thinks. Free at feynmanlectures.caltech.edu.</div>
+    </div>
+    <div class="bcard">
+      <div class="btitle">Gödel, Escher, Bach</div>
+      <div class="bauthor">Douglas Hofstadter</div>
+      <div class="bwhy">Read any time. The most important book for developing polymath thinking. Connects math, music, logic, and consciousness through strange loops.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ PROJECTS ══════════════ -->
+<div class="panel" id="p7">
+  <div class="sec">
+    <div class="sec-label">6 projects · Months 7–24 · All deployed publicly</div>
+    <div class="sec-title">Projects — your proof of work to the world</div>
+    <div class="sec-sub">Every project must be: (1) deployed with a public URL, (2) documented with a clear README, (3) announced on LinkedIn with a technical insight. Projects without deployment do not count as portfolio items.</div>
+  </div>
+  <div class="proj-grid">
+    <div class="proj">
+      <div class="proj-num">Project 1 · Month 8</div>
+      <div class="proj-title">nanoGPT from scratch</div>
+      <div class="proj-desc">Reproduce Karpathy's nanoGPT and train it on a custom corpus (e.g. all of your Obsidian notes, or Indian financial news). Document every architectural decision. This is your proof that you understand transformers at implementation level.</div>
+      <div class="proj-stack">Stack: Pure PyTorch · Python · GitHub · Colab GPU</div>
+    </div>
+    <div class="proj">
+      <div class="proj-num">Project 2 · Month 10</div>
+      <div class="proj-title">Production RAG with evaluation dashboard</div>
+      <div class="proj-desc">RAG system over a real document corpus with RAGAs evaluation metrics, a Streamlit dashboard showing retrieval quality, and a public API. Not a tutorial RAG — a system you can show a client with confidence scores and latency metrics.</div>
+      <div class="proj-stack">Stack: LangChain · ChromaDB · FastAPI · RAGAs · HuggingFace Spaces</div>
+    </div>
+    <div class="proj">
+      <div class="proj-num">Project 3 · Month 11</div>
+      <div class="proj-title">Fine-tuned domain LLM (QLoRA)</div>
+      <div class="proj-desc">Fine-tune Llama 2 or Mistral 7B with QLoRA on a domain-specific dataset (Indian legal texts, medical Q&A, or financial reports). Deploy on HuggingFace. Document the training curves, evaluation metrics, and cost breakdown.</div>
+      <div class="proj-stack">Stack: PyTorch · HuggingFace PEFT · QLoRA · W&B · Colab</div>
+    </div>
+    <div class="proj">
+      <div class="proj-num">Project 4 · Month 13</div>
+      <div class="proj-title">Multi-agent AI system (LangGraph)</div>
+      <div class="proj-desc">A LangGraph-based multi-agent system that solves a real business problem: e.g. an agent that reads financial reports, extracts key metrics, generates analysis, and flags anomalies. Include a human-in-the-loop approval step.</div>
+      <div class="proj-stack">Stack: LangGraph · LangChain · FastAPI · Docker · Railway</div>
+    </div>
+    <div class="proj">
+      <div class="proj-num">Project 5 · Month 16</div>
+      <div class="proj-title">Algorithmic trading strategy (ML-based)</div>
+      <div class="proj-desc">A pairs trading or momentum strategy using ML signals (XGBoost or LSTM). Properly backtested with walk-forward validation on QuantConnect. Document the hypothesis, feature engineering, and Sharpe ratio. This project alone can open quant finance doors.</div>
+      <div class="proj-stack">Stack: Python · QuantConnect · scikit-learn · PyTorch · QuantLib</div>
+    </div>
+    <div class="proj">
+      <div class="proj-num">Project 6 · Month 20</div>
+      <div class="proj-title">Full MLOps pipeline (end-to-end)</div>
+      <div class="proj-desc">A complete ML platform: data versioning (DVC), experiment tracking (MLflow/W&B), model serving (FastAPI + Docker), CI/CD (GitHub Actions), monitoring (Evidently AI for drift). Deploy and write a detailed technical blog post. This is your ML Systems Architect portfolio centrepiece.</div>
+      <div class="proj-stack">Stack: DVC · MLflow · FastAPI · Docker · GitHub Actions · Evidently AI</div>
+    </div>
+  </div>
+  <button class="btn-ask" onclick="sendPrompt('Give me a detailed build plan for the production RAG with evaluation dashboard project')">Build plan: Production RAG + eval dashboard ↗</button>
+  <button class="btn-ask" onclick="sendPrompt('Give me a detailed build plan for the multi-agent LangGraph system project')">Build plan: Multi-agent LangGraph system ↗</button>
+</div>
+
+<!-- ══════════════ MATH ══════════════ -->
+<div class="panel" id="p8">
+  <div class="sec">
+    <div class="sec-label">Continues from Phase 1 · 30–45 min/day throughout</div>
+    <div class="sec-title">Math in Phase 2 — deepening the spine</div>
+    <div class="sec-sub">Phase 1 math gave you linear algebra + probability + calculus. Phase 2 math deepens each for the specific domains you're entering. Still 30–45 min every morning. Still before anything else.</div>
+  </div>
+
+  <div class="step" id="s13">
+    <div class="sh" onclick="tog('s13')">
+      <div class="snum n-math">M1</div>
+      <div class="sinfo"><div class="stitle">Information theory + optimization — for deep learning</div><div class="smeta">Months 7–10 · 30 min/day</div></div>
+      <div class="sarr" id="a-s13">▼</div>
+    </div>
+    <div class="sbody" id="b-s13">
+      <div class="ri">
+        <div class="rico">▶</div>
+        <div class="rinfo">
+          <div class="rname">Information Theory, Inference and Learning Algorithms — David MacKay <span class="tag primary">Primary</span><span class="tag free">Free PDF at inference.org.uk</span><span class="tag book">Book</span></div>
+          <div class="rdesc">One of the most beautiful technical books ever written. Covers: entropy, mutual information, Bayesian inference, neural networks, error-correcting codes. Read Ch1–5 (information theory foundations) and Ch29–31 (neural networks). MacKay was a Cambridge professor who died in 2016 — his book is his permanent gift. Free at inference.org.uk/mackay/itila.</div>
+        </div>
+      </div>
+      <div class="ri">
+        <div class="rico">▶</div>
+        <div class="rinfo">
+          <div class="rname">Convex Optimization — Boyd and Vandenberghe <span class="tag free">Free PDF at stanford.edu</span></div>
+          <div class="rdesc">The canonical optimization textbook. Free at stanford.edu/~boyd/cvxbook. Chapters 1–5 give you the mathematical foundation for understanding why gradient descent works, when it doesn't, and what alternatives exist. Used directly in understanding training dynamics and loss landscape geometry.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="step" id="s14">
+    <div class="sh" onclick="tog('s14')">
+      <div class="snum n-math">M2</div>
+      <div class="sinfo"><div class="stitle">Stochastic calculus + time series — for quant finance</div><div class="smeta">Months 14–17 · activates with Finance track</div></div>
+      <div class="sarr" id="a-s14">▼</div>
+    </div>
+    <div class="sbody" id="b-s14">
+      <div class="ri">
+        <div class="rico">📖</div>
+        <div class="rinfo">
+          <div class="rname">Stochastic Calculus for Finance I + II — Shreve <span class="tag primary">Primary Book</span><span class="tag book">Book</span></div>
+          <div class="rdesc">The standard graduate-level stochastic calculus text used at every top quant program. Vol I covers discrete-time models (binomial trees, risk-neutral pricing). Vol II covers continuous-time (Brownian motion, Itô's lemma, Black-Scholes derivation). Read Vol I first. The Black-Scholes derivation in Vol II is one of the most beautiful pieces of applied mathematics you will ever read.</div>
+        </div>
+      </div>
+      <div class="ri">
+        <div class="rico">▶</div>
+        <div class="rinfo">
+          <div class="rname">Forecasting: Principles and Practice — Hyndman (free online) <span class="tag free">Free at otexts.com/fpp3</span></div>
+          <div class="rdesc">The best free time series book. Covers: decomposition, ETS, ARIMA, regression with ARIMA errors, dynamic regression, neural network forecasting. Directly applicable to your ML trading strategy project. Read Ch1–9 before starting Project 5.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="step" id="s15">
+    <div class="sh" onclick="tog('s15')">
+      <div class="snum n-math">M3</div>
+      <div class="sinfo"><div class="stitle">Linear algebra — advanced topics connecting to quantum</div><div class="smeta">Months 18–24 · planting the Phase 3 seed</div></div>
+      <div class="sarr" id="a-s15">▼</div>
+    </div>
+    <div class="sbody" id="b-s15">
+      <div class="ri">
+        <div class="rico">📖</div>
+        <div class="rinfo">
+          <div class="rname">Linear Algebra Done Right — Sheldon Axler <span class="tag primary">Primary Book</span><span class="tag book">Book · Free 4th ed. PDF</span></div>
+          <div class="rdesc">Free PDF of 4th edition at linear.axler.net. Axler builds linear algebra on linear maps rather than matrices — the approach used in quantum mechanics and functional analysis. This is the bridge book between Phase 2 linear algebra and Phase 3 quantum computing. Every theorem feels inevitable rather than arbitrary. Read in the final 6 months of Phase 2 as you prepare for the quantum track.</div>
+        </div>
+      </div>
+      <div class="insight"><b>The connecting insight for Phase 3:</b> Quantum states are vectors in a complex Hilbert space. Quantum operations are unitary linear operators. Measurement is projection onto an eigenspace. Entanglement is a tensor product structure. If you understand Axler's linear algebra, you already understand 70% of the mathematics of quantum computing — you just need to extend it to complex vector spaces. This is why the Phase 2 math investment pays off in Phase 3.</div>
+    </div>
+  </div>
+</div>
+
+</div>
+</div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
