@@ -107,6 +107,48 @@
 
 <!-- ══════════════ PYTORCH ══════════════ -->
 <div class="panel" id="p1">
+  <div class="arch-container">
+    <div class="arch-header">
+      <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+      Transformer Architecture Deep-Dive
+    </div>
+    <div class="arch-body">
+      First proposed in the 2017 paper "Attention Is All You Need", the transformer removed recurrent layers entirely, relying exclusively on an attention mechanism to model global dependencies.
+    </div>
+    <div class="mermaid">
+      graph LR
+          classDef input fill:#1a5c1a,stroke:#3c933c,stroke-width:2px,color:#fff;
+          classDef block fill:#174ea6,stroke:#4a82da,stroke-width:2px,color:#fff;
+          classDef attention fill:#5a1b7a,stroke:#8a4bAa,stroke-width:2px,color:#fff;
+          classDef feedfw fill:#8b1a1a,stroke:#cb4a4a,stroke-width:2px,color:#fff;
+
+          subgraph "Encoder Block (N layers)"
+              Inp[Input Embeddings] --> Pos[Positional Encoding]
+              Pos --> MHA1(Multi-Head Self-Attention)
+              MHA1 --> AddNorm1((Add & Norm))
+              AddNorm1 --> FFN1(Feed Forward Network)
+              FFN1 --> AddNorm2((Add & Norm))
+          end
+
+          subgraph "Decoder Block (N layers)"
+              Out[Output Embeddings] --> Pos2[Positional Encoding]
+              Pos2 --> MMHA(Masked Multi-Head Attention)
+              MMHA --> AddNorm3((Add & Norm))
+              AddNorm2 -. "Key / Value" .-> CA(Cross-Attention)
+              AddNorm3 -. "Query" .-> CA
+              CA --> AddNorm4((Add & Norm))
+              AddNorm4 --> FFN2(Feed Forward Network)
+              FFN2 --> AddNorm5((Add & Norm))
+              AddNorm5 --> Linear[Linear Layer]
+              Linear --> Softmax[Softmax Probabilities]
+          end
+
+          class Inp,Out,Pos,Pos2 input
+          class MHA1,MMHA,CA attention
+          class AddNorm1,AddNorm2,AddNorm3,AddNorm4,AddNorm5 block
+          class FFN1,FFN2,Linear,Softmax feedfw
+    </div>
+  </div>
   <div class="sec">
     <div class="sec-label">Track ① · Months 7–9 (primary) + ongoing</div>
     <div class="sec-title">PyTorch + Deep Learning — build the engine, not just drive it</div>
@@ -123,7 +165,7 @@
     </div>
     <div class="sbody" id="b-s0">
       <div class="ri">
-        <div class="rico">▶</div>
+        <div class="rico"><svg class="res-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg></div>
         <div class="rinfo">
           <div class="rname">Neural Networks: Zero to Hero — Andrej Karpathy <span class="tag primary">Primary #1</span><span class="tag free">Free</span><span class="tag vid">YouTube</span></div>
           <div class="rdesc">6 videos building everything from scratch: micrograd (autograd engine), makemore (bigram → MLP → RNN → transformer), nanoGPT. This is not a tutorial — it is a masterclass in thinking from first principles. By video 6 you will have built GPT-2 from scratch in pure Python. No other resource gives you this depth of understanding. Do every video. Reproduce every notebook without looking.</div>
@@ -142,23 +184,23 @@
     </div>
     <div class="sbody" id="b-s1">
       <div class="ri">
-        <div class="rico">▶</div>
+        <div class="rico"><svg class="res-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg></div>
         <div class="rinfo">
-          <div class="rname">fast.ai Part 2 — From Deep Learning Foundations to Stable Diffusion <span class="tag primary">Primary #2</span><span class="tag free">Free</span></div>
+          <div class="rname"><a href="https://course.fast.ai/" target="_blank" class="res-link">fast.ai Part 2 — From Deep Learning Foundations to Stable Diffusion <span class="res-link-arrow">&nearr;</span></a>  <span class="tag primary">Primary #2</span><span class="tag free">Free</span></div>
           <div class="rdesc">The companion to Part 1. Jeremy Howard builds Stable Diffusion from scratch — teaching diffusion models, CLIP, UNet, and the mathematics of generative models. More important: the course teaches you how to read papers and implement them, which is the core Phase 2 skill. Every lesson builds something from a research paper. Free at course.fast.ai.</div>
         </div>
       </div>
       <div class="ri">
-        <div class="rico">📖</div>
+        <div class="rico"><svg class="res-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></div>
         <div class="rinfo">
-          <div class="rname">Deep Learning with PyTorch — Eli Stevens et al. <span class="tag primary">Primary Book</span><span class="tag free">Free PDF via Manning</span><span class="tag book">Book</span></div>
+          <div class="rname"><a href="https://pytorch.org/assets/deep-learning/Deep-Learning-with-PyTorch.pdf" target="_blank" class="res-link">Deep Learning with PyTorch — Eli Stevens et al. <span class="res-link-arrow">&nearr;</span></a>  <span class="tag primary">Primary Book</span><span class="tag free">Free PDF via Manning</span><span class="tag book">Book</span></div>
           <div class="rdesc">Free PDF available at pytorch.org/assets/deep-learning/Deep-Learning-with-PyTorch.pdf — officially released by Manning and PyTorch. The best practical PyTorch book. Read Ch1–8 alongside fast.ai Part 2. Ch9–15 (medical imaging, time series, deployment) are reference material for your projects.</div>
         </div>
       </div>
       <div class="ri">
-        <div class="rico">▶</div>
+        <div class="rico"><svg class="res-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg></div>
         <div class="rinfo">
-          <div class="rname">PyTorch official tutorials — pytorch.org/tutorials <span class="tag free">Free</span><span class="tag tool">Docs</span></div>
+          <div class="rname"><a href="https://pytorch.org/tutorials/" target="_blank" class="res-link">PyTorch official tutorials — pytorch.org/tutorials <span class="res-link-arrow">&nearr;</span></a>  <span class="tag free">Free</span><span class="tag tool">Docs</span></div>
           <div class="rdesc">Official tutorials organized by topic: tensors, autograd, building neural networks, saving/loading models, transfer learning, deploying with TorchServe. Use as reference alongside your project work — not as a course to complete linearly. The "60 Minute Blitz" is worth doing in week 1.</div>
         </div>
       </div>
@@ -173,14 +215,14 @@
     </div>
     <div class="sbody" id="b-s2">
       <div class="ri">
-        <div class="rico">📖</div>
+        <div class="rico"><svg class="res-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></div>
         <div class="rinfo">
           <div class="rname">Deep Learning with Python — François Chollet <span class="tag primary">Primary Book</span><span class="tag book">Book</span></div>
           <div class="rdesc">Written by the creator of Keras. The conceptual depth in this book is unmatched — Chollet's explanations of why deep learning works (not just how) are the clearest in print. Read it as a book, not a tutorial. The first 5 chapters alone are worth the price. Second edition covers transformers and diffusion models. After PyTorch, Keras will feel trivially easy — the value here is Chollet's thinking, not the syntax.</div>
         </div>
       </div>
       <div class="ri">
-        <div class="rico">▶</div>
+        <div class="rico"><svg class="res-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg></div>
         <div class="rinfo">
           <div class="rname">TensorFlow Developer Certificate prep — free resources <span class="tag free">Free</span></div>
           <div class="rdesc">Google's free TF tutorials at tensorflow.org/tutorials plus the DeepLearning.ai TensorFlow Developer course (audit free on Coursera). The certificate costs $100 — optional, but it is a recognized credential for enterprise AI roles. Treat TF as a 4-week sprint after your PyTorch foundation is solid.</div>
@@ -209,23 +251,23 @@
     </div>
     <div class="sbody" id="b-s3">
       <div class="ri">
-        <div class="rico">▶</div>
+        <div class="rico"><svg class="res-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg></div>
         <div class="rinfo">
-          <div class="rname">Karpathy — Let's build GPT (YouTube) <span class="tag primary">Primary</span><span class="tag free">Free</span><span class="tag vid">YouTube</span></div>
+          <div class="rname"><a href="https://www.youtube.com/watch?v=kCc8FmEb1nY" target="_blank" class="res-link">Karpathy — Let's build GPT (YouTube) <span class="res-link-arrow">&nearr;</span></a>  <span class="tag primary">Primary</span><span class="tag free">Free</span><span class="tag vid">YouTube</span></div>
           <div class="rdesc">2-hour video. If you completed Zero to Hero in track ①, this is a direct continuation. Build GPT-2 from scratch: tokenization, embeddings, multi-head attention, positional encoding, layer norm, the full training loop. Watch twice — once to follow, once to rebuild from memory.</div>
         </div>
       </div>
       <div class="ri">
-        <div class="rico">📖</div>
+        <div class="rico"><svg class="res-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></div>
         <div class="rinfo">
-          <div class="rname">Build a Large Language Model from Scratch — Sebastian Raschka <span class="tag primary">Primary Book</span><span class="tag book">Book</span></div>
+          <div class="rname"><a href="https://github.com/rasbt/LLMs-from-scratch" target="_blank" class="res-link">Build a Large Language Model from Scratch — Sebastian Raschka <span class="res-link-arrow">&nearr;</span></a>  <span class="tag primary">Primary Book</span><span class="tag book">Book</span></div>
           <div class="rdesc">2024 book — the most current and practical LLM book available. Raschka builds a GPT-like LLM from scratch in PyTorch, covering: tokenization, attention mechanisms, pretraining, fine-tuning with RLHF, and instruction tuning. All code is on GitHub (free). This book is the bridge between Karpathy's videos and production LLM engineering. Read alongside track ② — one chapter per week minimum.</div>
         </div>
       </div>
       <div class="ri">
-        <div class="rico">📄</div>
+        <div class="rico"><svg class="res-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
         <div class="rinfo">
-          <div class="rname">Core papers to read in sequence <span class="tag free">Free on arXiv</span></div>
+          <div class="rname"><a href="https://arxiv.org/abs/1706.03762" target="_blank" class="res-link">Core papers to read in sequence <span class="res-link-arrow">&nearr;</span></a>  <span class="tag free">Free on arXiv</span></div>
           <div class="rdesc">Read in this order: (1) Attention Is All You Need (2017) — the transformer. (2) BERT (2018) — bidirectional encoders. (3) GPT-2 (2019) — scaling language models. (4) InstructGPT (2022) — RLHF. (5) LLaMA 2 (2023) — open-source foundation models. One paper per week. Use the Annotated Transformer at nlp.seas.harvard.edu for paper 1.</div>
         </div>
       </div>
@@ -240,21 +282,21 @@
     </div>
     <div class="sbody" id="b-s4">
       <div class="ri">
-        <div class="rico">▶</div>
+        <div class="rico"><svg class="res-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg></div>
         <div class="rinfo">
-          <div class="rname">DeepLearning.ai — Building and Evaluating Advanced RAG <span class="tag primary">Primary</span><span class="tag free">Free</span></div>
+          <div class="rname"><a href="https://www.deeplearning.ai/short-courses/building-evaluating-advanced-rag/" target="_blank" class="res-link">DeepLearning.ai — Building and Evaluating Advanced RAG <span class="res-link-arrow">&nearr;</span></a>  <span class="tag primary">Primary</span><span class="tag free">Free</span></div>
           <div class="rdesc">Free 1-hour course at deeplearning.ai/short-courses. Covers: sentence-window retrieval, auto-merging retrieval, RAG evaluation with TruEra/RAGAs. The evaluation piece is what separates a toy RAG from a production one. Most engineers skip evaluation entirely — don't.</div>
         </div>
       </div>
       <div class="ri">
-        <div class="rico">▶</div>
+        <div class="rico"><svg class="res-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg></div>
         <div class="rinfo">
-          <div class="rname">LangChain + LlamaIndex official docs + cookbooks <span class="tag free">Free</span><span class="tag tool">Framework</span></div>
+          <div class="rname"><a href="https://python.langchain.com/" target="_blank" class="res-link">LangChain + LlamaIndex official docs + cookbooks <span class="res-link-arrow">&nearr;</span></a>  <span class="tag free">Free</span><span class="tag tool">Framework</span></div>
           <div class="rdesc">LangChain cookbook (github.com/langchain-ai/langchain/tree/master/cookbook) has 50+ real-world RAG patterns. LlamaIndex has an excellent structured outputs + query pipeline guide. Study both — LangChain for chains + agents, LlamaIndex for complex retrieval architectures. Know when to use each.</div>
         </div>
       </div>
       <div class="ri">
-        <div class="rico">📖</div>
+        <div class="rico"><svg class="res-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></div>
         <div class="rinfo">
           <div class="rname">Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks — Lewis et al. <span class="tag free">Free arXiv</span><span class="tag book">Paper</span></div>
           <div class="rdesc">The original RAG paper (2020). Read it. Understanding why RAG was invented (hallucination, stale knowledge, opacity) makes you a better RAG engineer than any tutorial. 20-minute read, permanent insight.</div>
@@ -272,21 +314,21 @@
     </div>
     <div class="sbody" id="b-s5">
       <div class="ri">
-        <div class="rico">▶</div>
+        <div class="rico"><svg class="res-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg></div>
         <div class="rinfo">
-          <div class="rname">DeepLearning.ai — Functions, Tools and Agents with LangChain <span class="tag free">Free</span></div>
+          <div class="rname"><a href="https://www.deeplearning.ai/short-courses/functions-tools-agents-langchain/" target="_blank" class="res-link">DeepLearning.ai — Functions, Tools and Agents with LangChain <span class="res-link-arrow">&nearr;</span></a>  <span class="tag free">Free</span></div>
           <div class="rdesc">Free short course. Covers: function calling, tool use, ReAct agents, OpenAI functions API, building multi-step agents. This is the prerequisite before building anything production-grade with agents.</div>
         </div>
       </div>
       <div class="ri">
-        <div class="rico">▶</div>
+        <div class="rico"><svg class="res-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg></div>
         <div class="rinfo">
-          <div class="rname">LangGraph documentation + examples <span class="tag free">Free</span><span class="tag tool">Framework</span></div>
+          <div class="rname"><a href="https://langchain-ai.github.io/langgraph/" target="_blank" class="res-link">LangGraph documentation + examples <span class="res-link-arrow">&nearr;</span></a>  <span class="tag free">Free</span><span class="tag tool">Framework</span></div>
           <div class="rdesc">LangGraph is the current standard for stateful, multi-agent systems. Free docs at langchain-ai.github.io/langgraph. Study: state machines, conditional edges, human-in-the-loop, multi-agent orchestration. This is what enterprise AI consulting clients want built.</div>
         </div>
       </div>
       <div class="ri">
-        <div class="rico">📄</div>
+        <div class="rico"><svg class="res-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
         <div class="rinfo">
           <div class="rname">ReAct: Synergizing Reasoning and Acting in LLMs — Yao et al. (2022) <span class="tag free">Free arXiv</span></div>
           <div class="rdesc">The paper behind every modern LLM agent. Reason-Act-Observe loop. 15-minute read. After reading this, every agent framework will make complete sense — they're all implementing ReAct with different scaffolding.</div>
@@ -303,14 +345,14 @@
     </div>
     <div class="sbody" id="b-s6">
       <div class="ri">
-        <div class="rico">▶</div>
+        <div class="rico"><svg class="res-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg></div>
         <div class="rinfo">
-          <div class="rname">HuggingFace NLP Course — huggingface.co/learn/nlp-course <span class="tag primary">Primary</span><span class="tag free">Free</span></div>
+          <div class="rname"><a href="https://huggingface.co/learn/nlp-course/" target="_blank" class="res-link">HuggingFace NLP Course — huggingface.co/learn/nlp-course <span class="res-link-arrow">&nearr;</span></a>  <span class="tag primary">Primary</span><span class="tag free">Free</span></div>
           <div class="rdesc">Completely free. The definitive guide to the HuggingFace ecosystem: tokenizers, datasets, Trainer API, PEFT, LoRA fine-tuning. Chapters 1–4 are essential. Chapter 7 (question answering + summarization fine-tuning) is directly applicable to your RAG projects. Run every notebook in Colab.</div>
         </div>
       </div>
       <div class="ri">
-        <div class="rico">▶</div>
+        <div class="rico"><svg class="res-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg></div>
         <div class="rinfo">
           <div class="rname">LoRA + QLoRA papers + Tim Dettmers blog <span class="tag free">Free</span></div>
           <div class="rdesc">LoRA paper (arxiv.org/abs/2106.09685) + QLoRA paper (arxiv.org/abs/2305.14314). Tim Dettmers' blog (timdettmers.com) is the clearest explanation of quantization and efficient fine-tuning. Together these give you the theory to fine-tune a 7B model on a free Colab T4 GPU — which you will do as a project.</div>
@@ -340,30 +382,30 @@
     </div>
     <div class="sbody" id="b-s7">
       <div class="ri">
-        <div class="rico">📖</div>
+        <div class="rico"><svg class="res-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></div>
         <div class="rinfo">
           <div class="rname">Designing Machine Learning Systems — Chip Huyen <span class="tag primary">Primary Book</span><span class="tag book">Book</span></div>
           <div class="rdesc">The definitive MLOps book. Covers: data engineering, feature engineering, model development, deployment, monitoring, infrastructure. Written by a Stanford lecturer and practitioner. Read cover to cover — every chapter will make you a better AI systems architect. Not free but worth every rupee. Notebooks and resources free on GitHub (github.com/chiphuyen/dmls-book).</div>
         </div>
       </div>
       <div class="ri">
-        <div class="rico">▶</div>
+        <div class="rico"><svg class="res-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg></div>
         <div class="rinfo">
-          <div class="rname">Made With ML — madewithml.com <span class="tag primary">Primary</span><span class="tag free">Free</span></div>
+          <div class="rname"><a href="https://madewithml.com/" target="_blank" class="res-link">Made With ML — madewithml.com <span class="res-link-arrow">&nearr;</span></a>  <span class="tag primary">Primary</span><span class="tag free">Free</span></div>
           <div class="rdesc">Free end-to-end MLOps course by Goku Mohandas. Covers: project structure, data versioning (DVC), experiment tracking (MLflow), model serving (FastAPI), CI/CD (GitHub Actions), testing ML systems, monitoring. Every concept has working code. The most practical free MLOps resource available.</div>
         </div>
       </div>
       <div class="ri">
-        <div class="rico">▶</div>
+        <div class="rico"><svg class="res-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg></div>
         <div class="rinfo">
-          <div class="rname">Full Stack Deep Learning — fullstackdeeplearning.com <span class="tag free">Free</span><span class="tag vid">Course</span></div>
+          <div class="rname"><a href="https://fullstackdeeplearning.com/" target="_blank" class="res-link">Full Stack Deep Learning — fullstackdeeplearning.com <span class="res-link-arrow">&nearr;</span></a>  <span class="tag free">Free</span><span class="tag vid">Course</span></div>
           <div class="rdesc">Free course covering: infrastructure, deployment, testing, monitoring, and team practices for ML. The 2022 version is fully free with lecture videos and labs. Particularly strong on: experiment management, data flywheels, and the cost of ML mistakes in production.</div>
         </div>
       </div>
       <div class="ri">
-        <div class="rico">▶</div>
+        <div class="rico"><svg class="res-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg></div>
         <div class="rinfo">
-          <div class="rname">Weights & Biases free courses — wandb.ai/courses <span class="tag free">Free</span></div>
+          <div class="rname"><a href="https://wandb.ai/courses" target="_blank" class="res-link">Weights & Biases free courses — wandb.ai/courses <span class="res-link-arrow">&nearr;</span></a>  <span class="tag free">Free</span></div>
           <div class="rdesc">W&B offers free courses on: experiment tracking, hyperparameter tuning with sweeps, model registry, LLM monitoring. The "MLOps" course takes 4 hours and teaches you their platform (industry standard). W&B free tier is sufficient for all Phase 2 projects.</div>
         </div>
       </div>
@@ -378,14 +420,14 @@
     </div>
     <div class="sbody" id="b-s8">
       <div class="ri">
-        <div class="rico">📖</div>
+        <div class="rico"><svg class="res-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></div>
         <div class="rinfo">
-          <div class="rname">ML System Design — 300 case studies (GitHub) <span class="tag free">Free</span></div>
+          <div class="rname"><a href="https://github.com/eugeneyan/applied-ml" target="_blank" class="res-link">ML System Design — 300 case studies (GitHub) <span class="res-link-arrow">&nearr;</span></a>  <span class="tag free">Free</span></div>
           <div class="rdesc">github.com/eugeneyan/applied-ml — Eugene Yan's curated collection of 300+ papers and blog posts from companies (Google, Meta, Airbnb, Uber) about real ML system deployments. Study 2–3 case studies per week. For each: draw the architecture diagram yourself, identify the bottlenecks they solved, and ask how you'd build it differently.</div>
         </div>
       </div>
       <div class="ri">
-        <div class="rico">📖</div>
+        <div class="rico"><svg class="res-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></div>
         <div class="rinfo">
           <div class="rname">System Design Interview Vol 2 — Alex Xu <span class="tag book">Book</span></div>
           <div class="rdesc">The ML-relevant chapters are: ad click prediction, recommendation systems, search ranking, video recommendation. Study these alongside the Chip Huyen book. Together they cover 90% of ML system design interview and consulting scenarios.</div>
@@ -414,21 +456,21 @@
     </div>
     <div class="sbody" id="b-s9">
       <div class="ri">
-        <div class="rico">📖</div>
+        <div class="rico"><svg class="res-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></div>
         <div class="rinfo">
           <div class="rname">Quantitative Finance with Python — Chris Kelliher <span class="tag primary">Primary Book</span><span class="tag book">Book</span></div>
           <div class="rdesc">Bridges Python + finance directly. Covers: options pricing, Monte Carlo simulation, portfolio optimization, risk metrics (VaR, CVaR), and time series models — all in Python. Perfect entry point because it assumes programming ability and builds finance intuition from first principles.</div>
         </div>
       </div>
       <div class="ri">
-        <div class="rico">📖</div>
+        <div class="rico"><svg class="res-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></div>
         <div class="rinfo">
           <div class="rname">Options, Futures and Other Derivatives — John Hull <span class="tag primary">Primary Book</span><span class="tag book">Book · "The Hull"</span></div>
           <div class="rdesc">The definitive derivatives textbook used at every top finance program. Not light reading — but every quant is expected to have read it. Focus on: Part 1 (foundations), Ch12–15 (Black-Scholes, Greeks), Ch18–19 (volatility smiles). The Hull is your "Strang for linear algebra" equivalent for quant finance.</div>
         </div>
       </div>
       <div class="ri">
-        <div class="rico">▶</div>
+        <div class="rico"><svg class="res-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg></div>
         <div class="rinfo">
           <div class="rname">Quantopian Lectures — free archive on GitHub <span class="tag free">Free</span></div>
           <div class="rdesc">Quantopian's entire educational archive (50+ lectures) is free on GitHub at github.com/quantopian/research_public. Covers: means testing, linear regression, time series analysis, pairs trading, risk factor models, Kalman filters. Essential practical quant knowledge, all in Jupyter notebooks.</div>
@@ -445,21 +487,21 @@
     </div>
     <div class="sbody" id="b-s10">
       <div class="ri">
-        <div class="rico">📖</div>
+        <div class="rico"><svg class="res-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></div>
         <div class="rinfo">
           <div class="rname">Advances in Financial Machine Learning — Marcos Lopez de Prado <span class="tag primary">Primary Book</span><span class="tag book">Book</span></div>
           <div class="rdesc">The most important ML+Finance book of the last decade. Written by a managing director at AQR. Covers: labeling financial data correctly (the biggest ML-in-finance mistake), feature engineering for financial signals, cross-validation for time series, ensemble methods for alpha generation. Hard reading — but every chapter is a competitive advantage over the hundreds of quants who only know classical finance methods.</div>
         </div>
       </div>
       <div class="ri">
-        <div class="rico">▶</div>
+        <div class="rico"><svg class="res-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg></div>
         <div class="rinfo">
           <div class="rname">QuantLib Python + zipline-reloaded — open source backtesting <span class="tag free">Free</span><span class="tag tool">Library</span></div>
           <div class="rdesc">QuantLib is the industry-standard quantitative finance library. zipline-reloaded is the maintained fork of Quantopian's backtesting engine. Together they let you build and test real trading strategies. Project: implement a pairs trading strategy with proper walk-forward validation.</div>
         </div>
       </div>
       <div class="ri">
-        <div class="rico">▶</div>
+        <div class="rico"><svg class="res-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg></div>
         <div class="rinfo">
           <div class="rname">Auquan + QuantConnect — free algorithmic trading platforms <span class="tag free">Free</span></div>
           <div class="rdesc">QuantConnect (quantconnect.com) is free with cloud backtesting on 20+ years of data. Build and backtest your ML trading strategies here. The community forum is one of the best quant learning resources — real practitioners posting real strategies and problems.</div>
@@ -486,23 +528,23 @@
     </div>
     <div class="sbody" id="b-s11">
       <div class="ri">
-        <div class="rico">▶</div>
+        <div class="rico"><svg class="res-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg></div>
         <div class="rinfo">
-          <div class="rname">Andrew Ng — How to read research papers (YouTube) <span class="tag primary">Primary</span><span class="tag free">Free</span></div>
+          <div class="rname"><a href="https://www.youtube.com/watch?v=733m6qBH-jI" target="_blank" class="res-link">Andrew Ng — How to read research papers (YouTube) <span class="res-link-arrow">&nearr;</span></a>  <span class="tag primary">Primary</span><span class="tag free">Free</span></div>
           <div class="rdesc">20-minute video. Ng's 3-pass method: (1) title + abstract + conclusion only, (2) read without equations, (3) full technical reading. This single video will 10x your paper reading speed. Watch before you attempt to read any paper seriously.</div>
         </div>
       </div>
       <div class="ri">
-        <div class="rico">▶</div>
+        <div class="rico"><svg class="res-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg></div>
         <div class="rinfo">
-          <div class="rname">Papers With Code — paperswithcode.com <span class="tag free">Free</span><span class="tag tool">Platform</span></div>
+          <div class="rname"><a href="https://paperswithcode.com/" target="_blank" class="res-link">Papers With Code — paperswithcode.com <span class="res-link-arrow">&nearr;</span></a>  <span class="tag free">Free</span><span class="tag tool">Platform</span></div>
           <div class="rdesc">Every major ML paper linked to its official code implementation. Use this for all paper reading — read the paper, then immediately open the code. The repository is indexed by task, dataset, and method. The "Methods" section is a structured encyclopedia of ML techniques — bookmark it.</div>
         </div>
       </div>
       <div class="ri">
-        <div class="rico">▶</div>
+        <div class="rico"><svg class="res-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg></div>
         <div class="rinfo">
-          <div class="rname">Yannic Kilcher — paper explanations (YouTube) <span class="tag free">Free</span><span class="tag vid">YouTube</span></div>
+          <div class="rname"><a href="https://www.youtube.com/@YannicKilcher" target="_blank" class="res-link">Yannic Kilcher — paper explanations (YouTube) <span class="res-link-arrow">&nearr;</span></a>  <span class="tag free">Free</span><span class="tag vid">YouTube</span></div>
           <div class="rdesc">Best YouTube channel for ML paper walkthroughs. Kilcher reads through papers live, explaining every equation and design decision. Use for any paper you find confusing after your own read. His GPT-4 technical report, AlphaFold, and diffusion model videos are essential.</div>
         </div>
       </div>
@@ -666,14 +708,14 @@
     </div>
     <div class="sbody" id="b-s13">
       <div class="ri">
-        <div class="rico">▶</div>
+        <div class="rico"><svg class="res-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg></div>
         <div class="rinfo">
           <div class="rname">Information Theory, Inference and Learning Algorithms — David MacKay <span class="tag primary">Primary</span><span class="tag free">Free PDF at inference.org.uk</span><span class="tag book">Book</span></div>
           <div class="rdesc">One of the most beautiful technical books ever written. Covers: entropy, mutual information, Bayesian inference, neural networks, error-correcting codes. Read Ch1–5 (information theory foundations) and Ch29–31 (neural networks). MacKay was a Cambridge professor who died in 2016 — his book is his permanent gift. Free at inference.org.uk/mackay/itila.</div>
         </div>
       </div>
       <div class="ri">
-        <div class="rico">▶</div>
+        <div class="rico"><svg class="res-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg></div>
         <div class="rinfo">
           <div class="rname">Convex Optimization — Boyd and Vandenberghe <span class="tag free">Free PDF at stanford.edu</span></div>
           <div class="rdesc">The canonical optimization textbook. Free at stanford.edu/~boyd/cvxbook. Chapters 1–5 give you the mathematical foundation for understanding why gradient descent works, when it doesn't, and what alternatives exist. Used directly in understanding training dynamics and loss landscape geometry.</div>
@@ -690,14 +732,14 @@
     </div>
     <div class="sbody" id="b-s14">
       <div class="ri">
-        <div class="rico">📖</div>
+        <div class="rico"><svg class="res-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></div>
         <div class="rinfo">
           <div class="rname">Stochastic Calculus for Finance I + II — Shreve <span class="tag primary">Primary Book</span><span class="tag book">Book</span></div>
           <div class="rdesc">The standard graduate-level stochastic calculus text used at every top quant program. Vol I covers discrete-time models (binomial trees, risk-neutral pricing). Vol II covers continuous-time (Brownian motion, Itô's lemma, Black-Scholes derivation). Read Vol I first. The Black-Scholes derivation in Vol II is one of the most beautiful pieces of applied mathematics you will ever read.</div>
         </div>
       </div>
       <div class="ri">
-        <div class="rico">▶</div>
+        <div class="rico"><svg class="res-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg></div>
         <div class="rinfo">
           <div class="rname">Forecasting: Principles and Practice — Hyndman (free online) <span class="tag free">Free at otexts.com/fpp3</span></div>
           <div class="rdesc">The best free time series book. Covers: decomposition, ETS, ARIMA, regression with ARIMA errors, dynamic regression, neural network forecasting. Directly applicable to your ML trading strategy project. Read Ch1–9 before starting Project 5.</div>
@@ -714,7 +756,7 @@
     </div>
     <div class="sbody" id="b-s15">
       <div class="ri">
-        <div class="rico">📖</div>
+        <div class="rico"><svg class="res-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></div>
         <div class="rinfo">
           <div class="rname">Linear Algebra Done Right — Sheldon Axler <span class="tag primary">Primary Book</span><span class="tag book">Book · Free 4th ed. PDF</span></div>
           <div class="rdesc">Free PDF of 4th edition at linear.axler.net. Axler builds linear algebra on linear maps rather than matrices — the approach used in quantum mechanics and functional analysis. This is the bridge book between Phase 2 linear algebra and Phase 3 quantum computing. Every theorem feels inevitable rather than arbitrary. Read in the final 6 months of Phase 2 as you prepare for the quantum track.</div>
@@ -729,5 +771,20 @@
 </div>
 </div>
 <script src="script.js"></script>
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ 
+    startOnLoad: true, 
+    theme: 'dark',
+    themeVariables: {
+      primaryColor: '#2b2b2b',
+      primaryTextColor: '#e0e0e0',
+      primaryBorderColor: '#444444',
+      lineColor: '#666666',
+      secondaryColor: '#1a1a1a',
+      tertiaryColor: '#1f1f1f'
+    }
+  });
+</script>
 </body>
 </html>
