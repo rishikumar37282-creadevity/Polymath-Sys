@@ -78,7 +78,7 @@ const latestNews = allNews.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubD
         <!-- EDITORIAL BOOK INDEX -->
         <div class="book-grid">
             <!-- POLYMATH CORE -->
-            <a href="/roadmap/master" class="book-card" style="border: 1px solid #444;">
+            <a href="/roadmap/master/" class="book-card" style="border: 1px solid #444;">
                 <div class="bc-spine" style="background: #000;">
                     <span class="bc-spine-num" style="color:#aaa;">STRATEGY</span>
                     <span class="bc-spine-title">Polymath<br>Blueprint</span>
@@ -95,7 +95,7 @@ const latestNews = allNews.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubD
             </a>
 
             <!-- PHASE 1 -->
-            <a href="/roadmap/phase1" class="book-card">
+            <a href="/roadmap/phase1/" class="book-card">
                 <div class="bc-spine">
                     <span class="bc-spine-num">PHASE I</span>
                     <span class="bc-spine-title">Foundations</span>
@@ -113,7 +113,7 @@ const latestNews = allNews.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubD
             </a>
 
             <!-- PHASE 2 -->
-            <a href="/roadmap/phase2" class="book-card">
+            <a href="/roadmap/phase2/" class="book-card">
                 <div class="bc-spine">
                     <span class="bc-spine-num">PHASE II</span>
                     <span class="bc-spine-title">Deep AI</span>
@@ -131,7 +131,7 @@ const latestNews = allNews.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubD
             </a>
 
             <!-- PHASE 3 -->
-            <a href="/roadmap/phase3" class="book-card">
+            <a href="/roadmap/phase3/" class="book-card">
                 <div class="bc-spine">
                     <span class="bc-spine-num">PHASE III</span>
                     <span class="bc-spine-title">The Frontier</span>
@@ -154,7 +154,7 @@ const latestNews = allNews.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubD
         <div class="blog-section">
             <div class="blog-grid">
                 {latestNews.length > 0 && (
-                    <a href={`/news/${latestNews[0].id}`} class="bg-featured">
+                    <a href={`/news/${latestNews[0].id.replace(/\.[^/.]+$/, "")}/`} class="bg-featured">
                         <div class="bg-image"></div>
                         <div class="bg-content">
                             <div class="bg-tag">Latest Research</div>
@@ -169,7 +169,7 @@ const latestNews = allNews.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubD
                 )}
                 <div class="bg-sidebar">
                     {latestNews.slice(1).map((item) => (
-                        <a href={`/news/${item.id}`} class="bg-side-card">
+                        <a href={`/news/${item.id.replace(/\.[^/.]+$/, "")}/`} class="bg-side-card">
                             <div class="bg-side-tag">Research Paper</div>
                             <div class="bg-side-title">{item.data.title}</div>
                             <div class="bg-side-date">{item.data.pubDate.toDateString()}</div>

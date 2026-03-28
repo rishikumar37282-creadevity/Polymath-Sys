@@ -1,20 +1,23 @@
 ---
 // src/pages/roadmap/[...slug].astro
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import MainLayout from '../../layouts/MainLayout.astro';
 
 export async function getStaticPaths() {
   const roadmapEntries = await getCollection('roadmap');
-  return roadmapEntries.map(entry => ({
-    params: { slug: entry.id }, props: { entry },
-  }));
+  return roadmapEntries.map(entry => {
+    const slug = entry.id.replace(/\.[^/.]+$/, ""); // Strip extension if present
+    return {
+      params: { slug }, props: { entry },
+    };
+  });
 }
 
 const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 const { title, phase, description, timeline, tabs } = entry.data;
 
-// We'll use a script to handle the tabs and accordions similar to the legacy script.js
+const currentSlug = entry.id.replace(/\.[^/.]+$/, "");
 ---
 
 <MainLayout title={`${title} | Polymath.Sys`}>
@@ -22,11 +25,11 @@ const { title, phase, description, timeline, tabs } = entry.data;
     <a href="/" class="back-link">&larr; Return to Dashboard</a>
 
     <nav class="phase-header-nav">
-      <a href="/roadmap/master" class={`phn-link ${entry.id === 'master' ? 'active' : ''}`}>Strategy</a>
-      <a href="/roadmap/phase1" class={`phn-link ${entry.id === 'phase1' ? 'active' : ''}`}>Phase 1</a>
-      <a href="/roadmap/phase2" class={`phn-link ${entry.id === 'phase2' ? 'active' : ''}`}>Phase 2</a>
-      <a href="/roadmap/phase3" class={`phn-link ${entry.id === 'phase3' ? 'active' : ''}`}>Phase 3</a>
-      <a href="/circular" class="phn-link">AI Circular</a>
+      <a href="/roadmap/master/" class={`phn-link ${currentSlug === 'master' ? 'active' : ''}`}>Strategy</a>
+      <a href="/roadmap/phase1/" class={`phn-link ${currentSlug === 'phase1' ? 'active' : ''}`}>Phase 1</a>
+      <a href="/roadmap/phase2/" class={`phn-link ${currentSlug === 'phase2' ? 'active' : ''}`}>Phase 2</a>
+      <a href="/roadmap/phase3/" class={`phn-link ${currentSlug === 'phase3' ? 'active' : ''}`}>Phase 3</a>
+      <a href="/circular/" class="phn-link">AI Circular</a>
     </nav>
 
     <div class="root">

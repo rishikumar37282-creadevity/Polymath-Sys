@@ -1,17 +1,20 @@
 ---
 // src/pages/news/[...slug].astro
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import MainLayout from '../../layouts/MainLayout.astro';
 
 export async function getStaticPaths() {
   const newsEntries = await getCollection('news');
-  return newsEntries.map(entry => ({
-    params: { slug: entry.id }, props: { entry },
-  }));
+  return newsEntries.map(entry => {
+    const slug = entry.id.replace(/\.[^/.]+$/, ""); // Strip extension if present
+    return {
+      params: { slug }, props: { entry },
+    };
+  });
 }
 
 const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 const { title, pubDate, author, link, tags } = entry.data;
 ---
 

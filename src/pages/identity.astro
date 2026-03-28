@@ -1,0 +1,81 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout title="Identity & Manifest | Polymath.Sys">
+  <div class="identity-page">
+    <a href="/" class="back-link">&larr; Return to Dashboard</a>
+    
+    <section class="manifesto-detail">
+      <div class="manifesto-label">The Core Philosophy</div>
+      <h1 class="manifesto-heading">The Cure for <em>Optimal Strategy Paralysis</em></h1>
+      
+      <div class="manifesto-body">
+        <p><strong>Optimal Strategy Paralysis</strong> is the specific trap that ambitious, high-intelligence people fall into — and it has a precise mechanism worth understanding before the cure makes sense.</p>
+        
+        <h3>The Mechanism</h3>
+        <p>OSP is not about laziness or lack of discipline — it's a rational response to a real cognitive problem that then becomes a trap. Here's how it works:</p>
+        
+        <div class="manifesto-pullquote">
+          When the number of possible paths is large and the cost of choosing the wrong one feels high, your brain does something logical: it delays commitment and gathers more information. This feels productive. You're researching, comparing, planning. But the information never becomes complete enough to feel safe, so the loop continues. Planning becomes the activity instead of the means to an activity.
+        </div>
+        
+        <h3>The Intellectual Trap</h3>
+        <p>The cruel irony: <strong>the more intelligent and ambitious you are, the worse this gets.</strong> You can genuinely see more paths, imagine more failure modes, and generate more "what if I'm missing something" scenarios. Your intelligence, which should be an asset, becomes the engine of your own paralysis.</p>
+        
+        <h3>The Polymath.Sys Solution</h3>
+        <p>To break the cycle, we move from <em>Top-Down Planning</em> to <em>Bottom-Up Execution</em> with a predefined, high-rigor framework. By removing the need to constantly "choose the next step," we free the mind to focus entirely on the complexity of the subject matter itself.</p>
+      </div>
+    </section>
+  </div>
+</MainLayout>
+
+<style>
+  .identity-page {
+    max-width: 900px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+  }
+  
+  .manifesto-detail {
+    background: var(--color-background-secondary);
+    border: 1px solid var(--color-border);
+    padding: 4rem;
+  }
+  
+  .manifesto-label {
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 0.8rem;
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+  
+  .manifesto-heading {
+    font-size: 3rem;
+    line-height: 1.1;
+    margin-bottom: 3rem;
+  }
+  
+  .manifesto-body {
+    line-height: 1.8;
+    color: var(--color-text-secondary);
+    font-size: 1.2rem;
+  }
+  
+  .manifesto-body h3 {
+    color: var(--color-text-primary);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .manifesto-pullquote {
+    border-left: 2px solid var(--color-accent);
+    padding: 2rem;
+    margin: 2rem 0;
+    background: rgba(255, 255, 255, 0.03);
+    font-style: italic;
+    color: var(--color-text-primary);
+  }
+</style>
