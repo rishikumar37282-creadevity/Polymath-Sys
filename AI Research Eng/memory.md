@@ -12,18 +12,17 @@ This project represents a premium, editorial-style academic web platform designe
 The project operates as a highly performant, static frontend system (HTML/CSS/JS) specifically designed to evoke a "System/Terminal" aesthetic.
 
 ### Core Files
-- `index.html`: The central hub. Contains the core manifesto, curriculum grid, research blog directory, document vault, and ecosystem directory (AI companies, great minds).
-- `styles.css`: The monolithic stylesheet. Serves as the global design system containing color variables, layouts, and responsive queries.
-- `script.js`: Handles interactivity, such as accordion modules, sequential flow states, and tab-based navigation.
-- `memory.md`: The living document for tracking project vision, structure, and ongoing changes.
-- `architectures/`: Reference directory containing technical documentation and source markdown for system architectures.
-
-### Curriculum Modules
-- `polymath_master_roadmap.html`: Strategy Blueprint (Months 1–48). Structure spanning consistency, systems design, and mathematical linking.
-- `phase1_learning_roadmap.html`: Phase I (Months 1–12). Foundations: Core Engineering, Multivariable Calculus, Data Structures.
-- `phase2_deep_roadmap.html`: Phase II (Months 13–24). Deep AI: Cloud Infrastructure, PyTorch ecosystems, Sequence Modeling.
-- `phase3_frontier_roadmap.html`: Phase III (Months 25–48). The Frontier: Quantum Mechanics, QML, Finance Integration.
-- `circular.html`: The Full AI Circular. A dynamic, filterable syllabus providing tabular and chronological breakdowns of topics with interactive discpline filtering.
+- `index.html`: The central hub (Entry point for Vercel). Contains the core manifesto, curriculum grid, research blog directory, document vault, and ecosystem directory.
+- `styles.css`: The monolithic stylesheet (Root). Serves as the global design system.
+- `script.js`: Core interactivity handler (Root).
+- `memory.md`: Project documentation and version tracking.
+- `AI Research Eng/`: Primary content subdirectory.
+  - `circular.html`: The Full AI Circular (Filterable syllabus).
+  - `phase1_learning_roadmap.html`: Phase I (Foundations).
+  - `phase2_deep_roadmap.html`: Phase II (Deep AI).
+  - `phase3_frontier_roadmap.html`: Phase III (Frontier).
+  - `polymath_master_roadmap.html`: Strategy Blueprint.
+- `architectures/`: Source documentation for system architectures.
 
 ---
 
@@ -69,7 +68,10 @@ The project operates as a highly performant, static frontend system (HTML/CSS/JS
 
 *(Use this section to log major implementations, aesthetic overhauls, and significant structural changes going forward.)*
 
-- **[2026-03]**: Initial platform analysis and creation of `memory.md`.
+- **[2026-03-28] — Repository Restructuring (Vercel Core Fix)**:
+  - **Migration**: Moved `index.html`, `styles.css`, and `script.js` to the root directory to ensure automatic Vercel detection and rendering.
+  - **Path Normalization**: Updated all sub-page links in `AI Research Eng/` to look up (`../`) for global assets.
+  - **Clean Up**: Removed 5+ outdated HTML duplicates from the root and redundant copies from the subfolder.
 - **[2026-03-28] — Technical Architecture Integration**:
   - **Mermaid.js System**: Embedded Mermaid.js natively across all phase roadmaps. Replaced external link buttons with interactive SVG diagrams (RAG Pipeline, Transformer, QML circuits).
   - **Design Extension**: Appended `.arch-container` and `.mermaid` tokens to the global design system.

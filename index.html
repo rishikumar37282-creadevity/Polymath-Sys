@@ -18,6 +18,42 @@
         <li><a href="#resources" class="nav-link">Resources</a></li>
     </ul>
 </nav>
+<!-- HERO STAGE: Textured background zone -->
+<div class="hero-stage">
+
+<!-- NEW 3D SHOWCASE SECTION -->
+<section class="polymath-hero-showcase">
+    <!-- LEFT: Geometry -->
+    <div class="showcase-left">
+        <div class="stack-3d-wrapper">
+            <div class="file-pane"></div>
+            <div class="file-pane"></div>
+            <div class="file-pane"></div>
+        </div>
+    </div>
+    <!-- RIGHT: Typewriter Typography -->
+    <div class="showcase-right">
+        <div class="typewriter-text"></div>
+        <div class="domain-list">
+            <span>AI</span> &nbsp;&middot;&nbsp; 
+            <span>ML</span> &nbsp;&middot;&nbsp; 
+            <span>Quantum Computing</span> &nbsp;&middot;&nbsp; 
+            <span>Neurology</span> &nbsp;&middot;&nbsp; 
+            <span>Quantum ML</span>
+        </div>
+    </div>
+</section>
+
+<!-- ROTATING QUOTE STRIP -->
+<div class="quote-strip" id="quoteStrip">
+    <div class="quote-strip-inner" id="quoteInner">
+        <div class="qs-label">// SIGNAL —</div>
+        <p class="qs-text" id="quoteText"></p>
+        <cite class="qs-author" id="quoteAuthor"></cite>
+    </div>
+</div>
+
+</div><!-- /hero-stage -->
 
 <!-- THE MANIFESTO -->
 <section class="manifesto">
@@ -44,9 +80,9 @@
 
 <!-- HERO / ABOUT SECTION -->
 <header class="hero-about">
-    <h1 class="hero-title">The Full Circular</h1>
+    <h1 class="hero-title">The Full AI Circular</h1>
     <p class="hero-desc">We shape individuals capable of identifying effective techniques, pitfalls, and unique strategies spanning the absolute frontiers of Classical Deep Learning, Mathematics, and Quantum Mechanics.</p>
-    <a href="circular.html" class="btn-primary">View Full Circular &rarr;</a>
+    <a href="AI Research Eng/circular.html" class="btn-primary">View Full AI Circular &rarr;</a>
 </header>
 
 <div class="page-wrapper">
@@ -57,7 +93,7 @@
     <div class="book-grid">
         
         <!-- POLYMATH CORE -->
-        <a href="polymath_master_roadmap.html" class="book-card" style="border: 1px solid #444;">
+        <a href="AI Research Eng/polymath_master_roadmap.html" class="book-card" style="border: 1px solid #444;">
             <div class="bc-spine" style="background: #000;">
                 <span class="bc-spine-num" style="color:#aaa;">STRATEGY</span>
                 <span class="bc-spine-title">Polymath<br>Blueprint</span>
@@ -74,7 +110,7 @@
         </a>
 
         <!-- PHASE 1 -->
-        <a href="phase1_learning_roadmap.html" class="book-card">
+        <a href="AI Research Eng/phase1_learning_roadmap.html" class="book-card">
             <div class="bc-spine">
                 <span class="bc-spine-num">PHASE I</span>
                 <span class="bc-spine-title">Foundations</span>
@@ -92,7 +128,7 @@
         </a>
 
         <!-- PHASE 2 -->
-        <a href="phase2_deep_roadmap.html" class="book-card">
+        <a href="AI Research Eng/phase2_deep_roadmap.html" class="book-card">
             <div class="bc-spine">
                 <span class="bc-spine-num">PHASE II</span>
                 <span class="bc-spine-title">Deep AI</span>
@@ -110,7 +146,7 @@
         </a>
 
         <!-- PHASE 3 -->
-        <a href="phase3_frontier_roadmap.html" class="book-card">
+        <a href="AI Research Eng/phase3_frontier_roadmap.html" class="book-card">
             <div class="bc-spine">
                 <span class="bc-spine-num">PHASE III</span>
                 <span class="bc-spine-title">The Frontier</span>
@@ -484,11 +520,11 @@
             </div>
             <div class="fc-links">
                 <h4 class="fc-title">Curriculum</h4>
-                <a href="polymath_master_roadmap.html">Master Strategy Blueprint</a>
-                <a href="phase1_learning_roadmap.html">Phase I: Foundations</a>
-                <a href="phase2_deep_roadmap.html">Phase II: Deep AI</a>
-                <a href="phase3_frontier_roadmap.html">Phase III: The Frontier</a>
-                <a href="circular.html">View Full Circular</a>
+                <a href="AI Research Eng/polymath_master_roadmap.html">Master Strategy Blueprint</a>
+                <a href="AI Research Eng/phase1_learning_roadmap.html">Phase I: Foundations</a>
+                <a href="AI Research Eng/phase2_deep_roadmap.html">Phase II: Deep AI</a>
+                <a href="AI Research Eng/phase3_frontier_roadmap.html">Phase III: The Frontier</a>
+                <a href="AI Research Eng/circular.html">View Full AI Circular</a>
             </div>
             <div class="fc-links">
                 <h4 class="fc-title">Sections</h4>
@@ -516,5 +552,38 @@
 </footer>
 
 <script src="script.js"></script>
+<script>
+(function() {
+    const quotes = [
+        { text: "What I cannot create, I do not understand.", author: "— Richard Feynman, Physicist" },
+        { text: "Imagination is more important than knowledge. Knowledge is limited. Imagination encircles the world.", author: "— Albert Einstein, Theoretical Physicist" },
+        { text: "We can only see a short distance ahead, but we can see plenty there that needs to be done.", author: "— Alan Turing, Father of Computer Science" },
+        { text: "In mathematics you don't understand things. You just get used to them.", author: "— John von Neumann, Mathematician & Physicist" }
+    ];
+    let current = 0;
+    const textEl = document.getElementById('quoteText');
+    const authorEl = document.getElementById('quoteAuthor');
+    const inner = document.getElementById('quoteInner');
+
+    function showQuote(index) {
+        inner.style.opacity = '0';
+        inner.style.transform = 'translateY(6px)';
+        setTimeout(() => {
+            textEl.textContent = quotes[index].text;
+            authorEl.textContent = quotes[index].author;
+            inner.style.opacity = '1';
+            inner.style.transform = 'translateY(0)';
+        }, 400);
+    }
+
+    // Init first quote
+    showQuote(0);
+
+    setInterval(() => {
+        current = (current + 1) % quotes.length;
+        showQuote(current);
+    }, 5000);
+})();
+</script>
 </body>
 </html>
