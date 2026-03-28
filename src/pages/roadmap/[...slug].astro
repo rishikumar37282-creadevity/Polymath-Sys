@@ -129,10 +129,10 @@ const { title, phase, description, timeline, tabs } = entry.data;
       }
     });
 
-    // Remove the original H1s and other loose elements
+    // Remove the original elements that were moved
     children.forEach(child => {
        if (child.parentNode === content && !child.classList.contains('roadmap-panel')) {
-         content.removeChild(child);
+         child.remove();
        }
     });
 
@@ -169,6 +169,7 @@ const { title, phase, description, timeline, tabs } = entry.data;
           currentStep.appendChild(head);
           currentStep.appendChild(body);
           panel.insertBefore(currentStep, child);
+          child.remove();
           
           // Click to toggle
           head.addEventListener('click', () => {
@@ -176,13 +177,6 @@ const { title, phase, description, timeline, tabs } = entry.data;
           });
         } else if (currentStep) {
           currentStep.querySelector('.roadmap-step-body').appendChild(child);
-        }
-      });
-      
-      // Clean up original H2s and moved elements
-      pChildren.forEach(child => {
-        if ((child.tagName === 'H2' || child.parentNode?.classList.contains('roadmap-step-body')) && child.parentNode === panel) {
-           panel.removeChild(child);
         }
       });
     });
