@@ -154,7 +154,7 @@ const latestNews = allNews.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubD
         <div class="blog-section">
             <div class="blog-grid">
                 {latestNews.length > 0 && (
-                    <a href={`/news/${latestNews[0].slug}`} class="bg-featured">
+                    <a href={`/news/${latestNews[0].id}`} class="bg-featured">
                         <div class="bg-image"></div>
                         <div class="bg-content">
                             <div class="bg-tag">Latest Research</div>
@@ -169,7 +169,7 @@ const latestNews = allNews.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubD
                 )}
                 <div class="bg-sidebar">
                     {latestNews.slice(1).map((item) => (
-                        <a href={`/news/${item.slug}`} class="bg-side-card">
+                        <a href={`/news/${item.id}`} class="bg-side-card">
                             <div class="bg-side-tag">Research Paper</div>
                             <div class="bg-side-title">{item.data.title}</div>
                             <div class="bg-side-date">{item.data.pubDate.toDateString()}</div>

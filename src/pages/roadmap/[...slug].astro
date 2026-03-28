@@ -6,7 +6,7 @@ import MainLayout from '../../layouts/MainLayout.astro';
 export async function getStaticPaths() {
   const roadmapEntries = await getCollection('roadmap');
   return roadmapEntries.map(entry => ({
-    params: { slug: entry.slug }, props: { entry },
+    params: { slug: entry.id }, props: { entry },
   }));
 }
 
@@ -22,10 +22,10 @@ const { title, phase, description, timeline, tabs } = entry.data;
     <a href="/" class="back-link">&larr; Return to Dashboard</a>
 
     <nav class="phase-header-nav">
-      <a href="/roadmap/master" class={`phn-link ${entry.slug === 'master' ? 'active' : ''}`}>Strategy</a>
-      <a href="/roadmap/phase1" class={`phn-link ${entry.slug === 'phase1' ? 'active' : ''}`}>Phase 1</a>
-      <a href="/roadmap/phase2" class={`phn-link ${entry.slug === 'phase2' ? 'active' : ''}`}>Phase 2</a>
-      <a href="/roadmap/phase3" class={`phn-link ${entry.slug === 'phase3' ? 'active' : ''}`}>Phase 3</a>
+      <a href="/roadmap/master" class={`phn-link ${entry.id === 'master' ? 'active' : ''}`}>Strategy</a>
+      <a href="/roadmap/phase1" class={`phn-link ${entry.id === 'phase1' ? 'active' : ''}`}>Phase 1</a>
+      <a href="/roadmap/phase2" class={`phn-link ${entry.id === 'phase2' ? 'active' : ''}`}>Phase 2</a>
+      <a href="/roadmap/phase3" class={`phn-link ${entry.id === 'phase3' ? 'active' : ''}`}>Phase 3</a>
       <a href="/circular" class="phn-link">AI Circular</a>
     </nav>
 
