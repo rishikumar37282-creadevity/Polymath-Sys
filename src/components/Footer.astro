@@ -1,0 +1,44 @@
+---
+// src/components/Footer.astro
+const version = "3.0";
+---
+
+<footer class="sys-footer">
+    <div class="footer-inner">
+        <div class="footer-grid">
+            <div class="fc-brand">
+                <div class="brand-logo" style="margin-bottom: 0.5rem; color: #fff;">POLYMATH.SYS</div>
+                <p>An elite 48-month curriculum mapping the intersection of Deep Learning, Mathematics, and Quantum Computing. Built for rigorous, self-directed mastery.</p>
+            </div>
+            <div class="fc-links">
+                <h4 class="fc-title">Curriculum</h4>
+                <a href="/roadmap/master">Master Strategy Blueprint</a>
+                <a href="/roadmap/phase1">Phase I: Foundations</a>
+                <a href="/roadmap/phase2">Phase II: Deep AI</a>
+                <a href="/roadmap/phase3">Phase III: The Frontier</a>
+                <a href="/circular">View Full AI Circular</a>
+            </div>
+            <div class="fc-links">
+                <h4 class="fc-title">Sections</h4>
+                <a href="/#curriculum">Curriculum Structure</a>
+                <a href="/#blog">Research Blog</a>
+                <a href="/#documents">Archival Vault</a>
+                <a href="/#methodology">System Methodology</a>
+                <a href="/#resources">Resource Library</a>
+            </div>
+            <div class="fc-links">
+                <h4 class="fc-title">Ecosystem</h4>
+                <a href="/#companies">Deep Tech Companies</a>
+                <a href="/#minds">Great Minds & Pioneers</a>
+                <a href="https://github.com/huggingface/transformers" target="_blank">Transformers (GitHub)</a>
+                <a href="https://paperswithcode.com" target="_blank">PapersWithCode</a>
+                <a href="https://arxiv.org" target="_blank">arXiv.org</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 Polymath.Sys &mdash; Strictly Academic & Research Scope.</span>
+            <a href="#" style="color: #555; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#555'">Back to Top &uarr;</a>
+            <span>VERSION {version}</span>
+        </div>
+    </div>
+</footer>

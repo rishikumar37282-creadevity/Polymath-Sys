@@ -1,0 +1,194 @@
+---
+// src/pages/roadmap/[...slug].astro
+import { getCollection } from 'astro:content';
+import MainLayout from '../../layouts/MainLayout.astro';
+
+export async function getStaticPaths() {
+  const roadmapEntries = await getCollection('roadmap');
+  return roadmapEntries.map(entry => ({
+    params: { slug: entry.slug }, props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const { title, phase, description, timeline, tabs } = entry.data;
+
+// We'll use a script to handle the tabs and accordions similar to the legacy script.js
+---
+
+<MainLayout title={`${title} | Polymath.Sys`}>
+  <div class="roadmap-page-wrapper">
+    <a href="/" class="back-link">&larr; Return to Dashboard</a>
+
+    <nav class="phase-header-nav">
+      <a href="/roadmap/master" class={`phn-link ${entry.slug === 'master' ? 'active' : ''}`}>Strategy</a>
+      <a href="/roadmap/phase1" class={`phn-link ${entry.slug === 'phase1' ? 'active' : ''}`}>Phase 1</a>
+      <a href="/roadmap/phase2" class={`phn-link ${entry.slug === 'phase2' ? 'active' : ''}`}>Phase 2</a>
+      <a href="/roadmap/phase3" class={`phn-link ${entry.slug === 'phase3' ? 'active' : ''}`}>Phase 3</a>
+      <a href="/circular" class="phn-link">AI Circular</a>
+    </nav>
+
+    <div class="root">
+      {timeline && (
+        <div class="timeline">
+          {timeline.map((item) => (
+            <div class="tw">
+              <div class="tw-num">{item.time}</div>
+              <div class="tw-lbl">{item.label}</div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {tabs && (
+        <div class="nav roadmap-tabs">
+          {tabs.map((tab, index) => (
+            <button class={`ntab ${index === 0 ? 'active' : ''}`} data-index={index}>
+              {tab}
+            </button>
+          ))}
+        </div>
+      )}
+
+      <div class="content-body" id="roadmap-content">
+        <Content />
+      </div>
+    </div>
+  </div>
+</MainLayout>
+
+<style is:global>
+  /* Ensure the Markdown content is split into panels */
+  #roadmap-content > h1 {
+    display: none; /* Hide the top-level headers as they are used for tabs */
+  }
+  
+  .roadmap-panel {
+    display: none;
+  }
+  
+  .roadmap-panel.active {
+    display: block;
+    animation: fadeIn 0.4s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Styling for Steps (Accordions) in Markdown */
+  .roadmap-step {
+    border: 1px solid var(--color-border);
+    margin-bottom: 1rem;
+    background: var(--color-background-secondary);
+  }
+  
+  .roadmap-step-head {
+    padding: 1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255,255,255,0.03);
+  }
+  
+  .roadmap-step-body {
+    padding: 1rem;
+    display: none;
+    border-top: 1px solid var(--color-border);
+  }
+  
+  .roadmap-step.active .roadmap-step-body {
+    display: block;
+  }
+</style>
+
+<script>
+  function initRoadmap() {
+    const tabs = document.querySelectorAll('.ntab');
+    const content = document.getElementById('roadmap-content');
+    if (!content) return;
+
+    // Logic to wrap Markdown content into panels based on H1
+    const children = Array.from(content.children);
+    let currentPanel = null;
+    let panelIndex = -1;
+
+    children.forEach((child) => {
+      if (child.tagName === 'H1') {
+        panelIndex++;
+        currentPanel = document.createElement('div');
+        currentPanel.className = 'roadmap-panel';
+        currentPanel.id = `panel-${panelIndex}`;
+        if (panelIndex === 0) currentPanel.classList.add('active');
+        content.appendChild(currentPanel);
+      } else if (currentPanel) {
+        currentPanel.appendChild(child);
+      }
+    });
+
+    // Remove the original H1s and other loose elements
+    children.forEach(child => {
+       if (child.parentNode === content && !child.classList.contains('roadmap-panel')) {
+         content.removeChild(child);
+       }
+    });
+
+    // Handle Tab Switching
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const index = tab.getAttribute('data-index');
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        
+        document.querySelectorAll('.roadmap-panel').forEach(p => p.classList.remove('active'));
+        const target = document.getElementById(`panel-${index}`);
+        if (target) target.classList.add('active');
+      });
+    });
+
+    // Handle Accordions (Steps) - Look for H2 as Step Headers
+    document.querySelectorAll('.roadmap-panel').forEach(panel => {
+      const pChildren = Array.from(panel.children);
+      let currentStep = null;
+
+      pChildren.forEach(child => {
+        if (child.tagName === 'H2') {
+          currentStep = document.createElement('div');
+          currentStep.className = 'roadmap-step';
+          
+          const head = document.createElement('div');
+          head.className = 'roadmap-step-head';
+          head.innerHTML = `<span>${child.innerHTML}</span><span>▼</span>`;
+          
+          const body = document.createElement('div');
+          body.className = 'roadmap-step-body';
+          
+          currentStep.appendChild(head);
+          currentStep.appendChild(body);
+          panel.insertBefore(currentStep, child);
+          
+          // Click to toggle
+          head.addEventListener('click', () => {
+            currentStep.classList.toggle('active');
+          });
+        } else if (currentStep) {
+          currentStep.querySelector('.roadmap-step-body').appendChild(child);
+        }
+      });
+      
+      // Clean up original H2s and moved elements
+      pChildren.forEach(child => {
+        if ((child.tagName === 'H2' || child.parentNode?.classList.contains('roadmap-step-body')) && child.parentNode === panel) {
+           panel.removeChild(child);
+        }
+      });
+    });
+  }
+
+  // Run on load and after swaps
+  initRoadmap();
+  document.addEventListener('astro:after-swap', initRoadmap);
+</script>

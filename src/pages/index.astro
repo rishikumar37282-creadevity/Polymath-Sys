@@ -1,0 +1,295 @@
+// src/pages/index.astro
+import { getCollection } from 'astro:content';
+import MainLayout from '../layouts/MainLayout.astro';
+import RepoRanking from '../components/RepoRanking.astro';
+import CareerBoard from '../components/CareerBoard.astro';
+
+const allNews = await getCollection('news');
+const latestNews = allNews.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()).slice(0, 4);
+---
+
+<MainLayout>
+    <!-- HERO STAGE: Textured background zone -->
+    <div class="hero-stage">
+        <!-- NEW 3D SHOWCASE SECTION -->
+        <section class="polymath-hero-showcase">
+            <!-- LEFT: Geometry -->
+            <div class="showcase-left">
+                <div class="stack-3d-wrapper">
+                    <div class="file-pane"></div>
+                    <div class="file-pane"></div>
+                    <div class="file-pane"></div>
+                </div>
+            </div>
+            <!-- RIGHT: Typewriter Typography -->
+            <div class="showcase-right">
+                <div class="typewriter-text"></div>
+                <div class="domain-list">
+                    <span>AI</span> &nbsp;&middot;&nbsp; 
+                    <span>ML</span> &nbsp;&middot;&nbsp; 
+                    <span>Quantum Computing</span> &nbsp;&middot;&nbsp; 
+                    <span>Neurology</span> &nbsp;&middot;&nbsp; 
+                    <span>Quantum ML</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ROTATING QUOTE STRIP -->
+        <div class="quote-strip" id="quoteStrip">
+            <div class="quote-strip-inner" id="quoteInner" style="opacity: 0; transform: translateY(6px);">
+                <div class="qs-label">// SIGNAL &mdash;</div>
+                <p class="qs-text" id="quoteText"></p>
+                <cite class="qs-author" id="quoteAuthor"></cite>
+            </div>
+        </div>
+    </div><!-- /hero-stage -->
+
+    <!-- THE MANIFESTO -->
+    <section class="manifesto">
+        <div class="manifesto-label">Why This Exists</div>
+        <h1 class="manifesto-heading">The Cure for <em>Optimal Strategy Paralysis</em></h1>
+        
+        <div class="manifesto-body">
+            <p><strong>Optimal Strategy Paralysis</strong> is the specific trap that ambitious, high-intelligence people fall into &mdash; and it has a precise mechanism worth understanding before the cure makes sense.</p>
+            <p>The mechanism first. OSP is not about laziness or lack of discipline &mdash; it's a rational response to a real cognitive problem that then becomes a trap. Here's how it works:</p>
+            <div class="manifesto-pullquote">When the number of possible paths is large and the cost of choosing the wrong one feels high, your brain does something logical: it delays commitment and gathers more information. This feels productive. You're researching, comparing, planning. But the information never becomes complete enough to feel safe, so the loop continues. Planning becomes the activity instead of the means to an activity.</div>
+            <p>The cruel irony: <strong>the more intelligent and ambitious you are, the worse this gets.</strong> You can genuinely see more paths, imagine more failure modes, and generate more "what if I'm missing something" scenarios. Your intelligence, which should be an asset, becomes the engine of your own paralysis.</p>
+        </div>
+
+        <div class="manifesto-cta">
+            <a href="/identity" class="btn-primary">Read Full Article &rarr;</a>
+            <a href="#curriculum" class="btn-outline">Explore the System &darr;</a>
+        </div>
+    </section>
+
+    <hr class="manifesto-divider">
+
+    <!-- HERO / ABOUT SECTION -->
+    <header class="hero-about">
+        <h1 class="hero-title">The Full AI Circular</h1>
+        <p class="hero-desc">We shape individuals capable of identifying effective techniques, pitfalls, and unique strategies spanning the absolute frontiers of Classical Deep Learning, Mathematics, and Quantum Mechanics.</p>
+        <a href="/circular" class="btn-primary">View Full AI Circular &rarr;</a>
+    </header>
+
+    <div class="page-wrapper">
+        <h2 id="curriculum" class="section-title" style="border:none; margin-bottom: 3rem; text-align: center;">The Curriculum Structure</h2>
+
+        <!-- EDITORIAL BOOK INDEX -->
+        <div class="book-grid">
+            <!-- POLYMATH CORE -->
+            <a href="/roadmap/master" class="book-card" style="border: 1px solid #444;">
+                <div class="bc-spine" style="background: #000;">
+                    <span class="bc-spine-num" style="color:#aaa;">STRATEGY</span>
+                    <span class="bc-spine-title">Polymath<br>Blueprint</span>
+                </div>
+                <div class="bc-pages">
+                    <div class="bc-meta">Months 1&ndash;48 &bull; The Grand Arc</div>
+                    <ul class="bc-toc">
+                        <li><span class="toc-num">[00]</span> Interlinking Mathematics and Software</li>
+                        <li><span class="toc-num">[00]</span> Structuring 4 Years of Consistency</li>
+                        <li><span class="toc-num">[00]</span> Scaling Systems for Research Output</li>
+                    </ul>
+                    <div class="bc-link">Explore Blueprint <i>&rarr;</i></div>
+                </div>
+            </a>
+
+            <!-- PHASE 1 -->
+            <a href="/roadmap/phase1" class="book-card">
+                <div class="bc-spine">
+                    <span class="bc-spine-num">PHASE I</span>
+                    <span class="bc-spine-title">Foundations</span>
+                </div>
+                <div class="bc-pages">
+                    <div class="bc-meta">Months 1&ndash;12 &bull; Core Engineering</div>
+                    <ul class="bc-toc">
+                        <li><span class="toc-num">[01]</span> Linear Algebra & Multivariable Calculus</li>
+                        <li><span class="toc-num">[02]</span> System Design & Data Structures</li>
+                        <li><span class="toc-num">[03]</span> Classical Machine Learning Models</li>
+                        <li><span class="toc-num">[04]</span> Object-Oriented Engineering in Java</li>
+                    </ul>
+                    <div class="bc-link">Enter Phase I <i>&rarr;</i></div>
+                </div>
+            </a>
+
+            <!-- PHASE 2 -->
+            <a href="/roadmap/phase2" class="book-card">
+                <div class="bc-spine">
+                    <span class="bc-spine-num">PHASE II</span>
+                    <span class="bc-spine-title">Deep AI</span>
+                </div>
+                <div class="bc-pages">
+                    <div class="bc-meta">Months 13&ndash;24 &bull; Architecture Building</div>
+                    <ul class="bc-toc">
+                        <li><span class="toc-num">[05]</span> Deep Learning Ecosystems (PyTorch)</li>
+                        <li><span class="toc-num">[06]</span> Sequence Modeling & Transformers</li>
+                        <li><span class="toc-num">[07]</span> Cloud Infrastructure (AWS/GCP)</li>
+                        <li><span class="toc-num">[08]</span> Scalable MLOps & CI/CD Pipelines</li>
+                    </ul>
+                    <div class="bc-link">Enter Phase II <i>&rarr;</i></div>
+                </div>
+            </a>
+
+            <!-- PHASE 3 -->
+            <a href="/roadmap/phase3" class="book-card">
+                <div class="bc-spine">
+                    <span class="bc-spine-num">PHASE III</span>
+                    <span class="bc-spine-title">The Frontier</span>
+                </div>
+                <div class="bc-pages">
+                    <div class="bc-meta">Months 25&ndash;48 &bull; Quantum & Research</div>
+                    <ul class="bc-toc">
+                        <li><span class="toc-num">[09]</span> Quantum Computing Theory & Logic</li>
+                        <li><span class="toc-num">[10]</span> Quantum Machine Learning (QML)</li>
+                        <li><span class="toc-num">[11]</span> Quantitative Finance Integration</li>
+                        <li><span class="toc-num">[12]</span> Academic Convergence & Publications</li>
+                    </ul>
+                    <div class="bc-link">Enter Phase III <i>&rarr;</i></div>
+                </div>
+            </a>
+        </div>
+
+        <!-- RESEARCH BLOG -->
+        <h2 id="blog" class="section-title" style="margin-top: 4rem;">Research Logs & Updates</h2>
+        <div class="blog-section">
+            <div class="blog-grid">
+                {latestNews.length > 0 && (
+                    <a href={`/news/${latestNews[0].slug}`} class="bg-featured">
+                        <div class="bg-image"></div>
+                        <div class="bg-content">
+                            <div class="bg-tag">Latest Research</div>
+                            <h3 class="bg-title">{latestNews[0].data.title}</h3>
+                            <p class="bg-desc">{latestNews[0].data.description}</p>
+                            <div class="bg-meta">
+                                <span>Read Full Analysis &rarr;</span>
+                                <span>{latestNews[0].data.pubDate.toDateString()}</span>
+                            </div>
+                        </div>
+                    </a>
+                )}
+                <div class="bg-sidebar">
+                    {latestNews.slice(1).map((item) => (
+                        <a href={`/news/${item.slug}`} class="bg-side-card">
+                            <div class="bg-side-tag">Research Paper</div>
+                            <div class="bg-side-title">{item.data.title}</div>
+                            <div class="bg-side-date">{item.data.pubDate.toDateString()}</div>
+                        </a>
+                    ))}
+                </div>
+            </div>
+        </div>
+
+        <!-- DOCUMENT VAULT -->
+        <h2 id="documents" class="section-title">Archival Vault & Papers</h2>
+        <div class="doc-section">
+            <div class="doc-vault">
+                <a href="#" class="dv-card">
+                    <div class="dv-head"><span class="dv-type">PDF</span><span class="dv-size">2.4 MB</span></div>
+                    <div class="dv-title">Phase I Mathematics Summary Cheatsheet</div>
+                    <div class="dv-foot"><span>v1.0.4</span><span>Download &darr;</span></div>
+                </a>
+                <a href="#" class="dv-card">
+                    <div class="dv-head"><span class="dv-type">TEX</span><span class="dv-size">14 KB</span></div>
+                    <div class="dv-title">Deep Learning Formal Equations Template</div>
+                    <div class="dv-foot"><span>LaTeX</span><span>Source &darr;</span></div>
+                </a>
+                <a href="#" class="dv-card">
+                    <div class="dv-head"><span class="dv-type">IPYNB</span><span class="dv-size">520 KB</span></div>
+                    <div class="dv-title">Transformer Implementation from Scratch</div>
+                    <div class="dv-foot"><span>Code</span><span>Open &rarr;</span></div>
+                </a>
+                <a href="#" class="dv-card">
+                    <div class="dv-head"><span class="dv-type">PDF</span><span class="dv-size">8.1 MB</span></div>
+                    <div class="dv-title">Quantum Mechanics Foundational Lecture Notes</div>
+                    <div class="dv-foot"><span>Archive</span><span>Download &darr;</span></div>
+                </a>
+            </div>
+        </div>
+
+        <!-- METHODOLOGY APPENDIX -->
+        <h2 id="methodology" class="section-title">System Methodology</h2>
+        <div class="methodology-list">
+            <div class="meth-row">
+                <div class="meth-num">[M.01]</div>
+                <div><div class="meth-title">Spaced Repetition</div><div class="meth-cat">RETENTION PROTOCOL</div></div>
+                <div class="meth-desc">We mathematically ensure long-term retention of complex mathematics and algorithmic techniques by surfacing reviews at the exact edge of the forgetting curve.</div>
+            </div>
+            <div class="meth-row">
+                <div class="meth-num">[M.02]</div>
+                <div><div class="meth-title">Interleaved Practice</div><div class="meth-cat">SYNTHESIS PROTOCOL</div></div>
+                <div class="meth-desc">Instead of learning topics in isolated blocks, we scramble subjects. Engineering, Math, and Physics are studied simultaneously to force the brain to detect structural similarities.</div>
+            </div>
+            <div class="meth-row" style="border-bottom: none;">
+                <div class="meth-num">[M.03]</div>
+                <div><div class="meth-title">Feynman Diagnostics</div><div class="meth-cat">OUTPUT PROTOCOL</div></div>
+                <div class="meth-desc">Complex modules are tested not by solving exams, but by engaging the interactive "Ask AI" framework to teach highly advanced concepts back to the system.</div>
+            </div>
+        </div>
+
+        <!-- DYNAMIC REPO RANKING -->
+        <RepoRanking />
+
+        <!-- DYNAMIC CAREER BOARD -->
+        <CareerBoard />
+
+        <!-- GREAT MINDS & TOP PROFESSIONALS -->
+        <h2 id="minds" class="section-title">Great Minds & Pioneers</h2>
+        <div class="minds-grid">
+            <a href="#" class="mind-card">
+                <div class="mind-avatar"><img src="/images/minds/hinton.png" alt="Geoffrey Hinton"></div>
+                <div class="mind-info">
+                    <div class="mind-name">Geoffrey Hinton</div>
+                    <div class="mind-role">Godfather of Deep Learning &bull; Turing Award</div>
+                </div>
+            </a>
+            <a href="#" class="mind-card">
+                <div class="mind-avatar"><img src="/images/minds/lecun.png" alt="Yann LeCun"></div>
+                <div class="mind-info">
+                    <div class="mind-name">Yann LeCun</div>
+                    <div class="mind-role">Chief AI Scientist, Meta &bull; Turing Award</div>
+                </div>
+            </a>
+            <a href="#" class="mind-card">
+                <div class="mind-avatar" style="background: #111; display:flex; align-items:center; justify-content:center; color:#333; font-size:10px; font-family:monospace;">DH</div>
+                <div class="mind-info">
+                    <div class="mind-name">Demis Hassabis</div>
+                    <div class="mind-role">CEO, Google DeepMind &bull; Nobel Prize 2024</div>
+                </div>
+            </a>
+        </div>
+    </div>
+</MainLayout>
+
+<script>
+    (function() {
+        const quotes = [
+            { text: "What I cannot create, I do not understand.", author: "&mdash; Richard Feynman, Physicist" },
+            { text: "Imagination is more important than knowledge. Knowledge is limited. Imagination encircles the world.", author: "&mdash; Albert Einstein, Theoretical Physicist" },
+            { text: "We can only see a short distance ahead, but we can see plenty there that needs to be done.", author: "&mdash; Alan Turing, Father of Computer Science" },
+            { text: "In mathematics you don't understand things. You just get used to them.", author: "&mdash; John von Neumann, Mathematician & Physicist" }
+        ];
+        let current = 0;
+        const textEl = document.getElementById('quoteText');
+        const authorEl = document.getElementById('quoteAuthor');
+        const inner = document.getElementById('quoteInner');
+
+        function showQuote(index) {
+            if (!inner || !textEl || !authorEl) return;
+            inner.style.opacity = '0';
+            inner.style.transform = 'translateY(6px)';
+            setTimeout(() => {
+                textEl.innerHTML = quotes[index].text;
+                authorEl.innerHTML = quotes[index].author;
+                inner.style.opacity = '1';
+                inner.style.transform = 'translateY(0)';
+            }, 400);
+        }
+
+        // Init first quote
+        showQuote(0);
+
+        setInterval(() => {
+            current = (current + 1) % quotes.length;
+            showQuote(current);
+        }, 5000);
+    })();
+</script>

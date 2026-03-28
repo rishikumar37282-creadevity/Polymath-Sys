@@ -1,0 +1,119 @@
+---
+// src/components/RepoRanking.astro
+const repos = [
+  "huggingface/transformers",
+  "pytorch/pytorch",
+  "ggerganov/llama.cpp",
+  "vllm-project/vllm",
+  "microsoft/DeepSpeed",
+  "google/jax"
+];
+
+// In a real environment, we'd fetch this from GitHub API. 
+// For now, we'll use curate static data but structure it for future API integration.
+const repoData = [
+  { name: "huggingface/transformers", stars: "135k", desc: "State-of-the-art Machine Learning for Pytorch, TensorFlow, and JAX.", link: "https://github.com/huggingface/transformers" },
+  { name: "pytorch/pytorch", stars: "82k", desc: "Tensors and Dynamic neural networks in Python with strong GPU acceleration.", link: "https://github.com/pytorch/pytorch" },
+  { name: "ggerganov/llama.cpp", stars: "65k", desc: "LLM inference in pure C/C++.", link: "https://github.com/ggerganov/llama.cpp" },
+  { name: "vllm-project/vllm", stars: "28k", desc: "A high-throughput and memory-efficient inference and serving engine for LLMs.", link: "https://github.com/vllm-project/vllm" },
+  { name: "microsoft/DeepSpeed", stars: "36k", desc: "DeepSpeed is a deep learning optimization software suite.", link: "https://github.com/microsoft/DeepSpeed" }
+];
+---
+
+<div class="repo-ranking-system">
+  <div class="rs-header">
+    <div class="rs-title">Industrial Repository Ranking</div>
+    <div class="rs-subtitle">Top foundational repositories by star-velocity and impact</div>
+  </div>
+  
+  <div class="rs-grid">
+    {repoData.map((repo, index) => (
+      <a href={repo.link} target="_blank" class="rs-card">
+        <div class="rs-rank">#{index + 1}</div>
+        <div class="rs-content">
+          <div class="rs-name">{repo.name}</div>
+          <div class="rs-stars">★ {repo.stars}</div>
+          <p class="rs-desc">{repo.desc}</p>
+        </div>
+      </a>
+    ))}
+  </div>
+</div>
+
+<style>
+  .repo-ranking-system {
+    margin-top: 4rem;
+    background: #0d0d0d;
+    border: 1px solid var(--color-border);
+    padding: 2.5rem;
+  }
+  
+  .rs-header {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  
+  .rs-title {
+    font-size: 1.8rem;
+    color: var(--color-text-primary);
+    font-weight: 600;
+  }
+  
+  .rs-subtitle {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  
+  .rs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .rs-card {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: #111;
+    border: 1px solid var(--color-border);
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  .rs-card:hover {
+    border-color: var(--color-text-primary);
+    transform: translateY(-5px);
+    background: #141414;
+  }
+  
+  .rs-rank {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #444;
+    font-family: var(--font-mono);
+  }
+  
+  .rs-name {
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 0.5rem;
+  }
+  
+  .rs-stars {
+    font-size: 0.8rem;
+    color: #ffd700; /* Gold */
+    margin-bottom: 0.8rem;
+  }
+  
+  .rs-desc {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+</style>

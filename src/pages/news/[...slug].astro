@@ -1,0 +1,98 @@
+---
+// src/pages/news/[...slug].astro
+import { getCollection } from 'astro:content';
+import MainLayout from '../../layouts/MainLayout.astro';
+
+export async function getStaticPaths() {
+  const newsEntries = await getCollection('news');
+  return newsEntries.map(entry => ({
+    params: { slug: entry.slug }, props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const { title, pubDate, author, link, tags } = entry.data;
+---
+
+<MainLayout title={`${title} | Polymath.Sys Research`}>
+  <div class="news-page-wrapper">
+    <a href="/" class="back-link">&larr; Return to Dashboard</a>
+    
+    <article class="news-article">
+      <header class="article-header">
+        <div class="article-meta">
+          <span class="article-date">{pubDate.toDateString()}</span>
+          <span class="article-author">By {author}</span>
+        </div>
+        <h1 class="article-title">{title}</h1>
+        <div class="article-tags">
+          {tags.map(tag => <span class="tag">{tag}</span>)}
+        </div>
+      </header>
+      
+      <div class="article-content">
+        <Content />
+      </div>
+
+      <footer class="article-footer">
+        <a href={link} target="_blank" class="btn-primary">View Original on ArXiv &nearr;</a>
+      </footer>
+    </article>
+  </div>
+</MainLayout>
+
+<style>
+  .news-page-wrapper {
+    max-width: 800px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+  }
+  
+  .news-article {
+    background: var(--color-background-secondary);
+    border: 1px solid var(--color-border);
+    padding: 3rem;
+  }
+  
+  .article-header {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 2rem;
+  }
+  
+  .article-meta {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .article-title {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: var(--color-text-primary);
+  }
+  
+  .article-content {
+    line-height: 1.8;
+    color: var(--color-text-secondary);
+    font-size: 1.1rem;
+  }
+  
+  .article-footer {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .tag {
+    background: rgba(255,255,255,0.05);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    margin-right: 0.5rem;
+  }
+</style>

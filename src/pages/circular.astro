@@ -1,0 +1,111 @@
+---
+// src/pages/circular.astro
+import MainLayout from '../layouts/MainLayout.astro';
+
+const phase1 = [
+    { time: "Months 1–3", topic: "Core Mathematics", desc: "Linear Algebra, Multivariable Calculus, Probability Theory. Text: Linear Algebra Done Right", cat: "math", badge: "MATH" },
+    { time: "Months 2–4", topic: "System Design Basics", desc: "Data Structures, Algorithms, Complexity Analysis. Text: Grokking Algorithms", cat: "other", badge: "SYS" },
+    { time: "Months 5–8", topic: "Classical Machine Learning", desc: "SVMs, Random Forests, Gradient Descent, Loss Functions. Text: 100-Page ML Book", cat: "ml", badge: "ML" },
+    { time: "Months 9–12", topic: "Software Engineering", desc: "Java, Design Patterns, OOP, Test-Driven Development. Text: Effective Java", cat: "other", badge: "ENG" }
+];
+
+const phase2 = [
+    { time: "Months 13–15", topic: "Deep Learning Frameworks", desc: "PyTorch, TorchVision, Backpropagation, CNNs. Text: Deep Learning (Goodfellow)", cat: "ai", badge: "DEEP" },
+    { time: "Months 16–18", topic: "Sequence Modeling & NLP", desc: "Transformers, Attention Mechanisms, RNNs, LSTMs. Tool: HuggingFace", cat: "ai", badge: "DEEP" },
+    { time: "Months 19–21", topic: "MLOps & Cloud Infrastructure", desc: "Docker, Kubernetes, AWS/GCP, CI/CD for ML. Goal: Model Deployment at Scale", cat: "other", badge: "SYS" },
+    { time: "Months 22–24", topic: "Quantitative Finance Intro", desc: "Time Series Forecasting, Algorithmic Trading Architectures. Text: Options, Futures (Hull)", cat: "other", badge: "FIN" }
+];
+
+const phase3 = [
+    { time: "Months 25–30", topic: "Quantum Computing Theory", desc: "Qubits, Superposition, Entanglement, Qiskit Framework. Text: Nielsen & Chuang", cat: "quantum", badge: "QUANTUM" },
+    { time: "Months 28–36", topic: "Quantum Machine Learning", desc: "Variational Quantum Circuits, QAOA, PennyLane framework. Focus: Barren Plateaus", cat: "quantum", badge: "QML" },
+    { time: "Months 30–42", topic: "AI Research Methods", desc: "Literature reviews, reproducing papers, writing pre-prints. Goal: arXiv Submission", cat: "ai", badge: "RESEARCH" },
+    { time: "Months 36–48", topic: "Convergence Projects", desc: "Applying Quantum ML to Quantitative Finance portfolios. Goal: Deep Tech Consulting", cat: "other", badge: "CONVERGENCE" }
+];
+---
+
+<MainLayout title="The Master Syllabus | Polymath.Sys">
+    <div class="circular-wrapper">
+        <a href="/" class="back-link" style="position: relative; left: 0; top: 0; margin-bottom: 0;">&larr; Return to Dashboard</a>
+
+        <nav class="phase-header-nav" style="margin-top: 2rem;">
+            <a href="/roadmap/master" class="phn-link">Strategy</a>
+            <a href="/roadmap/phase1" class="phn-link">Phase 1</a>
+            <a href="/roadmap/phase2" class="phn-link">Phase 2</a>
+            <a href="/roadmap/phase3" class="phn-link">Phase 3</a>
+            <a href="/circular" class="phn-link active">AI Circular</a>
+        </nav>
+
+        <h1 class="circular-title">The Full AI Circular</h1>
+        <p class="circular-subtitle">A cross-domain breakdown of the 48-month learning framework.</p>
+
+        <!-- FILTER BAR -->
+        <div class="circular-filter-bar">
+            <button class="cf-pill active" data-filter="all">All</button>
+            <button class="cf-pill" data-filter="ai">AI</button>
+            <button class="cf-pill" data-filter="ml">ML</button>
+            <button class="cf-pill" data-filter="quantum">Quantum Computing</button>
+            <button class="cf-pill" data-filter="math">Math</button>
+            <button class="cf-pill" data-filter="other">Others</button>
+        </div>
+
+        { [ { name: "Phase 1: Deep Foundations", meta: "Months 1–12 • Building the engine", data: phase1 },
+            { name: "Phase 2: Deep Engineering", meta: "Months 13–24 • Assembling the stack", data: phase2 },
+            { name: "Phase 3: The Frontier", meta: "Months 25–48 • Crossing the boundary", data: phase3 }
+          ].map((section) => (
+            <div class="sectional-table">
+                <div class="section-head">
+                    <div class="section-name">{section.name}</div>
+                    <div class="section-meta">{section.meta}</div>
+                </div>
+
+                <table class="borderless-table">
+                    <thead>
+                        <tr>
+                            <th class="td-time">Timeline</th>
+                            <th class="td-topic">Primary Discipline</th>
+                            <th class="td-desc">Core Modules & Objectives</th>
+                            <th class="td-badges">Track</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {section.data.map((row) => (
+                            <tr data-category={row.cat}>
+                                <td class="td-time">{row.time}</td>
+                                <td class="td-topic">{row.topic}</td>
+                                <td class="td-desc">{row.desc}</td>
+                                <td class="td-badges"><span class={`c-badge badge-${row.cat}`}>{row.badge}</span></td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+        )) }
+
+        <!-- Milestone Footer -->
+        <div class="rule-box" style="margin-top: 3rem; text-align: center;">
+            <b style="color: #fff;">Graduation Artifact:</b> A deployed hybrid quantum-classical architecture running live financial risk modeling, backed by a published technical paper.
+        </div>
+    </div>
+</MainLayout>
+
+<script>
+    (function(){
+        const pills = document.querySelectorAll('.cf-pill');
+        const rows = document.querySelectorAll('tr[data-category]');
+        pills.forEach(pill => {
+            pill.addEventListener('click', function() {
+                pills.forEach(p => p.classList.remove('active'));
+                this.classList.add('active');
+                const filter = this.dataset.filter;
+                rows.forEach(row => {
+                    if (filter === 'all' || row.dataset.category === filter) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+            });
+        });
+    })();
+</script>

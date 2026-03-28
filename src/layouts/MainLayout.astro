@@ -1,0 +1,50 @@
+---
+// src/layouts/MainLayout.astro
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const { 
+  title = "AI Research & Engineering | The Polymath Journey", 
+  description = "An elite 48-month curriculum mapping the intersection of Deep Learning, Mathematics, and Quantum Computing." 
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title}</title>
+    <meta name="description" content={description}>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof mermaid !== 'undefined') {
+                mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+            }
+        });
+    </script>
+</head>
+<body>
+    <Nav />
+    <main>
+        <slot />
+    </main>
+    <Footer />
+    <script src="../scripts/main.js"></script>
+</body>
+</html>
+
+<style is:global>
+    /* Ensure the main content spans the viewport correctly */
+    main {
+        min-height: calc(100vh - 160px); /* Adjust based on Nav/Footer height */
+    }
+</style>

@@ -1,0 +1,126 @@
+---
+// src/components/CareerBoard.astro
+const jobs = [
+  { company: "OpenAI", title: "Research Engineer", location: "San Francisco", sector: "Alignment", link: "https://openai.com/careers" },
+  { company: "Anthropic", title: "Member of Technical Staff", location: "London / SF", sector: "Interpretability", link: "https://anthropic.com/careers" },
+  { company: "DeepMind", title: "Research Scientist", location: "London", sector: "Aritificial General Intelligence", link: "https://google.deepmind/careers" },
+  { company: "Mistral AI", title: "Software Engineer", location: "Paris", sector: "Foundation Models", link: "https://mistral.ai/jobs" },
+  { company: "QuantConnect", title: "Quantitative Researcher", location: "Remote", sector: "Algorithmic Trading", link: "https://quantconnect.com/careers" }
+];
+---
+
+<div class="career-board">
+  <div class="cb-header">
+    <div class="cb-title">Strategic Career Board</div>
+    <div class="cb-subtitle">High-impact roles at foundational AI and Quantum labs</div>
+  </div>
+  
+  <div class="cb-list">
+    {jobs.map(job => (
+      <div class="cb-row">
+        <div class="cb-company">{job.company}</div>
+        <div class="cb-job-title">{job.title}</div>
+        <div class="cb-sector-pill">{job.sector}</div>
+        <div class="cb-location">{job.location}</div>
+        <a href={job.link} target="_blank" class="cb-apply">Apply &rarr;</a>
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+  .career-board {
+    margin-top: 4rem;
+    border: 1px solid var(--color-border);
+    background: #0a0a0a;
+    padding: 2rem;
+  }
+  
+  .cb-header {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 1.5rem;
+  }
+  
+  .cb-title {
+    font-size: 1.8rem;
+    color: var(--color-text-primary);
+  }
+  
+  .cb-subtitle {
+     font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  
+  .cb-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .cb-row {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr 1fr 100px;
+    align-items: center;
+    padding: 1.2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    transition: background 0.3s ease;
+  }
+  
+  .cb-row:last-child {
+    border-bottom: none;
+  }
+  
+  .cb-row:hover {
+    background: rgba(255,255,255,0.02);
+  }
+  
+  .cb-company {
+    font-weight: 600;
+    color: var(--color-text-primary);
+  }
+  
+  .cb-job-title {
+    color: var(--color-text-primary);
+  }
+  
+  .cb-sector-pill {
+    font-size: 0.75rem;
+    background: #111;
+    color: var(--color-text-secondary);
+    padding: 0.1rem 0.5rem;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    display: inline-block;
+    width: fit-content;
+  }
+  
+  .cb-location {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+  }
+  
+  .cb-apply {
+    text-decoration: none;
+    color: var(--color-accent);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: right;
+  }
+  
+  .cb-apply:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    .cb-row {
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+    }
+    .cb-sector-pill, .cb-location {
+      display: none;
+    }
+  }
+</style>
